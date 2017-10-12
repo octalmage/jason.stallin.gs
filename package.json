@@ -18,6 +18,7 @@
     "gatsby-source-wordpress": "^2.0.0",
     "gatsby-transformer-sharp": "^1.6.5",
     "github-repo-widget.js": "git+https://git@github.com/hustcc/GitHub-Repo-Widget.js.git",
+    "jquery": "^3.2.1",
     "lodash": "^4.16.4",
     "material-ui": "^0.19.4",
     "react-helmet": "^5.2.0",

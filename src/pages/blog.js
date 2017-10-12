@@ -1,10 +1,16 @@
 import React from 'react'; // eslint-disable-line import/no-extraneous-dependencies
 import PropTypes from 'prop-types'; // eslint-disable-line import/no-extraneous-dependencies
 import Link from 'gatsby-link';
-
 import PostIcons from '../components/PostIcons';
-
 import { rhythm } from '../utils/typography';
+import '../thirdparty/crayon/css/min/crayon.min.css';
+import '../thirdparty/crayon/themes/monokai/monokai.css';
+
+const $ = require('jquery');
+window.jQuery = $;
+require('../thirdparty/crayon/js/src/util.js');
+require('../thirdparty/crayon/js/src/jquery.popup.js');
+require('../thirdparty/crayon/js/src/crayon.js');
 
 const Posts = ({ data }) =>
   (
