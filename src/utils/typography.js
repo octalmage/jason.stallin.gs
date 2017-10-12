@@ -4,7 +4,7 @@ import github from 'typography-theme-github';
 github.headerLineHeight = 1.1;
 github.overrideThemeStyles = () => ({
   a: {
-    color: 'rgb(60,99,243)',
+    color: 'rebeccapurple',
   },
   h1: {
     borderBottom: 'none',

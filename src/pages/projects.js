@@ -17,7 +17,7 @@ const Posts = ({ data }) =>
           <Link to={`/projects/${node.slug}/`} css={{ textDecoration: 'none' }}>
             <h2>{node.title}</h2>
           </Link>
-          <div dangerouslySetInnerHTML={{ __html: node.content }} />
+          <div dangerouslySetInnerHTML={{ __html: node.excerpt }} />
         </div>
     ))}
     </div>
@@ -34,7 +34,7 @@ export const pageQuery = graphql`
         node {
           title
           slug
-          content
+          excerpt
         }
       }
     }

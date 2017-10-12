@@ -16,9 +16,11 @@
     "gatsby-plugin-typography": "^1.7.9",
     "gatsby-source-wordpress": "^2.0.0",
     "gatsby-transformer-sharp": "^1.6.5",
+    "github-repo-widget.js": "git+https://git@github.com/hustcc/GitHub-Repo-Widget.js.git",
     "lodash": "^4.16.4",
     "react-helmet": "^5.2.0",
     "react-icons": "^2.2.5",
+    "react-social-icons": "^2.7.0",
     "typography": "^0.16.6",
     "typography-theme-github": "^0.15.10",
     "whatwg-fetch": "^2.0.3"
