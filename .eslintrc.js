@@ -5,5 +5,6 @@ module.exports = {
   },
   "globals": {
     "graphql": false,
+    "fetch": false,
   }
 };
