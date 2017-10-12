@@ -50,7 +50,7 @@ const StyledLink = styled(Link)`
 const StyledHeader = styled.div`
    margin: 0 auto;
    max-width: 800px;
-   padding: ${props => (props.isRoot ? '1.45rem 1.0875rem' : '1rem 0.75rem')};
+   padding: 1.45rem 1.0875rem;
    @media (max-width: 500px) {
      text-align: center;
    }
@@ -80,7 +80,7 @@ const DefaultLayout = ({ children, location }) => {
         <StyledHeader
           isRoot={isRoot}
         >
-          <h1 style={{ margin: 0, fontSize: isRoot ? '2.5rem' : '2rem', display: 'inline-block' }}>
+          <h1 style={{ margin: 0, fontSize: '2.5rem', display: 'inline-block' }}>
             <Link
               to="/"
               href="/"
