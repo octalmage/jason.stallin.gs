@@ -42,7 +42,7 @@ const StyledLink = styled(Link)`
   text-decoration: none;
 
   @media (max-width: 500px) {
-    margin-right: 1em;
+    margin-right: ${props => (props['data-isLast'] ? '0' : '1em')};
     margin-left: 0;
   }
 `;
@@ -56,10 +56,9 @@ const StyledHeader = styled.div`
    }
 `;
 
-// const StyledSpan
-
 const DefaultLayout = ({ children, location }) => {
   const isRoot = location.pathname === '/';
+  const isContact = location.pathname === '/contact/';
   // const isRoot = false;
   return (
     <div>
@@ -94,11 +93,12 @@ const DefaultLayout = ({ children, location }) => {
                Jason Stallings
             </Link>
           </h1>
-          {links.map(link => (
+          {links.map((link, i) => (
             <StyledLink
               key={link.url}
               to={link.url}
               href={link.url}
+              data-isLast={i === links.length - 1}
             >
               {link.title}
             </StyledLink>
@@ -117,7 +117,7 @@ const DefaultLayout = ({ children, location }) => {
         {isRoot && <LastGitHubProject username="octalmage" />}
       </div>
       <center>
-        <StyledSocialIcons urls={urls} />
+        {(isRoot || isContact) && <StyledSocialIcons urls={urls} />}
         Powered by <a href="https://www.gatsbyjs.org/" target="_blank" rel="noopener noreferrer">Gatsby</a> and <a href="https://wordpress.org/" target="_blank" rel="noopener noreferrer">WordPress</a>.
       </center>
     </div>

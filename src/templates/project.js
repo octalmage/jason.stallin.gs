@@ -4,11 +4,16 @@ import PostIcons from '../components/PostIcons';
 import { rhythm } from '../utils/typography';
 
 // Include this file on the page.
-require('!babel!github-repo-widget.js/GithubRepoWidget.min.js');
+if (typeof window !== 'undefined') {
+  require('!babel!github-repo-widget.js/GithubRepoWidget.min.js');
+}
+
 
 class ProjectTemplate extends React.Component {
   componentDidMount() {
-    GithubRepoWidget.init();
+    if (typeof window !== 'undefined') {
+      GithubRepoWidget.init();
+    }
   }
 
   render() {

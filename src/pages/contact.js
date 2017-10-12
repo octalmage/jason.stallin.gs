@@ -1,4 +1,8 @@
 import React from 'react';
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+import TextField from 'material-ui/TextField';
+import RaisedButton from 'material-ui/RaisedButton';
+import 'typeface-roboto';
 import 'whatwg-fetch';
 
 class Contact extends React.Component {
@@ -34,7 +38,7 @@ class Contact extends React.Component {
     fetch('/sendContactEmail', {
       method: 'POST',
       headers: {
-        'Content-Type': 'application/json'
+        'Content-Type': 'application/json',
       },
       body: JSON.stringify({
         name,
@@ -61,35 +65,46 @@ class Contact extends React.Component {
       name,
       email,
       subject,
-      body
+      body,
     } = this.state;
     return (
-      <div>
-        <h1>Contact</h1>
-        <form onSubmit={this.handleSubmit}>
-          <label>
-            Name:
-            <input name="name" value={name} onChange={this.handleInputChange} />
-          </label>
+      <MuiThemeProvider>
+        <div>
+          <h1>Contact</h1>
+
+          <TextField
+            hintText="Name"
+            name="name"
+            value={name}
+            onChange={this.handleInputChange}
+          />
           <br />
-          <label>
-            Email:
-            <input name="email" value={email} onChange={this.handleInputChange} />
-          </label>
+          <TextField
+            hintText="Email"
+            name="email"
+            value={email}
+            onChange={this.handleInputChange}
+          />
           <br />
-          <label>
-            Subject:
-            <input name="subject" value={subject} onChange={this.handleInputChange} />
-          </label>
+          <TextField
+            hintText="Subject"
+            name="subject"
+            value={subject}
+            onChange={this.handleInputChange}
+          />
           <br />
-          <label>
-            Body:
-            <textarea name="body" value={body} onChange={this.handleInputChange} />
-          </label>
+          <TextField
+            floatingLabelText="Content"
+            multiLine
+            rows={4}
+            name="body"
+            value={body}
+            onChange={this.handleInputChange}
+          />
           <br />
-          <input type="submit" value="Submit" />
-        </form>
-      </div>
+          <RaisedButton label="Send Email" primary onClick={this.handleSubmit} disableTouchRipple />
+        </div>
+      </MuiThemeProvider>
     );
   }
 }
