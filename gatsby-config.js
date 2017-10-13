@@ -7,7 +7,7 @@ module.exports = {
     {
       resolve: 'gatsby-source-wordpress',
       options: {
-        baseUrl: 'jason.stallin.gs',
+        baseUrl: 'json.wpengine.com',
         protocol: 'https',
         hostingWPCOM: false,
         useACF: false,
