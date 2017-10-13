@@ -6,19 +6,26 @@
         "source": "/sendContactEmail",
         "function": "sendContactEmail"
       }
+    ],
+    "headers": [
+      {
+        "source": "**",
+        "headers": [
+          {
+            "key": "Cache-Control",
+            "value": "max-age=3600"
+          }
+        ]
+      },
+      {
+        "source": "**/*.@(js|css)",
+        "headers": [
+          {
+            "key": "Cache-Control",
+            "value": "max-age=604800"
+          }
+        ]
+      }
     ]
-  },
-  "headers": [{
-    "source" : "**",
-    "headers" : [{
-      "key" : "Cache-Control",
-      "value" : "max-age=3600"
-    }]
-  }, {
-      "source" : "**/*.@(js|css)",
-      "headers" : [ {
-      "key" : "Cache-Control",
-      "value" : "max-age=604800"
-      } ]
-  }]
+  }
 }

@@ -71,7 +71,7 @@ const DefaultLayout = ({ children, location }) => {
           },
         ]}
       />
-      <div
+      <header
         style={{
            background: 'rebeccapurple',
            marginBottom: '1.45rem',
@@ -104,7 +104,7 @@ const DefaultLayout = ({ children, location }) => {
             </StyledLink>
             ))}
         </StyledHeader>
-      </div>
+      </header>
       <div
         style={{
            margin: '5em auto',
@@ -112,9 +112,12 @@ const DefaultLayout = ({ children, location }) => {
            padding: '0px 1.0875rem 1.45rem',
            paddingTop: 0,
          }}
+        className="amp-wp-article"
       >
-        {children()}
-        {isRoot && <LastGitHubProject username="octalmage" />}
+        <div className=" amp-wp-article-content">
+          {children()}
+          {isRoot && <LastGitHubProject username="octalmage" />}
+        </div>
       </div>
       <center>
         {(isRoot || isContact) && <StyledSocialIcons urls={urls} />}
