@@ -87,7 +87,7 @@ html {
 .sidebar-nav {
   padding-left: 0;
   list-style: none;
-  margin-left: 0;
+  margin: 0;
 }
 .sidebar-nav-item {
   display: block;
@@ -167,7 +167,21 @@ a.sidebar-nav-item:focus {
   }
 }
 
+/* Hide hr on mobile. */
+@media (max-width: 48em) {
+  hr {
+    display: none;
+  }
+  .FooterType-sidebar {
+    display: none;
+  }
+}
 
+@media (min-width: 48em) {
+  .FooterType-bottom {
+    display: none;
+  }
+}
 
 /*
  * Themes

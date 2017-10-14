@@ -34,7 +34,15 @@ const StyledSocialIcons = styled(SocialIcons)`
 
 const StyledFooter = styled.div`
   font-size: .8em;
+  text-align: center;
 `;
+
+const Footer = ({ type, color }) => (
+  <StyledFooter className={`FooterType-${type}`}>
+    <StyledSocialIcons urls={urls} color={color} />
+    Powered by <a href="https://www.gatsbyjs.org/" target="_blank" rel="noopener noreferrer">Gatsby</a> and <a href="https://wordpress.org/" target="_blank" rel="noopener noreferrer">WordPress</a>.
+  </StyledFooter>
+);
 
 const DefaultLayout = ({ children, location }) => {
   const isRoot = location.pathname === '/';
@@ -77,10 +85,8 @@ const DefaultLayout = ({ children, location }) => {
                 </Link>
                 ))}
             </ul>
-            <StyledFooter>
-              <StyledSocialIcons urls={urls} color="white" />
-              Powered by <a href="https://www.gatsbyjs.org/" target="_blank" rel="noopener noreferrer">Gatsby</a> and <a href="https://wordpress.org/" target="_blank" rel="noopener noreferrer">WordPress</a>.
-            </StyledFooter>
+            <hr />
+            <Footer type="sidebar" color="white" />
           </div>
         </div>
       </header>
@@ -96,6 +102,7 @@ const DefaultLayout = ({ children, location }) => {
           </div>
         </div>
       </div>
+      <Footer type="bottom" color="black" />
     </div>
   );
 };
