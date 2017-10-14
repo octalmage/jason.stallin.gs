@@ -75,15 +75,16 @@ const DefaultLayout = ({ children, location }) => {
 
             <ul className="sidebar-nav">
               {links.map((link, i) => (
-                <Link
-                  key={link.url}
-                  to={link.url}
-                  href={link.url}
-                  data-isLast={i === links.length - 1}
-                >
-                  <li>{link.title}</li>
-                </Link>
-                ))}
+                <li key={link.url}>
+                  <Link
+                    to={link.url}
+                    href={link.url}
+                    data-isLast={i === links.length - 1}
+                  >
+                    {link.title}
+                  </Link>
+                </li>
+              ))}
             </ul>
             <hr />
             <Footer type="sidebar" color="white" />

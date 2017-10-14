@@ -169,11 +169,20 @@ a.sidebar-nav-item:focus {
 
 /* Hide hr on mobile. */
 @media (max-width: 48em) {
-  hr {
+  hr, .FooterType-sidebar, .lead {
     display: none;
   }
-  .FooterType-sidebar {
-    display: none;
+
+  .sidebar h1 {
+    font-size: 2em
+  }
+
+  .sidebar ul li {
+    display: inline;
+    margin-right: .5em;
+  }
+  .sidebar ul li:last-child {
+    margin-right: 0;
   }
 }
 
