@@ -1,0 +1,15 @@
+language: node_js
+node_js:
+- '7'
+cache:
+  directories:
+  - node_modules
+
+before_deploy: "npm run predeploy"
+deploy:
+  provider: firebase
+  token:
+    secure: YOUR ENCRYPTED token
+env:
+  global:
+    secure: tIjWWrVJadArv4Ts+0nl5zKtcMvBg/275srrTPYvkm1viqycxHobHjXtnXN90OpLao0jk9Xiidd3i8ONmdOh8ZDbhmtpMbf0QTpuKiZK1ZALB7PaV0n8toG14lN0SBkNQT2CtNAJ7+z3O+/QUWHEEmX+pXcDVWVBam/yGFuMmAYep7K1LJFltb3xr7cw0/vVqgz86dyisjHO2YeIwsPH+nIZKhU2c/mZrWoEVKX8YVMg671iBnF6Gepf/b4kTYuez827ixegaHvsTwXPYyy74iJHHZdsXp/nbJa8XB0taxHZQGVkFpjCYDcBCEpTA5VL1318/XZ58Yb7eahkjM1o8MPqeYSeMwbwitevy6H+gRaHcWJpJCu43NFyVSkXIIqhv6ufhpVfZLng9ZRL8DtKt9r1Mg2YQfAdkgVZx4NvWnbn6T7XxcIvSkWSH3PJvcZ0sTB3eWVbQb93zmVODPhqyxc/b3fmQsoM3UKyv5084698dMrdlPqPVNGxN/z3JUvRSDpj5/ftCbQrBoLD/4fWjIQNTh5wHh0o/5V1fjTurM7/GklKhrEk5hcVcCQB/gObl9kKqNPFiQVqp+MkUr9+L7PeYIDiRkTx/DR25+OYnb7EdzMcB7dPZilyfPKyvR2t0X2a5W6HvT4jE/ZzjfXdQFgN25u5gyl/4XsxSYR/cbo=

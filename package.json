@@ -42,7 +42,7 @@
   "scripts": {
     "dev": "gatsby develop",
     "lint": "eslint --ext .js,.jsx --ignore-pattern public .",
-    "test": "echo \"TODO: no test specified\"",
+    "test": "npm run lint",
     "develop": "gatsby develop",
     "build": "gatsby build",
     "ampify": "node ampify.js",
