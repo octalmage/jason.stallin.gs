@@ -35,7 +35,7 @@
 	}
 
 html {
-	background: rebeccapurple;
+	background: #515151;
 }
 
 body {
@@ -56,7 +56,7 @@ figure {
 
 a,
 a:visited {
-	color: rebeccapurple;
+	color: #b3b1b1;
 }
 
 a:hover,
@@ -96,7 +96,7 @@ blockquote p:last-child {
 /* Header */
 
 .amp-wp-header {
-	background-color: rebeccapurple;
+	background-color: #515151;
 }
 
 .amp-wp-header div {

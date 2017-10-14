@@ -5,6 +5,8 @@ import Helmet from 'react-helmet';
 import { SocialIcons } from 'react-social-icons';
 import styled from 'styled-components';
 import LastGitHubProject from '../components/LastGitHubProject';
+import '../css/poole.css';
+import '../css/main.css';
 
 const links = [
   { title: 'Home', url: '/' },
@@ -25,37 +27,20 @@ const urls = [
 ];
 
 const StyledSocialIcons = styled(SocialIcons)`
-  height: 25px !important;
-  width: 25px !important;
+  height: 15px !important;
+  width: 15px !important;
   margin-right: 5px;
 `;
 
-const StyledLink = styled(Link)`
-  margin-left: 1em;
-  color: white;
-  text-decoration: none;
-
-  @media (max-width: 500px) {
-    margin-right: ${props => (props['data-isLast'] ? '0' : '1em')};
-    margin-left: 0;
-  }
-`;
-
-const StyledHeader = styled.div`
-   margin: 0 auto;
-   max-width: 800px;
-   padding: 1.45rem 1.0875rem;
-   @media (max-width: 500px) {
-     text-align: center;
-   }
+const StyledFooter = styled.div`
+  font-size: .8em;
 `;
 
 const DefaultLayout = ({ children, location }) => {
   const isRoot = location.pathname === '/';
-  const isContact = location.pathname === '/contact/';
   // const isRoot = false;
   return (
-    <div>
+    <div className="theme-base-0g">
       <Helmet
         title="Jason Stallings | Programmer and stuff"
         meta={[
@@ -65,58 +50,52 @@ const DefaultLayout = ({ children, location }) => {
           },
         ]}
       />
-      <header
-        style={{
-           background: 'rebeccapurple',
-           marginBottom: '1.45rem',
-         }}
-      >
-        <StyledHeader
-          isRoot={isRoot}
-        >
-          <h1 style={{ margin: 0, fontSize: '2.5rem', display: 'inline-block' }}>
-            <Link
-              to="/"
-              href="/"
-              style={{
-                 color: 'white',
-                 textDecoration: 'none',
-                 display: 'inline-block',
-               }}
-            >
-               Jason Stallings
-            </Link>
-          </h1>
-          {links.map((link, i) => (
-            <StyledLink
-              key={link.url}
-              to={link.url}
-              href={link.url}
-              data-isLast={i === links.length - 1}
-            >
-              {link.title}
-            </StyledLink>
-            ))}
-        </StyledHeader>
+      <header>
+        <div className="sidebar">
+          <div className="container sidebar-sticky">
+            <div className="sidebar-about">
+              <Link
+                to="/"
+                href="/"
+              >
+                <h1>Jason Stallings</h1>
+              </Link>
+              <p className="lead">
+                Software Developer
+              </p>
+            </div>
+
+            <ul className="sidebar-nav">
+              {links.map((link, i) => (
+                <Link
+                  key={link.url}
+                  to={link.url}
+                  href={link.url}
+                  data-isLast={i === links.length - 1}
+                >
+                  <li>{link.title}</li>
+                </Link>
+                ))}
+            </ul>
+            <StyledFooter>
+              <StyledSocialIcons urls={urls} color="white" />
+              Powered by <a href="https://www.gatsbyjs.org/" target="_blank" rel="noopener noreferrer">Gatsby</a> and <a href="https://wordpress.org/" target="_blank" rel="noopener noreferrer">WordPress</a>.
+            </StyledFooter>
+          </div>
+        </div>
       </header>
       <div
-        style={{
-           margin: '5em auto',
-           maxWidth: 800,
-           padding: '0px 1.0875rem 1.45rem',
-           paddingTop: 0,
-         }}
         className="amp-wp-article"
       >
-        <div className=" amp-wp-article-content">
-          {children()}
-          {isRoot && <LastGitHubProject username="octalmage" />}
+        <div className="amp-wp-article-content content container">
+          <div className="posts">
+            <div className="post">
+              {children()}
+              {isRoot && <LastGitHubProject username="octalmage" />}
+            </div>
+          </div>
         </div>
       </div>
-      <center>
-        {(isRoot || isContact) && <StyledSocialIcons urls={urls} />}
-        Powered by <a href="https://www.gatsbyjs.org/" target="_blank" rel="noopener noreferrer">Gatsby</a> and <a href="https://wordpress.org/" target="_blank" rel="noopener noreferrer">WordPress</a>.
-      </center>
     </div>
   );
 };
