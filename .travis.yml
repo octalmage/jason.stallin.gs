@@ -5,7 +5,10 @@ cache:
   directories:
   - node_modules
 
-before_deploy: "npm run predeploy"
+before_deploy:
+- "cd functions && npm install"
+- "npm run predeploy"
+
 deploy:
   provider: firebase
   skip_cleanup: true
