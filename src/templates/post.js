@@ -1,7 +1,31 @@
+/* eslint-disable no-unused-expressions */
 import React from 'react';
+import { injectGlobal } from 'styled-components';
 import PostIcons from '../components/PostIcons';
 import BlogContent from '../components/BlogContent';
 import { rhythm } from '../utils/typography';
+
+injectGlobal`
+.wp-block-image {
+  width: 800;
+  line-height: 0;
+}
+
+.wp-block-image img {
+  margin: 0;
+}
+.wp-block-image figcaption {
+  color: #8f98a1;
+  text-align: center;
+  font-size: 13px;
+  margin: 1em;
+}
+.aligncenter {
+  clear: both;
+  display: block;
+  margin: 0 auto;
+}
+`;
 
 const PostTemplate = ({ data }) => {
   const post = data.wordpressPost;
