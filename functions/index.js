@@ -1,3 +1,5 @@
+/* eslint-disable comma-dangle */
+// Google Cloud Functions doesn't support dangling commas.
 const functions = require('firebase-functions');
 const nodemailer = require('nodemailer');
 
@@ -21,8 +23,7 @@ function sendContactEmail(name, email, subject, content) {
       return console.log(error);
     }
 
-    console.log('Message sent: %s', info.messageId);
-    return true;
+    return console.log('Message sent: %s', info.messageId);
   });
 }
 
@@ -34,7 +35,7 @@ exports.sendContactEmail = functions.https.onRequest((request, response) => {
     request.body.name,
     request.body.email,
     request.body.subject,
-    request.body.body,
+    request.body.body
   );
 
   return response.send('Email sent!');
