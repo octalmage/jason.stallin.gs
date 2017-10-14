@@ -20,10 +20,10 @@ before_script:
   - "sh -e /etc/init.d/xvfb start"
   - sleep 3
   - fluxbox >/dev/null 2>&1 &
+  - "npm run predeploy"
 
 before_deploy:
 - "( cd functions ; npm install )"
-- "npm run predeploy"
 
 deploy:
   provider: firebase
