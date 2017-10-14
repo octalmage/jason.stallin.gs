@@ -17,6 +17,12 @@ export default class LastGitHubProject extends React.Component {
 
   componentWillMount() {
     fetch(`https://api.github.com/users/${this.props.username}/events/public`)
+      .then((response) => {
+        if (!response.ok) {
+          throw Error(response.statusText);
+        }
+        return response;
+      })
       .then(response => response.json()).then((res) => {
         // Find the latest commit.
         const { repo } = res.filter(({ type }) => type === 'PushEvent')[0];
@@ -29,6 +35,9 @@ export default class LastGitHubProject extends React.Component {
             url,
           },
         });
+      })
+      .catch(() => {
+        console.log('GitHub API has throttled your IP.');
       });
   }
 

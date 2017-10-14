@@ -82,6 +82,7 @@ class Contact extends React.Component {
             hintText="Name"
             name="name"
             value={name}
+            fullWidth
             onChange={this.handleInputChange}
           />
           <br />
@@ -89,6 +90,7 @@ class Contact extends React.Component {
             hintText="Email"
             name="email"
             value={email}
+            fullWidth
             onChange={this.handleInputChange}
           />
           <br />
@@ -96,6 +98,7 @@ class Contact extends React.Component {
             hintText="Subject"
             name="subject"
             value={subject}
+            fullWidth
             onChange={this.handleInputChange}
           />
           <br />
@@ -105,6 +108,7 @@ class Contact extends React.Component {
             rows={4}
             name="body"
             value={body}
+            fullWidth
             onChange={this.handleInputChange}
           />
           <br />
