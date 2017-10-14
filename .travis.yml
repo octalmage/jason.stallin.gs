@@ -1,9 +1,25 @@
+dist: trusty
+sudo: required
 language: node_js
 node_js:
 - '7'
+
+addons:
+  apt:
+    sources:
+     - google-chrome
+    packages:
+     - google-chrome-stable fluxbox
+
 cache:
   directories:
   - node_modules
+
+before_script:
+  - "export DISPLAY=:99.0"
+  - "sh -e /etc/init.d/xvfb start"
+  - sleep 3
+  - fluxbox >/dev/null 2>&1 &
 
 before_deploy:
 - "( cd functions ; npm install )"
