@@ -1,4 +1,5 @@
 import React from 'react';
+import NotificationSystem from 'react-notification-system';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import TextField from 'material-ui/TextField';
 import RaisedButton from 'material-ui/RaisedButton';
@@ -28,6 +29,12 @@ class Contact extends React.Component {
       body,
     } = this.state;
 
+    this.notifications.addNotification({
+      title: 'Email sent!',
+      message: 'Thanks, I\'ll be in touch soon.',
+      level: 'success',
+    });
+
     this.setState({
       name: '',
       email: '',
@@ -49,7 +56,6 @@ class Contact extends React.Component {
     });
   }
 
-
   handleInputChange(event) {
     const { target } = event;
     const value = target.type === 'checkbox' ? target.checked : target.value;
@@ -70,8 +76,8 @@ class Contact extends React.Component {
     return (
       <MuiThemeProvider>
         <div>
+          <NotificationSystem ref={(e) => { this.notifications = e; }} />
           <h1>Contact</h1>
-
           <TextField
             hintText="Name"
             name="name"
