@@ -46,20 +46,31 @@
   "scripts": {
     "dev": "gatsby develop",
     "lint": "eslint --ext .js,.jsx --ignore-pattern public .",
-    "test": "npm run lint",
+    "test": "npm run lint && npm run unit && npm run acceptance",
     "develop": "gatsby develop",
     "build": "gatsby build",
     "ampify": "node ampify.js",
     "start": "gatsby serve",
     "predeploy": "npm run build && npm run ampify",
     "deploy": "firebase deploy --only hosting",
-    "deploy-functions": "firebase deploy --only functions"
+    "deploy-functions": "firebase deploy --only functions",
+    "acceptance": "testcafe -e chrome tests/acceptance/**/*.js --app \"http-server -p 8000 ./public -s\"",
+    "unit": "jest src/**/*.js"
   },
   "devDependencies": {
+    "babel-jest": "^21.2.0",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-react": "^6.24.1",
+    "enzyme": "^3.1.0",
+    "enzyme-adapter-react-15": "^1.0.1",
     "eslint": "^4.1.1",
     "eslint-config-airbnb": "^16.0.0",
     "eslint-plugin-import": "^2.7.0",
     "eslint-plugin-jsx-a11y": "^6.0.2",
-    "eslint-plugin-react": "^7.4.0"
+    "eslint-plugin-react": "^7.4.0",
+    "http-server": "^0.10.0",
+    "jest": "^21.2.1",
+    "react-test-renderer": "^15.6.2",
+    "testcafe": "^0.18.0"
   }
 }
