@@ -1,9 +1,6 @@
-import React, { Component } from 'react';
-import PropTypes from 'prop-types';
+import React from 'react';
 import PostIcons from '../components/PostIcons';
 import BlogContent from '../components/BlogContent';
-import Img from 'gatsby-image';
-
 import { rhythm } from '../utils/typography';
 
 const PostTemplate = ({ data }) => {
@@ -15,13 +12,6 @@ const PostTemplate = ({ data }) => {
       <BlogContent content={post.content} />
     </div>
   );
-};
-
-// <img src={post.image.sizes.thumbnail} />
-
-PostTemplate.propTypes = {
-  data: PropTypes.object.isRequired,
-  edges: PropTypes.array,
 };
 
 export default PostTemplate;

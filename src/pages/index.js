@@ -1,11 +1,4 @@
-import React, { Component } from 'react';
-import Link from 'gatsby-link';
-import ClockIcon from 'react-icons/lib/fa/clock-o';
-import TagIcon from 'react-icons/lib/fa/tag';
-import OpenIcon from 'react-icons/lib/fa/folder-open';
-
-import PostIcons from '../components/PostIcons';
-
+import React from 'react';
 
 const Home = ({ data }) =>
   (
@@ -14,7 +7,6 @@ const Home = ({ data }) =>
       <div dangerouslySetInnerHTML={{ __html: data.wordpressPage.content }} />
     </div>
   );
-
 
 export default Home;
 

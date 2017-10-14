@@ -22,6 +22,7 @@ function sendContactEmail(name, email, subject, content) {
     }
 
     console.log('Message sent: %s', info.messageId);
+    return true;
   });
 }
 
@@ -33,8 +34,8 @@ exports.sendContactEmail = functions.https.onRequest((request, response) => {
     request.body.name,
     request.body.email,
     request.body.subject,
-    request.body.body
+    request.body.body,
   );
 
-  response.send('Email sent!');
+  return response.send('Email sent!');
 });

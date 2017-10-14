@@ -1,22 +1,18 @@
-import React, { Component } from 'react';
-import PropTypes from 'prop-types';
+import React from 'react';
 import PostIcons from '../components/PostIcons';
 import { rhythm } from '../utils/typography';
 
-class PageTemplate extends Component {
-  render() {
-    const siteMetadata = this.props.data.site.siteMetadata;
-    const currentPage = this.props.data.wordpressPage;
+const PageTemplate = ({ data }) => {
+  const currentPage = data.wordpressPage;
 
-    return (
-      <div>
-        <h1 dangerouslySetInnerHTML={{ __html: currentPage.title }} />
-        <PostIcons node={currentPage} css={{ marginBottom: rhythm(1 / 2) }} />
-        <div dangerouslySetInnerHTML={{ __html: currentPage.content }} />
-      </div>
-    );
-  }
-}
+  return (
+    <div>
+      <h1 dangerouslySetInnerHTML={{ __html: currentPage.title }} />
+      <PostIcons node={currentPage} css={{ marginBottom: rhythm(1 / 2) }} />
+      <div dangerouslySetInnerHTML={{ __html: currentPage.content }} />
+    </div>
+  );
+};
 
 export default PageTemplate;
 

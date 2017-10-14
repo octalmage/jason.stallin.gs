@@ -18,23 +18,15 @@ export default class LastGitHubProject extends React.Component {
   componentWillMount() {
     fetch(`https://api.github.com/users/${this.props.username}/events/public`)
       .then(response => response.json()).then((res) => {
-        let repo;
-
         // Find the latest commit.
-        for (const x in res) {
-          if (res[x].type === 'PushEvent') {
-            repo = res[x].repo;
-            break;
-          }
-        }
-
-        const project = repo.name.split('/')[1];
-        const repo_url = repo.url.replace('api.', '').replace('/repos', '');
+        const { repo } = res.filter(({ type }) => type === 'PushEvent')[0];
+        const url = repo.url.replace('api.', '').replace('/repos', '');
+        const name = repo.name.split('/')[1];
 
         this.setState({
           recentProject: {
-            name: project,
-            url: repo_url,
+            name,
+            url,
           },
         });
       });

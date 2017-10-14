@@ -2,8 +2,8 @@ import React from 'react';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import TextField from 'material-ui/TextField';
 import RaisedButton from 'material-ui/RaisedButton';
-import 'typeface-roboto';
 import 'whatwg-fetch';
+import 'typeface-roboto'; // eslint-disable-line import/extensions
 
 class Contact extends React.Component {
   constructor(props) {

@@ -6,12 +6,6 @@ import { SocialIcons } from 'react-social-icons';
 import styled from 'styled-components';
 import LastGitHubProject from '../components/LastGitHubProject';
 
-const linkStyle = {
-  marginLeft: '1em',
-  color: 'white',
-  textDecoration: 'none',
-};
-
 const links = [
   { title: 'Home', url: '/' },
   { title: 'Blog', url: '/blog/' },
@@ -67,7 +61,7 @@ const DefaultLayout = ({ children, location }) => {
         meta={[
           {
             name: 'description',
-            content: 'Hey! I&#039;m Jason Stallings and I&#039;m a prolific open source software developer. Writing code has been my passion since I was 14. I eat, sleep, and breathe code.'
+            content: 'Hey! I&#039;m Jason Stallings and I&#039;m a prolific open source software developer. Writing code has been my passion since I was 14. I eat, sleep, and breathe code.',
           },
         ]}
       />

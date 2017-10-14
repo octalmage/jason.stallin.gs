@@ -1,13 +1,11 @@
-import React, { Component } from 'react';
-import PropTypes from 'prop-types';
-import PostIcons from '../components/PostIcons';
-import { rhythm } from '../utils/typography';
+/* global GithubRepoWidget */
+import React from 'react';
 
 // Include this file on the page.
 if (typeof window !== 'undefined') {
-  require('!babel!github-repo-widget.js/GithubRepoWidget.min.js');
+  // This line is all kinds of bad, but we need to import this for the GibHub Shortcode plugin.
+  require('!babel!github-repo-widget.js/GithubRepoWidget.min.js'); // eslint-disable-line
 }
-
 
 class ProjectTemplate extends React.Component {
   componentDidMount() {
