@@ -3,6 +3,7 @@ import NotificationSystem from 'react-notification-system';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import TextField from 'material-ui/TextField';
 import RaisedButton from 'material-ui/RaisedButton';
+import Helmet from 'react-helmet';
 import 'whatwg-fetch';
 import 'typeface-roboto'; // eslint-disable-line import/extensions
 
@@ -73,9 +74,11 @@ class Contact extends React.Component {
       subject,
       body,
     } = this.state;
+    const { data } = this.props;
     return (
       <MuiThemeProvider>
         <div>
+          <Helmet title={`Contact | ${data.site.siteMetadata.title}`} />
           <NotificationSystem ref={(e) => { this.notifications = e; }} />
           <h1>Contact</h1>
           <TextField
@@ -120,3 +123,13 @@ class Contact extends React.Component {
 }
 
 export default Contact;
+
+export const pageQuery = graphql`
+  query contactPageQuery {
+    site {
+      siteMetadata {
+        title
+      }
+    }
+  }
+`;

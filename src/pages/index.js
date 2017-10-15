@@ -1,8 +1,10 @@
 import React from 'react';
+import Helmet from 'react-helmet';
 
 const Home = ({ data }) =>
   (
     <div>
+      <Helmet title={`${data.site.siteMetadata.title} | ${data.site.siteMetadata.subtitle}`} />
       <h1 dangerouslySetInnerHTML={{ __html: data.wordpressPage.title }} />
       <div dangerouslySetInnerHTML={{ __html: data.wordpressPage.content }} />
     </div>
@@ -12,6 +14,12 @@ export default Home;
 
 export const pageQuery = graphql`
   query homePageQuery {
+    site {
+      siteMetadata {
+        title
+        subtitle
+      }
+    }
     wordpressPage(slug: {eq: "home"}){
      title
      content

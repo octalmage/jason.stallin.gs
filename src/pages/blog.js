@@ -1,12 +1,14 @@
 import React from 'react'; // eslint-disable-line import/no-extraneous-dependencies
 import PropTypes from 'prop-types'; // eslint-disable-line import/no-extraneous-dependencies
 import Link from 'gatsby-link';
+import Helmet from 'react-helmet';
 import PostIcons from '../components/PostIcons';
 import { rhythm } from '../utils/typography';
 
 const Posts = ({ data }) =>
   (
     <div>
+      <Helmet title={`Blog | ${data.site.siteMetadata.title}`} />
       <h1>Blog</h1>
       {data.allWordpressPost.edges.map(({ node }) => (
         <div css={{ marginBottom: rhythm(2) }} key={node.slug}>
@@ -31,6 +33,11 @@ export default Posts;
 // Set here the ID of the home page.
 export const pageQuery = graphql`
   query blogPageQuery {
+    site {
+      siteMetadata {
+        title
+      }
+    }
     allWordpressPost(sort: {fields: [date], order: DESC}) {
       edges {
         node {

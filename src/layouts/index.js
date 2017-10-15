@@ -44,17 +44,15 @@ const Footer = ({ type, color }) => (
   </StyledFooter>
 );
 
-const DefaultLayout = ({ children, location }) => {
+const DefaultLayout = ({ children, location, data }) => {
   const isRoot = location.pathname === '/';
-  // const isRoot = false;
   return (
     <div className="theme-base-0g">
       <Helmet
-        title="Jason Stallings | Programmer and stuff"
         meta={[
           {
             name: 'description',
-            content: 'Hey! I&#039;m Jason Stallings and I&#039;m a prolific open source software developer. Writing code has been my passion since I was 14. I eat, sleep, and breathe code.',
+            content: data.site.siteMetadata.description,
           },
         ]}
       />
@@ -66,10 +64,10 @@ const DefaultLayout = ({ children, location }) => {
                 to="/"
                 href="/"
               >
-                <h1>Jason Stallings</h1>
+                <h1>{data.site.siteMetadata.title}</h1>
               </Link>
               <p className="lead">
-                Software Developer
+                {data.site.siteMetadata.subtitle}
               </p>
             </div>
 
@@ -114,3 +112,15 @@ DefaultLayout.propTypes = {
 };
 
 export default DefaultLayout;
+
+export const pageQuery = graphql`
+  query indexLayoutQuery {
+    site {
+      siteMetadata {
+        title
+        subtitle
+        description
+      }
+    }
+  }
+`;

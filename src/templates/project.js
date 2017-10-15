@@ -1,5 +1,6 @@
 /* global GithubRepoWidget */
 import React from 'react';
+import Helmet from 'react-helmet';
 
 // Include this file on the page.
 if (typeof window !== 'undefined') {
@@ -19,6 +20,7 @@ class ProjectTemplate extends React.Component {
     const currentPage = data.wordpressWpProjects;
     return (
       <div>
+        <Helmet title={`${currentPage.title} | ${data.site.siteMetadata.title}`} />
         <h1 dangerouslySetInnerHTML={{ __html: currentPage.title }} />
         <div dangerouslySetInnerHTML={{ __html: currentPage.content }} />
         { currentPage.learn_more_link &&
@@ -51,7 +53,6 @@ export const pageQuery = graphql`
       id
       siteMetadata {
         title
-        subtitle
       }
     }
   }
