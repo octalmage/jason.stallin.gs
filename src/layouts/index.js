@@ -1,10 +1,8 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import Link from 'gatsby-link';
 import Helmet from 'react-helmet';
 import { SocialIcons } from 'react-social-icons';
 import styled from 'styled-components';
-import LastGitHubProject from '../components/LastGitHubProject';
 import '../css/poole.css';
 import '../css/main.css';
 
@@ -44,72 +42,63 @@ const Footer = ({ type, color }) => (
   </StyledFooter>
 );
 
-const DefaultLayout = ({ children, location, data }) => {
-  const isRoot = location.pathname === '/';
-  return (
-    <div className="theme-base-0g">
-      <Helmet
-        meta={[
+const DefaultLayout = ({ children, data }) => (
+  <div className="theme-base-0g">
+    <Helmet
+      meta={[
           {
             name: 'description',
             content: data.site.siteMetadata.description,
           },
         ]}
-      />
-      <header>
-        <div className="sidebar">
-          <div className="container sidebar-sticky">
-            <div className="sidebar-about">
-              <Link
-                to="/"
-                href="/"
-              >
-                <h1>{data.site.siteMetadata.title}</h1>
-              </Link>
-              <p className="lead">
-                {data.site.siteMetadata.subtitle}
-              </p>
-            </div>
-
-            <ul className="sidebar-nav">
-              {links.map((link, i) => (
-                <li key={link.url}>
-                  <Link
-                    to={link.url}
-                    href={link.url}
-                    data-isLast={i === links.length - 1}
-                  >
-                    {link.title}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-            <hr />
-            <Footer type="sidebar" color="white" />
+    />
+    <header>
+      <div className="sidebar">
+        <div className="container sidebar-sticky">
+          <div className="sidebar-about">
+            <Link
+              to="/"
+              href="/"
+            >
+              <h1>{data.site.siteMetadata.title}</h1>
+            </Link>
+            <p className="lead">
+              {data.site.siteMetadata.subtitle}
+            </p>
           </div>
+
+          <ul className="sidebar-nav">
+            {links.map((link, i) => (
+              <li key={link.url}>
+                <Link
+                  to={link.url}
+                  href={link.url}
+                  data-isLast={i === links.length - 1}
+                >
+                  {link.title}
+                </Link>
+              </li>
+              ))}
+          </ul>
+          <hr />
+          <Footer type="sidebar" color="white" />
         </div>
-      </header>
-      <div
-        className="amp-wp-article"
-      >
-        <div className="amp-wp-article-content content container">
-          <div className="posts">
-            <div className="post">
-              {children()}
-              {isRoot && <LastGitHubProject username="octalmage" />}
-            </div>
+      </div>
+    </header>
+    <div
+      className="amp-wp-article"
+    >
+      <div className="amp-wp-article-content content container">
+        <div className="posts">
+          <div className="post">
+            {children()}
           </div>
         </div>
       </div>
-      <Footer type="bottom" color="black" />
     </div>
-  );
-};
-
-
-DefaultLayout.propTypes = {
-  location: PropTypes.object.isRequired,
-};
+    <Footer type="bottom" color="black" />
+  </div>
+);
 
 export default DefaultLayout;
 
