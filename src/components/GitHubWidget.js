@@ -1,7 +1,8 @@
 /* global GithubRepoWidget */
 import React from 'react';
+
 if (typeof window !== 'undefined') {
-  require('github-repo-widget.js');
+  require('github-repo-widget.js'); // eslint-disable-line global-require
 }
 
 const GitHubWidgetComponent = Component =>
