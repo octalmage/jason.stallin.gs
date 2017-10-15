@@ -1,6 +1,8 @@
 /* global GithubRepoWidget */
 import React from 'react';
-import 'github-repo-widget.js';
+if (typeof window !== 'undefined') {
+  require('github-repo-widget.js');
+}
 
 const GitHubWidgetComponent = Component =>
   class GitHubWidget extends React.PureComponent {
