@@ -1,15 +1,14 @@
 /* global GithubRepoWidget */
 import React from 'react';
 
-if (typeof window !== 'undefined') {
-  require('github-repo-widget.js'); // eslint-disable-line global-require
-}
-
 const GitHubWidgetComponent = Component =>
   class GitHubWidget extends React.PureComponent {
     componentDidMount() {
       if (typeof window !== 'undefined') {
-        GithubRepoWidget.init();
+        require.ensure([], (require) => {
+          require('github-repo-widget.js');
+          GithubRepoWidget.init();
+        }, 'github-repo-widget.js');
       }
     }
 
