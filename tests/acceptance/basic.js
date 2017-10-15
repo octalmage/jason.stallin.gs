@@ -16,7 +16,7 @@ test('Page Loads', async (t) => {
 });
 
 // The selector isn't working for some reason.
-test.skip('Can Navigate', async (t) => {
+test('Can Navigate', async (t) => {
   await t
     .click(blogLink)
     .expect(Selector('h1').nth(1).innerText).eql('Blog');
