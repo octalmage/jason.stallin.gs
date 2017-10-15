@@ -24,5 +24,6 @@ test('Can Navigate', async (t) => {
 
 test.page`${host}/projects/robotjs/`('Loads GitHub Widgets', async (t) => {
   await t
-    .expect(Selector('.github-box-title').innerText).contains('octalmage/robotjs');
+    .expect(Selector('.github-box-title').innerText).contains('octalmage/robotjs')
+    .expect(Number.isNaN(Selector('.watchers').innerText)).notOk();
 });
