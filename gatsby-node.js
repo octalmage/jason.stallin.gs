@@ -94,7 +94,6 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
             });
           });
       })
-      // ==== END PAGES ====
 
       // ==== POSTS (WORDPRESS NATIVE AND ACF) ====
       .then(() => {
@@ -109,6 +108,12 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
                     template
                     format
                     date
+                    categories {
+                      name
+                    }
+                    tags {
+                      name
+                    }
                   }
                 }
               }
@@ -119,16 +124,60 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
             reject(result.errors);
           }
           const postTemplate = path.resolve('./src/templates/post.js');
+          // Create Page pages.
+          const categoryTemplate = path.resolve('./src/templates/category.js');
+          const categorySet = new Set();
+          const tagSet = new Set();
           // We want to create a detailed page for each
           // post node. We'll just use the Wordpress Slug for the slug.
           // The Post ID is prefixed with 'POST_'
           _.each(result.data.allWordpressPost.edges, (edge) => {
+            if (edge.node.categories) {
+              edge.node.categories.forEach((category) => {
+                categorySet.add(category);
+              });
+            }
+            if (edge.node.tags) {
+              edge.node.tags.forEach((tag) => {
+                tagSet.add(tag);
+              });
+            }
+
+            // Create actual blog post.
             createPage({
               path: edge.node.slug,
               component: slash(postTemplate),
               context: {
                 id: edge.node.id,
               },
+            });
+
+            // Create category listings.
+            const categoryList = Array.from(categorySet);
+            categoryList.forEach((category) => {
+              createPage({
+                path: `/category/${category.name.toLowerCase()}/`,
+                component: categoryTemplate,
+                context: {
+                  type: 'Category',
+                  name: category.name,
+                  accessor: 'categories',
+                },
+              });
+            });
+
+            // Create tag listings.
+            const tagList = Array.from(tagSet);
+            tagList.forEach((tag) => {
+              createPage({
+                path: `/tag/${tag.name.toLowerCase()}/`,
+                component: categoryTemplate,
+                context: {
+                  type: 'Tag',
+                  name: tag.name,
+                  accessor: 'tags',
+                },
+              });
             });
           });
           resolve();
