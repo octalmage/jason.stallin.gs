@@ -64,6 +64,9 @@ recursive(inputDir, [], (err, files) => {
           </a>
           </div>
         </header>`);
+
+      // Remove social icons.
+      $('.FooterType-bottom').remove();
     }), 'utf8');
   });
 
