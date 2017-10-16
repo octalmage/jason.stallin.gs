@@ -8,15 +8,17 @@ import { rhythm } from '../utils/typography';
 
 const TaxSpan = styled.span`
    white-space: nowrap;
+   display: inline-block;
+   margin-right: .5em;
 `;
 
 export default ({ node, className = '' }) => (
   <div css={{ marginTop: rhythm(-1 / 2) }} className={className}>
-    <span style={{ marginRight: rhythm(1) }}>
+    <TaxSpan>
       <ClockIcon size={14} style={{ position: 'relative', bottom: 1 }} />
       {' '}
       {node.date}
-    </span>
+    </TaxSpan>
     {node.categories &&
       node.categories.map(category => (
         <TaxSpan key={category.name}>
