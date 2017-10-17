@@ -28,6 +28,7 @@
     "mkdirp": "^0.5.1",
     "nodemailer": "^4.2.0",
     "react-icons": "^2.2.5",
+    "react-mailto": "^0.4.0",
     "react-notification-system": "^0.2.15",
     "react-social-icons": "^2.7.0",
     "react-string-replace": "^0.4.1",
