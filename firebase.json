@@ -9,11 +9,11 @@
     ],
     "headers": [
       {
-        "source": "**",
+        "source": "**/*.html",
         "headers": [
           {
             "key": "Cache-Control",
-            "value": "max-age=300"
+            "value": "max-age=60"
           }
         ]
       },
