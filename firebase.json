@@ -3,8 +3,12 @@
     "public": "public",
     "rewrites": [
       {
-        "source": "/sendContactEmail",
+        "source": "/api/sendContactEmail",
         "function": "sendContactEmail"
+      },
+      {
+        "source": "/api/cacheLatestGithubProject",
+        "function": "cacheLatestGithubProject"
       }
     ],
     "headers": [

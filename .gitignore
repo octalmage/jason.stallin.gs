@@ -4,6 +4,7 @@
 public/
 build/
 .cache/
+.runtimeconfig.json
 npm-debug.log
 node_modules/
 # IDE specific

@@ -16,7 +16,7 @@ export default class LastGitHubProject extends React.Component {
   }
 
   componentWillMount() {
-    fetch(`https://api.github.com/users/${this.props.username}/events/public`)
+    fetch(`/api/cacheLatestGithubProject?username=${this.props.username}`)
       .then((response) => {
         if (!response.ok) {
           throw Error(response.statusText);

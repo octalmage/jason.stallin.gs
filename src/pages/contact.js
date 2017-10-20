@@ -44,7 +44,7 @@ class Contact extends React.Component {
       body: '',
     });
 
-    fetch('/sendContactEmail', {
+    fetch('/api/sendContactEmail', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
