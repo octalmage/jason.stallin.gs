@@ -1,6 +1,6 @@
 import React from 'react';
 import Helmet from 'react-helmet';
-import GitHubWidget from '../components/GitHubWidget';
+import BlogContent from '../components/BlogContent';
 
 const ProjectTemplate = ({ data }) => {
   const currentPage = data.wordpressWpProjects;
@@ -8,7 +8,7 @@ const ProjectTemplate = ({ data }) => {
     <div>
       <Helmet title={`${currentPage.title} | ${data.site.siteMetadata.title}`} />
       <h1 dangerouslySetInnerHTML={{ __html: currentPage.title }} />
-      <div dangerouslySetInnerHTML={{ __html: currentPage.content }} />
+      <BlogContent content={currentPage.content} />
       { currentPage.learn_more_link &&
         <h3>
           <a
@@ -24,7 +24,7 @@ const ProjectTemplate = ({ data }) => {
   );
 };
 
-export default GitHubWidget(ProjectTemplate);
+export default ProjectTemplate;
 
 export const pageQuery = graphql`
   query currentProjectQuery($id: String!) {

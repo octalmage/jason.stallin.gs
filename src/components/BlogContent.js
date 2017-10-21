@@ -1,24 +1,48 @@
 import React from 'react';
-import reactStringReplace from 'react-string-replace';
+import GitHubWidget from 'react-github-widget';
 import SyntaxHighlighter from 'react-syntax-highlighter';
 import { monokai } from 'react-syntax-highlighter/dist/styles';
+import HtmlToReact from 'html-to-react';
+
+const HtmlToReactParser = HtmlToReact.Parser;
+const isValidNode = () => true;
+
+// Order matters. Instructions are processed in the order they're defined.
+const processNodeDefinitions = new HtmlToReact.ProcessNodeDefinitions(React);
+const processingInstructions = [
+  {
+    // Replace <pre> with SyntaxHighlighter.
+    shouldProcessNode: node => node.name && node.name === 'pre',
+    processNode: (node, children, index) => (
+      <SyntaxHighlighter key={index} language="javascript" style={monokai}>
+        {node.children.map(n => n.data).join('')}
+      </SyntaxHighlighter>
+    ),
+  },
+  {
+    // Replace <div class="github-widget"> with GitHubWidget.
+    shouldProcessNode: node => node.attribs && node.attribs.class === 'github-widget',
+    processNode: (node, children, index) => (
+      <GitHubWidget key={index} repository={node.attribs['data-repo']} />
+    ),
+  },
+  {
+    shouldProcessNode: () => true,
+    processNode: processNodeDefinitions.processDefaultNode,
+  }];
+const htmlToReactParser = new HtmlToReactParser();
+
 
 const BlogContent = ({ content }) => {
-  // https://regex101.com/r/IqDWgu/1
-  const newContent = reactStringReplace(content, /<pre.*>([\S\s]*?)<\/pre>/g, (match, i) => (
-    <SyntaxHighlighter key={i} language="javascript" style={monokai}>{match}</SyntaxHighlighter>
-  ));
+  const newContent = htmlToReactParser.parseWithInstructions(
+    content,
+    isValidNode,
+    processingInstructions,
+  );
 
   return (
     <div>
-      {newContent.map((body) => {
-        if (typeof body === 'string') {
-          return (
-            <div key={body} dangerouslySetInnerHTML={{ __html: body }} />
-          );
-        }
-        return body;
-      })}
+      {newContent}
     </div>
   );
 };
