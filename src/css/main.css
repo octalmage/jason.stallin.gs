@@ -260,10 +260,6 @@ a.sidebar-nav-item:focus {
 .theme-base-0g .sidebar {
   background-color: #525252;
 }
-.theme-base-0g .content a,
-.theme-base-0g .related-posts li a:hover {
-  color: #b3b1b1;
-}
 
 /* Blue */
 .theme-base-0d .sidebar {
