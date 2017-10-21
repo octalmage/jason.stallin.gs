@@ -4,7 +4,6 @@ import { injectGlobal } from 'styled-components';
 import Helmet from 'react-helmet';
 import PostIcons from '../components/PostIcons';
 import BlogContent from '../components/BlogContent';
-import GitHubWidget from '../components/GitHubWidget';
 import { rhythm } from '../utils/typography';
 
 injectGlobal`
@@ -41,7 +40,7 @@ const PostTemplate = ({ data }) => {
   );
 };
 
-export default GitHubWidget(PostTemplate);
+export default PostTemplate;
 
 export const pageQuery = graphql`
   query currentPostQuery($id: String!) {
