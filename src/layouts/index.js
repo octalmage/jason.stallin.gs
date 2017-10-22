@@ -51,7 +51,9 @@ const DefaultLayout = ({ children, data }) => (
             content: data.site.siteMetadata.description,
           },
         ]}
-    />
+    >
+      <html lang="en" />
+    </Helmet>
     <header>
       <div className="sidebar">
         <div className="container sidebar-sticky">
