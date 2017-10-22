@@ -12,6 +12,7 @@ function sendContactEmail(name, email, subject, content) {
   const gmailEmail = encodeURIComponent(functions.config().gmail.email);
   const gmailPassword = encodeURIComponent(functions.config().gmail.password);
   const mailTransport = nodemailer.createTransport(`smtps://${gmailEmail}:${gmailPassword}@smtp.gmail.com`);
+
   const mailOptions = {
     from: `${APP_NAME} <octalmage@gmail.com>`,
     to: 'jacerox1234@gmail.com',
@@ -57,7 +58,7 @@ exports.cacheLatestGithubProject = functions
     const db = admin.database();
     const ref = db.ref(`cacheLatestGithubProject/${request.query.username}`);
 
-    ref.once('value').then((snapshot) => {
+    return ref.once('value').then((snapshot) => {
       const entry = snapshot.val();
       if (entry) {
         response.send(entry.data);
@@ -78,7 +79,6 @@ exports.cacheLatestGithubProject = functions
           return res;
         })
         .then(res => res.json()).then((res) => {
-          console.log(res);
           const data = {
             timestamp: Date.now(),
             data: res,
