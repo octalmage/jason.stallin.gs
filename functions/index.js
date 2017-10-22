@@ -62,8 +62,13 @@ exports.cacheLatestGithubProject = functions
 
     ref.once('value').then((snapshot) => {
       const entry = snapshot.val();
-      if (entry && (Date.now() - entry.timestamp) <= 1000 * 60 * 60) {
-        return response.send(entry.data);
+      if (entry) {
+        response.send(entry.data);
+
+        // If entry is still valid return.
+        if ((Date.now() - entry.timestamp) <= 1000 * 60 * 60) {
+          return undefined;
+        }
       }
 
       console.log('Refreshing cache.');
@@ -82,7 +87,13 @@ exports.cacheLatestGithubProject = functions
           };
 
           ref.set(data);
-          return response.send(res);
+
+          // First time!
+          if (!entry) {
+            response.send(res);
+          }
+
+          return undefined;
         })
         .catch(err => response.send(err));
     });
