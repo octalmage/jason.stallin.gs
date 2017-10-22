@@ -6,15 +6,12 @@ const fetch = require('node-fetch');
 const admin = require('firebase-admin');
 
 admin.initializeApp(functions.config().firebase);
-
-
-const gmailEmail = encodeURIComponent(functions.config().gmail.email);
-const gmailPassword = encodeURIComponent(functions.config().gmail.password);
-const mailTransport = nodemailer.createTransport(`smtps://${gmailEmail}:${gmailPassword}@smtp.gmail.com`);
-
 const APP_NAME = 'jason.stallin.gs';
 
 function sendContactEmail(name, email, subject, content) {
+  const gmailEmail = encodeURIComponent(functions.config().gmail.email);
+  const gmailPassword = encodeURIComponent(functions.config().gmail.password);
+  const mailTransport = nodemailer.createTransport(`smtps://${gmailEmail}:${gmailPassword}@smtp.gmail.com`);
   const mailOptions = {
     from: `${APP_NAME} <octalmage@gmail.com>`,
     to: 'jacerox1234@gmail.com',
@@ -81,6 +78,7 @@ exports.cacheLatestGithubProject = functions
           return res;
         })
         .then(res => res.json()).then((res) => {
+          console.log(res);
           const data = {
             timestamp: Date.now(),
             data: res,
