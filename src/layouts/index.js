@@ -52,6 +52,9 @@ const DefaultLayout = ({ children, data }) => (
           },
         ]}
     >
+      <script type="text/javascript">
+        {"ga('require', 'GTM-5XDG3W2');"}
+      </script>
       <html lang="en" />
     </Helmet>
     <header>
