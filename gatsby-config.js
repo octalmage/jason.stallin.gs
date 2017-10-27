@@ -26,12 +26,6 @@ module.exports = {
       },
     },
     {
-      resolve: 'gatsby-plugin-google-analytics',
-      options: {
-        trackingId: 'UA-57460911-1',
-      },
-    },
-    {
       resolve: 'gatsby-plugin-sentry',
       options: {
         dsn: 'https://22f4f2b0f1374a77b5a69c264a601797@sentry.io/233742',
