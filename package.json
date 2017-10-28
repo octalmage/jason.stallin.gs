@@ -27,7 +27,7 @@
     "material-ui": "^0.19.4",
     "mkdirp": "^0.5.1",
     "nodemailer": "^4.2.0",
-    "react-github-widget": "^0.0.6",
+    "react-github-widget": "0.0.7",
     "react-icons": "^2.2.5",
     "react-mailto": "^0.4.0",
     "react-notification-system": "^0.2.15",
