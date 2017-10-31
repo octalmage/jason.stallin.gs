@@ -43,7 +43,7 @@ const Footer = ({ type, color }) => (
 );
 
 const DefaultLayout = ({ children, data }) => (
-  <div className="theme-base-0g">
+  <div className="theme-base-0d">
     <Helmet
       meta={[
           {
