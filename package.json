@@ -2,7 +2,7 @@
   "name": "jason.stallin.gs",
   "private": true,
   "description": "Jason Stallings' personal website.",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "author": "Jason Stallings <jason.stallin.gs>",
   "dependencies": {
     "bluebird": "^3.5.1",
