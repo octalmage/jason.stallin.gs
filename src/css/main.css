@@ -169,6 +169,10 @@ a.sidebar-nav-item:focus {
 
 /* Mobile menu tweaks. */
 @media (max-width: 48em) {
+  #LastfmWidget {
+    display: none;
+  }
+
   hr, .FooterType-sidebar, .lead {
     display: none;
   }

@@ -3,6 +3,7 @@ import Link from 'gatsby-link';
 import Helmet from 'react-helmet';
 import { SocialIcons } from 'react-social-icons';
 import styled from 'styled-components';
+import LastfmWidget from 'react-lastfm-widget';
 import '../css/poole.css';
 import '../css/main.css';
 
@@ -33,6 +34,14 @@ const StyledSocialIcons = styled(SocialIcons)`
 const StyledFooter = styled.div`
   font-size: .8em;
   text-align: center;
+`;
+
+const LastfmDiv = styled.div.attrs({
+  id: 'LastfmWidget',
+})`
+  position: fixed;
+  bottom: 5px;
+  right: 5px;
 `;
 
 const Footer = ({ type, color }) => (
@@ -109,6 +118,14 @@ const DefaultLayout = ({ children, data }) => (
         </div>
       </div>
     </div>
+    <LastfmDiv>
+      <LastfmWidget
+        username="comic_coder"
+        apikey="1f633977acf0e2d0630ec11dbc350d3e"
+        size="150px"
+        onlyShowNowPlaying
+      />
+    </LastfmDiv>
     <Footer type="bottom" color="black" />
   </div>
 );
