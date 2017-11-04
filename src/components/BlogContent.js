@@ -13,11 +13,15 @@ const processingInstructions = [
   {
     // Replace <pre> with SyntaxHighlighter.
     shouldProcessNode: node => node.name && node.name === 'pre',
-    processNode: (node, children, index) => (
-      <SyntaxHighlighter key={index} language="javascript" style={monokai}>
-        {node.children.map(n => n.data).join('')}
-      </SyntaxHighlighter>
-    ),
+    processNode: (node, children, index) => {
+      // Support <code> tags inside of <pre> tags.
+      const nodeToProcess = node.children[0].name === 'code' ? node.children[0] : node;
+      return (
+        <SyntaxHighlighter key={index} language="javascript" style={monokai}>
+          {nodeToProcess.children.map(n => n.data).join('')}
+        </SyntaxHighlighter>
+      );
+    },
   },
   {
     // Replace <div class="github-widget"> with GitHubWidget.
