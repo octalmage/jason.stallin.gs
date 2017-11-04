@@ -9,3 +9,8 @@ test('Replaces <pre> tags with <SyntaxHighlighter>', () => {
   const component = shallow(<BlogContent content="<pre>test</pre>" />);
   expect(component.find('SyntaxHighlighter').children().text()).toEqual('test');
 });
+
+test('Replaces <pre><code> tags with <SyntaxHighlighter>', () => {
+  const component = shallow(<BlogContent content="<pre><code>test</code></pre>" />);
+  expect(component.find('SyntaxHighlighter').children().text()).toEqual('test');
+});
