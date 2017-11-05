@@ -6,7 +6,6 @@ const Home = ({ data }) =>
   (
     <div>
       <Helmet title={`${data.site.siteMetadata.title} | ${data.site.siteMetadata.subtitle}`} />
-      <h1 dangerouslySetInnerHTML={{ __html: data.wordpressPage.title }} />
       <div dangerouslySetInnerHTML={{ __html: data.wordpressPage.content }} />
       <LastGitHubProject username="octalmage" />
     </div>
