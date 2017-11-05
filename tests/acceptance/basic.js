@@ -11,8 +11,7 @@ const blogLink = Selector('[href="/blog/"]');
 
 test('Page Loads', async (t) => {
   await t
-    .expect(Selector('h1').innerText).eql('Jason Stallings')
-    .expect(Selector('h1').nth(1).innerText).eql('Home');
+    .expect(Selector('h1').innerText).eql('Jason Stallings');
 });
 
 // The selector isn't working for some reason.
