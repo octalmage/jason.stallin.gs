@@ -17,7 +17,12 @@ const processingInstructions = [
       // Support <code> tags inside of <pre> tags.
       const nodeToProcess = node.children[0].name === 'code' ? node.children[0] : node;
       return (
-        <SyntaxHighlighter key={index} language="javascript" style={monokai}>
+        <SyntaxHighlighter
+          key={index}
+          language="javascript"
+          style={monokai}
+          codeTagProps={{ style: { lineHeight: '1.5em', fontSize: '0.9em' } }}
+        >
           {nodeToProcess.children.map(n => n.data).join('')}
         </SyntaxHighlighter>
       );
