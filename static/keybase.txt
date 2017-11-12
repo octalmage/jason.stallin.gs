@@ -1,0 +1,81 @@
+==================================================================
+https://keybase.io/octalmage
+--------------------------------------------------------------------
+
+I hereby claim:
+
+  * I am an admin of https://jason.stallin.gs
+  * I am octalmage (https://keybase.io/octalmage) on keybase.
+  * I have a public key with fingerprint D1E3 8523 50B8 CF90 3CC3  6E8B 6D42 2240 A4B5 E3F4
+
+To do so, I am signing this object:
+
+{
+  "body": {
+    "key": {
+      "eldest_kid": "0101bbbeb51dfb9840d879a7f5c612eeb4be62956109dfa4cfa316822bbeb6518b080a",
+      "fingerprint": "d1e3852350b8cf903cc36e8b6d422240a4b5e3f4",
+      "host": "keybase.io",
+      "key_id": "6d422240a4b5e3f4",
+      "kid": "0101bbbeb51dfb9840d879a7f5c612eeb4be62956109dfa4cfa316822bbeb6518b080a",
+      "uid": "7c816c1b8bf08802383d0ba8c2852619",
+      "username": "octalmage"
+    },
+    "merkle_root": {
+      "ctime": 1510506140,
+      "hash_meta": "ece2f0a9fb523c99bd854e389cb2a02358690f4427599c249b1daed9a6b9556e",
+      "seqno": 1696689
+    },
+    "revoke": {
+      "sig_ids": [
+        "4af643b5adccf938ee9b424b1de1e2b35ba5634022d0cef408764726ffbbcc750f"
+      ]
+    },
+    "service": {
+      "hostname": "jason.stallin.gs",
+      "protocol": "https:"
+    },
+    "type": "web_service_binding",
+    "version": 1
+  },
+  "ctime": 1510506145,
+  "expire_in": 157680000,
+  "prev": "581f2b0756e8a287b26ef14bf60c9a30ae75c09e1375dd5a548915a9e05ea98b",
+  "seqno": 33,
+  "tag": "signature"
+}
+
+which yields the signature:
+
+-----BEGIN PGP MESSAGE-----
+Version: Keybase OpenPGP v2.0.76
+Comment: https://keybase.io/crypto
+
+yMLDAnicrZNfaB1FFMZvEm28EaHRtEglTbr+QSQmM7MzszMxIKiID72RolFJq7cz
+s2dvtrn37u3uJhpCqjQ0lpSISvoQqX8CWosQxORBbK2G0oZIQcHkQQq1gmIJ+lCL
+IFoMzoaKID66L8vufuc73/mdnbO3NOSa6vqfvPpN8Gn5WN35M6NDuf6bDsyOOjry
+R5zuUWcQNm5Q9iFJi4Oh73Q7CCOstQbNsB9oKSjyhSeVFzDDMQHQVAMnknGMpB8o
+agLlYi4IyWo4w0IjgZTT4QRhtQRxLQ6rqbX1MbiCEZchLUwgkWuMy0Fo7lNCCEWK
+agZuQG3hQJRkFTacVgl0hpF9Zx+KG/H+Q/8/5x7asPOMwNxgLXSAhEDEFa6PtBKG
+2Ck4lpkwgbiqKmDVkUlVuaJK4Ix1OBWIB8tQjKMozeiaNMw0mGHEEMcU2QlVMlCs
+QKpsKRggAVIy0JaOkVL7glHLShpNlO3LBJcooJR4TEpDqNTYV+BLxbVkjIMNksD+
+amQ7cMm5kDZBDMPRIGTNk7BkuSVO926HqoBTVzPlG7sAVwBITQm1doCBaJdpxbhL
+ESE+MhBQJDxOPcKDQGtjPIYC59mxrFk8HJoN82xR1wHsU0lU7UwshXJY7SwlNlUt
+jtLIRGX7dSBNa0l3xiYdqWXy50EXrxsVdVj17a9iK4YhTsKoaiexyn9jYx0OvFAL
+YyiGmYJ5XCB7ZX1g2FoygQOikWeRCEWEpwmHAFMdcGSkcpECjxkkAbse832mGBUS
+MyUBMVBS6H84uq7NqUrW09KrqnQotms9s7jnhlxdU27TjfXZGco15Tf/fbKOzjau
+d03cv9ZeaP4CzZyY3NO+0LL3g+P3vTw0N9F39z1Lcw+ok/mX2nXf9MXXeyePnI7O
+rb114UDjSOuJ5eLBR5s3FQ8/fvM7U5/39ePq+PLY1sXvC6bj7dm2h/iOnb3HovO/
+vfL72UOX7+w51HDrrun6Rxreu/Dh6u1ufsuuT3pX52/7bNvyyVe3/nF8fAdM7a9c
+q217evu918aPzExMn9r39YM//rnS0/zmw4XFr1ob86uazvXc9esP7tX5hV+2X1n6
+cve78x9ferG/vW/lYKVrqXVzW+/8YMtz3/1cf7iw3vXY3oXpws7TanK068pEZ8vY
+VOmZy6fW2p7a4r7xWuelb4/OvL9+7qMn3JE7fsqvXKz7CwAof3A=
+=R1no
+-----END PGP MESSAGE-----
+
+And finally, I am proving ownership of this host by posting or
+appending to this document.
+
+View my publicly-auditable identity here: https://keybase.io/octalmage
+
+==================================================================
