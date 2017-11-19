@@ -12,6 +12,7 @@ addons:
      - google-chrome-stable fluxbox
 
 cache:
+  yarn: true
   directories:
   - node_modules
   - functions/node_modules
@@ -21,10 +22,10 @@ before_script:
   - "sh -e /etc/init.d/xvfb start"
   - sleep 3
   - fluxbox >/dev/null 2>&1 &
-  - "npm run predeploy"
+  - "yarn run predeploy"
 
 before_deploy:
-- "( cd functions ; npm install )"
+- "( cd functions ; yarn install )"
 
 deploy:
   provider: firebase
