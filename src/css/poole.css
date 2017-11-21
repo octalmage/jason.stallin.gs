@@ -206,6 +206,11 @@ img {
   max-width: 100%;
 }
 
+/* Handle images coming from WordPress. */
+.wp-caption {
+  max-width: 100%;
+}
+
 /* Tables */
 table {
   margin-bottom: 1rem;
