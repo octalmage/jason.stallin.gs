@@ -17,7 +17,6 @@ const links = [
 const urls = [
   'http://github.com/octalmage',
   'http://twitter.com/octalmage',
-  'http://linkedin.com/in/jaketrent',
   'http://last.fm/user/Comic_Coder/',
   'http://vimeo.com/octalmage/',
   'http://jasonstallings.tumblr.com/',
