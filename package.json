@@ -38,7 +38,8 @@
     "typeface-roboto": "0.0.35",
     "typography": "^0.16.6",
     "typography-theme-github": "^0.15.10",
-    "whatwg-fetch": "^2.0.3"
+    "whatwg-fetch": "^2.0.3",
+    "window-or-global": "^1.0.1"
   },
   "keywords": [
     "gatsby"

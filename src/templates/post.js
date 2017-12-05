@@ -2,6 +2,7 @@
 import React from 'react';
 import { injectGlobal } from 'styled-components';
 import Helmet from 'react-helmet';
+import root from 'window-or-global';
 import PostIcons from '../components/PostIcons';
 import BlogContent from '../components/BlogContent';
 import Feedback from '../components/Feedback';
@@ -37,7 +38,7 @@ const PostTemplate = ({ data }) => {
       <h1 dangerouslySetInnerHTML={{ __html: post.title }} />
       <PostIcons node={post} css={{ marginBottom: rhythm(1 / 2) }} />
       <BlogContent content={post.content} />
-      <Feedback username="octalmage" url={window.location} />
+      <Feedback username="octalmage" url={root.location} />
     </div>
   );
 };
