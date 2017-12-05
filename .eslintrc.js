@@ -11,6 +11,7 @@ module.exports = {
     "fetch": false,
   },
   "env": {
-    "jest": true
+    "jest": true,
+    "browser": true,
   }
 };
