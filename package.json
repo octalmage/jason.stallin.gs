@@ -28,7 +28,7 @@
     "mkdirp": "^0.5.1",
     "nodemailer": "^4.2.0",
     "react-github-widget": "0.0.7",
-    "react-icons": "^2.2.5",
+    "react-icons": "^2.2.7",
     "react-lastfm-widget": "0.0.4",
     "react-mailto": "^0.4.0",
     "react-notification-system": "^0.2.15",
