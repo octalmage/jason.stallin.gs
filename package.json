@@ -49,7 +49,7 @@
   "scripts": {
     "dev": "gatsby develop",
     "lint": "eslint --ext .js,.jsx --ignore-pattern public .",
-    "test": "npm run lint && npm run unit && npm run acceptance",
+    "test": "npm run lint && npm run acceptance",
     "develop": "gatsby develop",
     "build": "gatsby build",
     "start": "gatsby serve",
