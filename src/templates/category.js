@@ -15,8 +15,8 @@ const CategoryTemplate = ({ data, pathContext }) => {
       <Helmet title={`${type}: ${name} | ${data.site.siteMetadata.title}`} />
       <h1>{type}: {name}</h1>
       {categoryPosts.map(({ node }) => (
-        <div css={{ marginBottom: rhythm(2) }} key={node.slug}>
-          <Link to={`/${node.slug}/`} href={`/${node.slug}/`} css={{ textDecoration: 'none' }}>
+        <div style={{ marginBottom: rhythm(2) }} key={node.slug}>
+          <Link to={`/${node.slug}/`} href={`/${node.slug}/`}>
             <h2><span dangerouslySetInnerHTML={{ __html: node.title }} /></h2>
           </Link>
           <div dangerouslySetInnerHTML={{ __html: node.excerpt }} />

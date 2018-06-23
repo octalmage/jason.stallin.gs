@@ -9,8 +9,8 @@ const Posts = ({ data }) =>
       <Helmet title={`Projects | ${data.site.siteMetadata.title}`} />
       <h1>Projects</h1>
       {data.allWordpressWpProjects.edges.map(({ node }) => (
-        <div css={{ marginBottom: rhythm(2) }} key={node.slug}>
-          <Link to={`/projects/${node.slug}/`} href={`/projects/${node.slug}/`} css={{ textDecoration: 'none' }}>
+        <div style={{ marginBottom: rhythm(2) }} key={node.slug}>
+          <Link to={`/projects/${node.slug}/`} href={`/projects/${node.slug}/`}>
             <h2>{node.title}</h2>
           </Link>
           <div dangerouslySetInnerHTML={{ __html: node.excerpt }} />

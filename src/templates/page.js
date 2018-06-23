@@ -10,7 +10,7 @@ const PageTemplate = ({ data }) => {
     <div>
       <Helmet title={`${currentPage.title} | ${data.site.siteMetadata.title}`} />
       <h1 dangerouslySetInnerHTML={{ __html: currentPage.title }} />
-      <PostIcons node={currentPage} css={{ marginBottom: rhythm(1 / 2) }} />
+      <PostIcons node={currentPage} style={{ marginBottom: rhythm(1 / 2) }} />
       <div dangerouslySetInnerHTML={{ __html: currentPage.content }} />
     </div>
   );

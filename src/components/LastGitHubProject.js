@@ -58,7 +58,7 @@ export default class LastGitHubProject extends React.Component {
           href={recentProject.url}
         >
           {recentProject.name}
-        </a>
+        </a>.
       </StyledSpan>
     );
   }

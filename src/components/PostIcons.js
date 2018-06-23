@@ -13,7 +13,7 @@ const TaxSpan = styled.span`
 `;
 
 export default ({ node, className = '' }) => (
-  <div css={{ marginTop: rhythm(-1 / 2) }} className={className}>
+  <div style={{ marginTop: rhythm(-1 / 2) }} className={className}>
     <TaxSpan>
       <ClockIcon size={14} style={{ position: 'relative', bottom: 1 }} />
       {' '}
