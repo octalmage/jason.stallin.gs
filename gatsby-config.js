@@ -12,7 +12,7 @@ module.exports = {
         protocol: 'https',
         hostingWPCOM: false,
         useACF: false,
-        verbose: true,
+        verbose: false,
       },
     },
     'gatsby-transformer-sharp',
