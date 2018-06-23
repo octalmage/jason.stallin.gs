@@ -48,11 +48,11 @@
   "scripts": {
     "dev": "gatsby develop",
     "lint": "eslint --ext .js,.jsx --ignore-pattern public .",
-    "test": "npm run lint && npm run acceptance",
+    "test": "yarn run lint && yarn run acceptance",
     "develop": "gatsby develop",
     "build": "gatsby build",
     "start": "gatsby serve",
-    "predeploy": "npm run build",
+    "predeploy": "yarn run build",
     "deploy": "firebase deploy --only hosting",
     "deploy-functions": "firebase deploy --only functions",
     "acceptance": "testcafe -e chrome tests/acceptance/**/*.js --app \"http-server -p 8000 ./public -s\"",
