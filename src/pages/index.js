@@ -1,7 +1,7 @@
 import React from 'react';
 import Helmet from 'react-helmet';
 import LastGitHubProject from '../components/LastGitHubProject';
-import me from '../assets/stallings.jpg';
+import me from '../assets/macbook.jpeg';
 
 const Home = ({ data }) =>
   (
