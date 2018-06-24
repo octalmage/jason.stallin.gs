@@ -13,9 +13,26 @@ module.exports = {
         hostingWPCOM: false,
         useACF: false,
         verbose: false,
+        excludedRoutes: [
+          '/*/*/comments',
+          '/*/*/users',
+          '**/cpp/**',
+          '**/jetpack/**',
+          '**/gutenberg/**',
+          '**/yoast/**',
+          '**/akismet/**',
+          '**/contact-form-7/**',
+        ],
       },
     },
     'gatsby-transformer-sharp',
+    {
+      resolve: 'gatsby-source-filesystem',
+      options: {
+        name: 'img',
+        path: `${__dirname}/src/assets/`,
+      },
+    },
     'gatsby-plugin-sharp',
     'gatsby-plugin-styled-components',
     {
@@ -31,5 +48,6 @@ module.exports = {
       },
     },
     'gatsby-plugin-react-helmet',
+    'gatsby-plugin-offline',
   ],
 };

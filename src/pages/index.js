@@ -1,13 +1,22 @@
 import React from 'react';
 import Helmet from 'react-helmet';
+import Img from 'gatsby-image';
+import styled from 'styled-components';
 import LastGitHubProject from '../components/LastGitHubProject';
-import me from '../assets/macbook.jpeg';
+
+const HeaderImage = styled(Img)`
+  margin-bottom: 1rem;
+`;
 
 const Home = ({ data }) =>
   (
     <div>
       <Helmet title={`${data.site.siteMetadata.title} | ${data.site.siteMetadata.subtitle}`} />
-      <img src={me} alt="Me at a computer" />
+      <HeaderImage
+        title="Image from https://www.pexels.com"
+        alt="Macbook with code on the screen"
+        sizes={data.headerImage.sizes}
+      />
       <div>
         <p>Hey, I’m Jason.</p>
         <p>I live in Austin, Texas, and I work at <a href="http://wpengine.com/">WP Engine</a>.</p>
@@ -25,6 +34,11 @@ export const pageQuery = graphql`
       siteMetadata {
         title
         subtitle
+      }
+    }
+    headerImage: imageSharp(id: { regex: "/macbook/" }) {
+      sizes(maxWidth: 1240 ) {
+        ...GatsbyImageSharpSizes
       }
     }
   }
