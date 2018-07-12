@@ -3,6 +3,7 @@ import React from 'react';
 import { injectGlobal } from 'styled-components';
 import Helmet from 'react-helmet';
 import root from 'window-or-global';
+import { graphql } from 'gatsby';
 import PostIcons from '../components/PostIcons';
 import BlogContent from '../components/BlogContent';
 import Feedback from '../components/Feedback';

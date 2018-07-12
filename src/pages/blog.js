@@ -1,13 +1,14 @@
 import React from 'react'; // eslint-disable-line import/no-extraneous-dependencies
 import PropTypes from 'prop-types'; // eslint-disable-line import/no-extraneous-dependencies
-import Link from 'gatsby-link';
+import { Link } from 'gatsby';
 import Helmet from 'react-helmet';
 import PostIcons from '../components/PostIcons';
+import Layout from '../components/Layout';
 import { rhythm } from '../utils/typography';
 
 const Posts = ({ data }) =>
   (
-    <div>
+    <Layout>
       <Helmet title={`Blog | ${data.site.siteMetadata.title}`} />
       <h1>Blog</h1>
       {data.allWordpressPost.edges.map(({ node }) => (
@@ -19,7 +20,7 @@ const Posts = ({ data }) =>
           <PostIcons node={node} />
         </div>
     ))}
-    </div>
+    </Layout>
   );
 
 Posts.propTypes = {

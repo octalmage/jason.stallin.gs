@@ -1,5 +1,5 @@
 import React from 'react';
-import Link from 'gatsby-link';
+import { Link } from 'gatsby';
 import styled from 'styled-components';
 import ClockIcon from 'react-icons/lib/fa/clock-o';
 import TagIcon from 'react-icons/lib/fa/tag';

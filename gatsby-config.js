@@ -47,6 +47,12 @@ module.exports = {
         dsn: 'https://22f4f2b0f1374a77b5a69c264a601797@sentry.io/233742',
       },
     },
+    {
+      resolve: 'gatsby-plugin-google-analytics',
+      options: {
+        trackingId: 'YOUR_GOOGLE_ANALYTICS_TRACKING_ID',
+      },
+    },
     'gatsby-plugin-react-helmet',
   ],
 };

@@ -1,5 +1,6 @@
 import React from 'react';
 import Helmet from 'react-helmet';
+import { graphql } from 'gatsby';
 import PostIcons from '../components/PostIcons';
 import { rhythm } from '../utils/typography';
 

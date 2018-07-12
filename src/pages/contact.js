@@ -5,8 +5,10 @@ import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import TextField from 'material-ui/TextField';
 import RaisedButton from 'material-ui/RaisedButton';
 import Helmet from 'react-helmet';
+import { graphql } from 'gatsby';
 import 'whatwg-fetch';
 import 'typeface-roboto'; // eslint-disable-line import/extensions
+import Layout from '../components/Layout';
 
 class Contact extends React.Component {
   constructor(props) {
@@ -78,7 +80,7 @@ class Contact extends React.Component {
     const { data } = this.props;
     return (
       <MuiThemeProvider>
-        <div>
+        <Layout>
           <Helmet title={`Contact | ${data.site.siteMetadata.title}`} />
           <NotificationSystem ref={(e) => { this.notifications = e; }} />
           <h1>Contact</h1>
@@ -122,7 +124,7 @@ class Contact extends React.Component {
           />
           <br />
           <RaisedButton label="Send Email" primary onClick={this.handleSubmit} disableTouchRipple />
-        </div>
+        </Layout>
       </MuiThemeProvider>
     );
   }
