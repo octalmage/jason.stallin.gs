@@ -17,7 +17,7 @@ const Home = ({ data }) =>
       <HeaderImage
         title="Image from https://www.pexels.com"
         alt="Macbook with code on the screen"
-        sizes={data.headerImage.sizes}
+        fluid={data.headerImage.fluid}
       />
       <div>
         <p>Hey, I’m Jason.</p>
@@ -40,7 +40,7 @@ export const pageQuery = graphql`
     }
     headerImage: imageSharp(fluid: { originalName:{ regex:"/macbook/" } }) {
       fluid(maxWidth: 1240) {
-        tracedSVG
+        ...GatsbyImageSharpFluid
       }
     }
   }

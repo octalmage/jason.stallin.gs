@@ -7,7 +7,10 @@ import { graphql } from 'gatsby';
 import PostIcons from '../components/PostIcons';
 import BlogContent from '../components/BlogContent';
 import Feedback from '../components/Feedback';
-import { rhythm } from '../utils/typography';
+import typography from '../utils/typography';
+import Layout from '../components/Layout';
+
+const { rhythm } = typography;
 
 injectGlobal`
 .wp-block-image {
@@ -34,13 +37,13 @@ injectGlobal`
 const PostTemplate = ({ data }) => {
   const post = data.wordpressPost;
   return (
-    <div>
+    <Layout>
       <Helmet title={`${post.title} | ${data.site.siteMetadata.title}`} />
       <h1 dangerouslySetInnerHTML={{ __html: post.title }} />
       <PostIcons node={post} style={{ marginBottom: rhythm(1 / 2) }} />
       <BlogContent content={post.content} />
       <Feedback username="octalmage" url={root.location} />
-    </div>
+    </Layout>
   );
 };
 

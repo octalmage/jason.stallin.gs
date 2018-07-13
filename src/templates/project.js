@@ -2,11 +2,12 @@ import React from 'react';
 import Helmet from 'react-helmet';
 import { graphql } from 'gatsby';
 import BlogContent from '../components/BlogContent';
+import Layout from '../components/Layout';
 
 const ProjectTemplate = ({ data }) => {
   const currentPage = data.wordpressWpProjects;
   return (
-    <div>
+    <Layout>
       <Helmet title={`${currentPage.title} | ${data.site.siteMetadata.title}`} />
       <h1 dangerouslySetInnerHTML={{ __html: currentPage.title }} />
       <BlogContent content={currentPage.content} />
@@ -21,7 +22,7 @@ const ProjectTemplate = ({ data }) => {
           </a>
         </h3>
         }
-    </div>
+    </Layout>
   );
 };
 

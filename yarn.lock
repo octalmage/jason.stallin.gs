@@ -10854,10 +10854,6 @@ react-icons@^2.2.7:
   dependencies:
     react-icon-base "2.1.0"
 
-react-is@^16.3.1:
-  version "16.4.1"
-  resolved "https://registry.yarnpkg.com/react-is/-/react-is-16.4.1.tgz#d624c4650d2c65dbd52c72622bbf389435d9776e"
-
 react-lastfm-widget@0.0.4:
   version "0.0.4"
   resolved "https://registry.yarnpkg.com/react-lastfm-widget/-/react-lastfm-widget-0.0.4.tgz#fb57b933dedd79e26bffbb7bb1ada06b0761c9fd"
@@ -10884,6 +10880,10 @@ react-notification-system@^0.2.15:
     create-react-class "^15.5.1"
     object-assign "^4.0.1"
     prop-types "^15.5.6"
+
+react-protected-mailto@^1.0.3:
+  version "1.0.3"
+  resolved "https://registry.yarnpkg.com/react-protected-mailto/-/react-protected-mailto-1.0.3.tgz#2017fc8f8ad1177d65c47071cf7117fe05e7cec6"
 
 react-router-dom@^4.1.1:
   version "4.3.1"
@@ -12363,7 +12363,7 @@ style-loader@^0.19.1:
     loader-utils "^1.0.2"
     schema-utils "^0.3.0"
 
-styled-components@^2.2.1:
+styled-components@^2.2.1, styled-components@^2.3.3:
   version "2.4.1"
   resolved "https://registry.yarnpkg.com/styled-components/-/styled-components-2.4.1.tgz#663bd0485d4b6ab46f946210dc03d2398d1ade74"
   dependencies:
@@ -12376,26 +12376,7 @@ styled-components@^2.2.1:
     stylis "^3.4.0"
     supports-color "^3.2.3"
 
-styled-components@^3.3.3:
-  version "3.3.3"
-  resolved "https://registry.yarnpkg.com/styled-components/-/styled-components-3.3.3.tgz#09e702055ab11f7a8eab8229b1c0d0b855095686"
-  dependencies:
-    buffer "^5.0.3"
-    css-to-react-native "^2.0.3"
-    fbjs "^0.8.16"
-    hoist-non-react-statics "^2.5.0"
-    is-plain-object "^2.0.1"
-    prop-types "^15.5.4"
-    react-is "^16.3.1"
-    stylis "^3.5.0"
-    stylis-rule-sheet "^0.0.10"
-    supports-color "^3.2.3"
-
-stylis-rule-sheet@^0.0.10:
-  version "0.0.10"
-  resolved "https://registry.yarnpkg.com/stylis-rule-sheet/-/stylis-rule-sheet-0.0.10.tgz#44e64a2b076643f4b52e5ff71efc04d8c3c4a430"
-
-stylis@^3.0.0, stylis@^3.5.0:
+stylis@^3.0.0:
   version "3.5.2"
   resolved "https://registry.yarnpkg.com/stylis/-/stylis-3.5.2.tgz#46af61bccec772b9ee7ec367d91dff8ccf01f764"
 

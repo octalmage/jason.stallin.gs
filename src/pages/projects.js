@@ -1,8 +1,10 @@
 import React from 'react';
 import { Link, graphql } from 'gatsby';
 import Helmet from 'react-helmet';
-import { rhythm } from '../utils/typography';
 import Layout from '../components/Layout';
+import typography from '../utils/typography';
+
+const { rhythm } = typography;
 
 const Posts = ({ data }) =>
   (

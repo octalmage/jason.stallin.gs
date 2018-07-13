@@ -1,5 +1,5 @@
 import React from 'react';
-import Mailto from 'react-mailto';
+import Mailto from 'react-protected-mailto';
 import NotificationSystem from 'react-notification-system';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import TextField from 'material-ui/TextField';
@@ -86,7 +86,7 @@ class Contact extends React.Component {
           <h1>Contact</h1>
           <p>
             The best way to get in touch is via email:{' '}
-            <Mailto email="jason@stallin.gs" obfuscate>jason@stallin.gs</Mailto>{' '}
+            <Mailto email="jason@stallin.gs">jason@stallin.gs</Mailto>{' '}
             or by filling out the form below.
           </p>
           <TextField

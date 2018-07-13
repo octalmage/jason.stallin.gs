@@ -1,10 +1,12 @@
 import React from 'react'; // eslint-disable-line import/no-extraneous-dependencies
 import PropTypes from 'prop-types'; // eslint-disable-line import/no-extraneous-dependencies
-import { Link } from 'gatsby';
+import { Link, graphql } from 'gatsby';
 import Helmet from 'react-helmet';
 import PostIcons from '../components/PostIcons';
 import Layout from '../components/Layout';
-import { rhythm } from '../utils/typography';
+import typography from '../utils/typography';
+
+const { rhythm } = typography;
 
 const Posts = ({ data }) =>
   (

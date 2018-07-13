@@ -96,7 +96,7 @@ const DefaultLayout = ({ children }) => (
                     <Link
                       to={link.url}
                       href={link.url}
-                      data-isLast={i === links.length - 1}
+                      data-islast={i === links.length - 1}
                     >
                       {link.title}
                     </Link>

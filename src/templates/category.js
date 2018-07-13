@@ -3,15 +3,18 @@ import React from 'react';
 import Helmet from 'react-helmet';
 import { Link, graphql } from 'gatsby';
 import PostIcons from '../components/PostIcons';
-import { rhythm } from '../utils/typography';
+import typography from '../utils/typography';
+import Layout from '../components/Layout';
 
-const CategoryTemplate = ({ data, pathContext }) => {
-  const { name, type, accessor } = pathContext;
+const { rhythm } = typography;
+
+const CategoryTemplate = ({ data, pageContext }) => {
+  const { name, type, accessor } = pageContext;
   const categoryPosts = data.allWordpressPost.edges.filter(({ node }) =>
     node[accessor] && node[accessor].map(n => n.name).includes(name));
 
   return (
-    <div>
+    <Layout>
       <Helmet title={`${type}: ${name} | ${data.site.siteMetadata.title}`} />
       <h1>{type}: {name}</h1>
       {categoryPosts.map(({ node }) => (
@@ -23,7 +26,7 @@ const CategoryTemplate = ({ data, pathContext }) => {
           <PostIcons node={node} />
         </div>
     ))}
-    </div>
+    </Layout>
   );
 };
 
