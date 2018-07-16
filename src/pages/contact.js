@@ -1,12 +1,14 @@
 import React from 'react';
-import Mailto from 'react-mailto';
+import Mailto from 'react-protected-mailto';
 import NotificationSystem from 'react-notification-system';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import TextField from 'material-ui/TextField';
 import RaisedButton from 'material-ui/RaisedButton';
 import Helmet from 'react-helmet';
+import { graphql } from 'gatsby';
 import 'whatwg-fetch';
 import 'typeface-roboto'; // eslint-disable-line import/extensions
+import Layout from '../components/Layout';
 
 class Contact extends React.Component {
   constructor(props) {
@@ -78,13 +80,13 @@ class Contact extends React.Component {
     const { data } = this.props;
     return (
       <MuiThemeProvider>
-        <div>
+        <Layout>
           <Helmet title={`Contact | ${data.site.siteMetadata.title}`} />
           <NotificationSystem ref={(e) => { this.notifications = e; }} />
           <h1>Contact</h1>
           <p>
             The best way to get in touch is via email:{' '}
-            <Mailto email="jason@stallin.gs" obfuscate>jason@stallin.gs</Mailto>{' '}
+            <Mailto email="jason@stallin.gs">jason@stallin.gs</Mailto>{' '}
             or by filling out the form below.
           </p>
           <TextField
@@ -122,7 +124,7 @@ class Contact extends React.Component {
           />
           <br />
           <RaisedButton label="Send Email" primary onClick={this.handleSubmit} disableTouchRipple />
-        </div>
+        </Layout>
       </MuiThemeProvider>
     );
   }

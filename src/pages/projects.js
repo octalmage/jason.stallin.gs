@@ -1,11 +1,14 @@
 import React from 'react';
-import Link from 'gatsby-link';
+import { Link, graphql } from 'gatsby';
 import Helmet from 'react-helmet';
-import { rhythm } from '../utils/typography';
+import Layout from '../components/Layout';
+import typography from '../utils/typography';
+
+const { rhythm } = typography;
 
 const Posts = ({ data }) =>
   (
-    <div>
+    <Layout>
       <Helmet title={`Projects | ${data.site.siteMetadata.title}`} />
       <h1>Projects</h1>
       {data.allWordpressWpProjects.edges.map(({ node }) => (
@@ -16,7 +19,7 @@ const Posts = ({ data }) =>
           <div dangerouslySetInnerHTML={{ __html: node.excerpt }} />
         </div>
     ))}
-    </div>
+    </Layout>
   );
 
 

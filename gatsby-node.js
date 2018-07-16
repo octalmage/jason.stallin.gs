@@ -9,8 +9,8 @@ const slash = require('slash');
 // create pages.
 // Will create pages for Wordpress pages (route : /{slug})
 // Will create pages for Wordpress posts (route : /post/{slug})
-exports.createPages = ({ graphql, boundActionCreators }) => {
-  const { createPage } = boundActionCreators;
+exports.createPages = ({ graphql, actions }) => {
+  const { createPage } = actions;
   return new Promise((resolve, reject) => {
     // ==== PROJECTS (CUSTOM POST TYPE) ====
     graphql(`

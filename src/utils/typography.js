@@ -12,5 +12,4 @@ github.overrideThemeStyles = () => ({
 });
 
 const typography = new Typography(github);
-
 export default typography;
