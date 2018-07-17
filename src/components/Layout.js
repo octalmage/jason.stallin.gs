@@ -4,7 +4,8 @@ import { SocialIcons } from 'react-social-icons';
 import styled from 'styled-components';
 import LastfmWidget from 'react-lastfm-widget';
 import { StaticQuery, graphql, Link } from 'gatsby';
-import Style from './Style';
+import '../css/poole.css';
+import '../css/main.css';
 
 const links = [
   { title: 'Home', url: '/' },
@@ -63,7 +64,7 @@ const DefaultLayout = ({ children }) => (
       }
     `}
     render={data => (
-      <Style className="theme-base-0d">
+      <div className="theme-base-0d">
         <Helmet
           meta={[
               {
@@ -127,7 +128,7 @@ const DefaultLayout = ({ children }) => (
           />
         </LastfmDiv>
         <Footer type="bottom" color="black" />
-      </Style>
+      </div>
     )}
   />
 );
