@@ -13,6 +13,7 @@
     "gatsby": "^2.0.0-beta.40",
     "gatsby-image": "next",
     "gatsby-plugin-google-analytics": "next",
+    "gatsby-plugin-purgecss": "^2.0.1",
     "gatsby-plugin-react-helmet": "next",
     "gatsby-plugin-sentry": "^0.1.0",
     "gatsby-plugin-sharp": "^2.0.0-beta.5",

@@ -48,6 +48,12 @@ module.exports = {
       },
     },
     {
+      resolve: 'gatsby-plugin-purgecss',
+      options: {
+        rejected: true,
+      },
+    },
+    {
       resolve: 'gatsby-plugin-google-analytics',
       options: {
         trackingId: 'UA-57460911-1',
