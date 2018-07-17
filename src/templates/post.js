@@ -7,10 +7,8 @@ import { graphql } from 'gatsby';
 import PostIcons from '../components/PostIcons';
 import BlogContent from '../components/BlogContent';
 import Feedback from '../components/Feedback';
-import typography from '../utils/typography';
+import { rhythm } from '../utils/typography';
 import Layout from '../components/Layout';
-
-const { rhythm } = typography;
 
 injectGlobal`
 .wp-block-image {

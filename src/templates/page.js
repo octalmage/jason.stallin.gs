@@ -2,10 +2,8 @@ import React from 'react';
 import Helmet from 'react-helmet';
 import { graphql } from 'gatsby';
 import PostIcons from '../components/PostIcons';
-import typography from '../utils/typography';
+import { rhythm } from '../utils/typography';
 import Layout from '../components/Layout';
-
-const { rhythm } = typography;
 
 const PageTemplate = ({ data }) => {
   const currentPage = data.wordpressPage;
