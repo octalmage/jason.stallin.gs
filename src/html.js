@@ -24,7 +24,7 @@ const HTML = ({
   // Fix for https://github.com/gatsbyjs/gatsby/issues/6302
   const newHeadOrder = fixTypography(headComponents);
   return (
-    <html {...htmlAttributes}>
+    <html {...htmlAttributes}> {/* eslint-disable-line jsx-a11y/html-has-lang */}
       <head>
         <meta charSet="utf-8" />
         <meta httpEquiv="x-ua-compatible" content="ie=edge" />
@@ -48,12 +48,12 @@ const HTML = ({
 };
 
 HTML.propTypes = {
-  htmlAttributes: PropTypes.object,
-  headComponents: PropTypes.array,
-  bodyAttributes: PropTypes.object,
-  preBodyComponents: PropTypes.array,
-  body: PropTypes.string,
-  postBodyComponents: PropTypes.array,
-}
+  htmlAttributes: PropTypes.object.isRequired,
+  headComponents: PropTypes.array.isRequired,
+  bodyAttributes: PropTypes.object.isRequired,
+  preBodyComponents: PropTypes.array.isRequired,
+  body: PropTypes.string.isRequired,
+  postBodyComponents: PropTypes.array.isRequired,
+};
 
 export default HTML;
