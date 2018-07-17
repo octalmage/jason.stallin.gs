@@ -3,10 +3,8 @@ import React from 'react';
 import Helmet from 'react-helmet';
 import { Link, graphql } from 'gatsby';
 import PostIcons from '../components/PostIcons';
-import typography from '../utils/typography';
+import { rhythm } from '../utils/typography';
 import Layout from '../components/Layout';
-
-const { rhythm } = typography;
 
 const CategoryTemplate = ({ data, pageContext }) => {
   const { name, type, accessor } = pageContext;

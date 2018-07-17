@@ -34,13 +34,13 @@ module.exports = {
       },
     },
     'gatsby-plugin-sharp',
-    'gatsby-plugin-styled-components',
     {
       resolve: 'gatsby-plugin-typography',
       options: {
         pathToConfigModule: 'src/utils/typography.js',
       },
     },
+    'gatsby-plugin-styled-components',
     {
       resolve: 'gatsby-plugin-sentry',
       options: {

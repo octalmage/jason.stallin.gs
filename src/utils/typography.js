@@ -12,4 +12,5 @@ github.overrideThemeStyles = () => ({
 });
 
 const typography = new Typography(github);
+export const { rhythm, scale } = typography;
 export default typography;

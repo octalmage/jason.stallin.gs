@@ -4,9 +4,7 @@ import { Link, graphql } from 'gatsby';
 import Helmet from 'react-helmet';
 import PostIcons from '../components/PostIcons';
 import Layout from '../components/Layout';
-import typography from '../utils/typography';
-
-const { rhythm } = typography;
+import { rhythm } from '../utils/typography';
 
 const Posts = ({ data }) =>
   (

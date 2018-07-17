@@ -4,9 +4,7 @@ import styled from 'styled-components';
 import ClockIcon from 'react-icons/lib/fa/clock-o';
 import TagIcon from 'react-icons/lib/fa/tag';
 import OpenIcon from 'react-icons/lib/fa/folder-open';
-import typography from '../utils/typography';
-
-const { rhythm } = typography;
+import { rhythm } from '../utils/typography';
 
 const TaxSpan = styled.span`
    white-space: nowrap;
