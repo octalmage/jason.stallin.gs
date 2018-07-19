@@ -36,7 +36,15 @@ const PostTemplate = ({ data }) => {
   const post = data.wordpressPost;
   return (
     <Layout>
-      <Helmet title={`${post.title} | ${data.site.siteMetadata.title}`} />
+      <Helmet
+        title={`${post.title} | ${data.site.siteMetadata.title}`}
+        meta={[
+            {
+              name: 'description',
+              content: post.excerpt.replace(/<(?:.|\n)*?>/gm, ''),
+            },
+          ]}
+      />
       <h1 dangerouslySetInnerHTML={{ __html: post.title }} />
       <PostIcons node={post} style={{ marginBottom: rhythm(1 / 2) }} />
       <BlogContent content={post.content} />
@@ -52,6 +60,7 @@ export const pageQuery = graphql`
     wordpressPost(id: { eq: $id }) {
       title
       content
+      excerpt
       ...PostIcons
     }
     site {

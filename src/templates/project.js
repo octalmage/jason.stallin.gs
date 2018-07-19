@@ -8,7 +8,15 @@ const ProjectTemplate = ({ data }) => {
   const currentPage = data.wordpressWpProjects;
   return (
     <Layout>
-      <Helmet title={`${currentPage.title} | ${data.site.siteMetadata.title}`} />
+      <Helmet
+        title={`${currentPage.title} | ${data.site.siteMetadata.title}`}
+        meta={[
+            {
+              name: 'description',
+              content: currentPage.excerpt.replace(/<(?:.|\n)*?>/gm, ''),
+            },
+          ]}
+      />
       <h1 dangerouslySetInnerHTML={{ __html: currentPage.title }} />
       <BlogContent content={currentPage.content} />
       { currentPage.learn_more_link &&
@@ -33,6 +41,7 @@ export const pageQuery = graphql`
     wordpressWpProjects(id: { eq: $id }) {
       title
       content
+      excerpt
       date(formatString: "MMMM DD, YYYY")
       learn_more_link
     }
