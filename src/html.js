@@ -1,18 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-function arraymove(arr, fromIndex, toIndex) {
-  const element = arr[fromIndex];
-  arr.splice(fromIndex, 1);
-  arr.splice(toIndex, 0, element);
-}
-
-function fixTypography(headComponents) {
-  const typographyIndex = headComponents.findIndex(item => item.key === 'TypographyStyle');
-  arraymove(headComponents, typographyIndex, 0);
-  return headComponents;
-}
-
 const HTML = ({
   htmlAttributes,
   headComponents,
@@ -22,7 +10,15 @@ const HTML = ({
   postBodyComponents,
 }) => {
   // Fix for https://github.com/gatsbyjs/gatsby/issues/6302
-  const newHeadOrder = fixTypography(headComponents);
+  headComponents.sort((x, y) => {
+    if (x.key === 'TypographyStyle') {
+      return -1;
+    } else if (y.key === 'TypographyStyle') {
+      return 1;
+    }
+
+    return 0;
+  });
   return (
     <html {...htmlAttributes}> {/* eslint-disable-line jsx-a11y/html-has-lang */}
       <head>
@@ -32,7 +28,7 @@ const HTML = ({
           name="viewport"
           content="width=device-width, initial-scale=1, shrink-to-fit=no"
         />
-        {newHeadOrder}
+        {headComponents}
       </head>
       <body {...bodyAttributes}>
         {preBodyComponents}
