@@ -168,7 +168,7 @@ a.sidebar-nav-item:focus {
 }
 
 /* Mobile menu tweaks. */
-@media (max-width: 48em) {
+@media (max-width: 47em) {
   #LastfmWidget {
     display: none;
   }
