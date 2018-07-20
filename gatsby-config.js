@@ -3,6 +3,7 @@ module.exports = {
     title: 'Jason Stallings',
     subtitle: 'Software Developer',
     description: 'Hey! I\'m Jason Stallings and I\'m a prolific open source software developer.',
+    siteUrl: 'https://jason.stallin.gs',
   },
   plugins: [
     {
@@ -53,6 +54,8 @@ module.exports = {
         trackingId: 'UA-57460911-1',
       },
     },
+    'gatsby-plugin-sitemap',
     'gatsby-plugin-react-helmet',
+    'gatsby-plugin-offline',
   ],
 };
