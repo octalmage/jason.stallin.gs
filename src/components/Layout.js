@@ -64,7 +64,7 @@ const DefaultLayout = ({ children }) => (
       }
     `}
     render={data => (
-      <div className="theme-base-0d">
+      <div>
         <Helmet
           meta={[
               {
