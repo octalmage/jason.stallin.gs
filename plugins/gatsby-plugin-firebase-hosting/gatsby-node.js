@@ -1,0 +1,34 @@
+const fs = require('fs');
+const mergeByKey = require('array-merge-by-key');
+
+const { DEFAULT_FIREBASE_JSON } = require('./constants');
+
+exports.onPostBuild = async ({ store, pathPrefix, reporter }, userPluginOptions) => {
+  console.log(store);
+  console.log('options', userPluginOptions);
+  if (typeof userPluginOptions.enabled !== 'undefined' && userPluginOptions.enabled !== true) {
+    return Promise.resolve();
+  }
+
+  // const state = store.getState();
+  return new Promise((resolve) => {
+    if (typeof userPluginOptions.firebaseConfig === 'undefined') {
+      reporter.info('firebase.json not found, using default settings.');
+      return resolve(DEFAULT_FIREBASE_JSON);
+    }
+    reporter.info('firebase.json found, merging default settings.');
+    const newHosting = Object.assign({}, DEFAULT_FIREBASE_JSON.hosting);
+    const currentFirebase = userPluginOptions.firebaseConfig;
+    const { hosting: currentHosting } = currentFirebase;
+
+    Object.keys(newHosting).forEach((key) => {
+      if (Array.isArray(newHosting[key]) && typeof currentHosting[key] !== 'undefined') {
+        newHosting[key] = mergeByKey('source', newHosting[key], currentHosting[key]);
+      }
+    });
+    return resolve(Object.assign(currentFirebase, { hosting: newHosting }));
+  })
+  .then((config) => {
+    console.log(config.hosting);
+  })
+};

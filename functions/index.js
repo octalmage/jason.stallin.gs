@@ -18,7 +18,7 @@ function sendContactEmail(name, email, subject, content) {
     to: 'jacerox1234@gmail.com',
   };
 
-    // The user subscribed to the newsletter.
+  // The user subscribed to the newsletter.
   mailOptions.subject = `Contact form submission from: ${name}`;
   mailOptions.text = `Name: ${name}\nEmail: ${email}\nSubject: ${subject}\nBody: ${content}`;
   return mailTransport.sendMail(mailOptions).then((error, info) => {
