@@ -17,6 +17,7 @@ module.exports = {
         excludedRoutes: [
           '/*/*/comments',
           '/*/*/users',
+          '/*/*/media',
           '**/cpp/**',
           '**/jetpack/**',
           '**/gutenberg/**',
