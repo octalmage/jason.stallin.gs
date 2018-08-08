@@ -1,9 +1,11 @@
 import React from 'react';
 import { Link, graphql } from 'gatsby';
 import styled from 'styled-components';
-import ClockIcon from 'react-icons/lib/fa/clock-o';
-import TagIcon from 'react-icons/lib/fa/tag';
-import OpenIcon from 'react-icons/lib/fa/folder-open';
+import {
+  FaClock as ClockIcon,
+  FaTag as TagIcon,
+  FaFolderOpen as OpenIcon,
+} from 'react-icons/fa';
 import { rhythm } from '../utils/typography';
 
 const TaxSpan = styled.span`

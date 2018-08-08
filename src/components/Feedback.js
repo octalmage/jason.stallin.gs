@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import FaTwitter from 'react-icons/lib/fa/twitter';
+import { FaTwitter } from 'react-icons/fa';
 
 const BlogFeedback = styled.div`
   margin: 50px 0;

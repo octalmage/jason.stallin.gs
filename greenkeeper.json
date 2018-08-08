@@ -4,6 +4,9 @@
       "packages": [
         "functions/package.json",
         "package.json"
+      ],
+      "ignore": [
+        "react-social-icons"
       ]
     }
   }

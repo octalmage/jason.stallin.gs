@@ -1,7 +1,7 @@
 import React from 'react';
 import GitHubWidget from 'react-github-widget';
 import SyntaxHighlighter from 'react-syntax-highlighter';
-import { monokai } from 'react-syntax-highlighter/dist/styles';
+import { monokai } from 'react-syntax-highlighter/styles/hljs';
 import HtmlToReact from 'html-to-react';
 
 const HtmlToReactParser = HtmlToReact.Parser;
