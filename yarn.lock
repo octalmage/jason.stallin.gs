@@ -1340,31 +1340,11 @@
     string-format-obj "^1.1.0"
     through2 "^2.0.3"
 
-"@google-cloud/common@^0.20.3":
-  version "0.20.3"
-  resolved "https://registry.yarnpkg.com/@google-cloud/common/-/common-0.20.3.tgz#639fb9ed07b0e20bdcfa84ebb0838b8cb2068e3b"
+"@google-cloud/firestore@^0.16.0":
+  version "0.16.0"
+  resolved "https://registry.yarnpkg.com/@google-cloud/firestore/-/firestore-0.16.0.tgz#1b39469b41625430ffc2d25b1c1d5696e5381c42"
   dependencies:
-    "@types/duplexify" "^3.5.0"
-    "@types/request" "^2.47.0"
-    arrify "^1.0.1"
-    axios "^0.18.0"
-    duplexify "^3.6.0"
-    ent "^2.2.0"
-    extend "^3.0.1"
-    google-auth-library "^1.6.0"
-    is "^3.2.1"
-    pify "^3.0.0"
-    request "^2.87.0"
-    retry-request "^4.0.0"
-    split-array-stream "^2.0.0"
-    stream-events "^1.0.4"
-    through2 "^2.0.3"
-
-"@google-cloud/firestore@^0.15.4":
-  version "0.15.4"
-  resolved "https://registry.yarnpkg.com/@google-cloud/firestore/-/firestore-0.15.4.tgz#5a23cc7d0c516d0e019e0a8554749b518a0f6723"
-  dependencies:
-    "@google-cloud/common" "^0.20.3"
+    "@google-cloud/projectify" "^0.3.0"
     bun "^0.0.12"
     deep-equal "^1.0.1"
     extend "^3.0.1"
@@ -1375,6 +1355,10 @@
     lodash.merge "^4.6.1"
     pkg-up "^2.0.0"
     through2 "^2.0.3"
+
+"@google-cloud/projectify@^0.3.0":
+  version "0.3.0"
+  resolved "https://registry.yarnpkg.com/@google-cloud/projectify/-/projectify-0.3.0.tgz#adb984ac61f7ec855558ef677621b2488c50d05d"
 
 "@google-cloud/storage@^1.6.0":
   version "1.7.0"
@@ -1486,12 +1470,6 @@
 "@types/debug@^0.0.29":
   version "0.0.29"
   resolved "https://registry.yarnpkg.com/@types/debug/-/debug-0.0.29.tgz#a1e514adfbd92f03a224ba54d693111dbf1f3754"
-
-"@types/duplexify@^3.5.0":
-  version "3.5.0"
-  resolved "https://registry.yarnpkg.com/@types/duplexify/-/duplexify-3.5.0.tgz#c1e8a2c4e05f2a5545c61c31283b76f92d48b007"
-  dependencies:
-    "@types/node" "*"
 
 "@types/error-stack-parser@^1.3.18":
   version "1.3.18"
@@ -1613,7 +1591,7 @@
   dependencies:
     csstype "^2.2.0"
 
-"@types/request@*", "@types/request@^2.47.0":
+"@types/request@*":
   version "2.47.1"
   resolved "https://registry.yarnpkg.com/@types/request/-/request-2.47.1.tgz#25410d3afbdac04c91a94ad9efc9824100735824"
   dependencies:
@@ -6135,18 +6113,19 @@ find-versions@^1.0.0:
     meow "^3.5.0"
     semver-regex "^1.0.0"
 
-firebase-admin@^5.4.2:
-  version "5.13.1"
-  resolved "https://registry.yarnpkg.com/firebase-admin/-/firebase-admin-5.13.1.tgz#79cfa2ce20c90061ae09176e33b7767c1eb02f96"
+firebase-admin@^6.0.0:
+  version "6.0.0"
+  resolved "https://registry.yarnpkg.com/firebase-admin/-/firebase-admin-6.0.0.tgz#6a4be9e38b523ad7b4397b9b35853e4412e135ae"
   dependencies:
     "@firebase/app" "^0.3.1"
     "@firebase/database" "^0.3.1"
-    "@google-cloud/firestore" "^0.15.4"
-    "@google-cloud/storage" "^1.6.0"
-    "@types/google-cloud__storage" "^1.1.7"
     "@types/node" "^8.0.53"
     jsonwebtoken "8.1.0"
     node-forge "0.7.4"
+  optionalDependencies:
+    "@google-cloud/firestore" "^0.16.0"
+    "@google-cloud/storage" "^1.6.0"
+    "@types/google-cloud__storage" "^1.1.7"
 
 firebase-functions@^2.0.2:
   version "2.0.2"
@@ -6893,7 +6872,7 @@ good-listener@^1.2.2:
   dependencies:
     delegate "^3.1.2"
 
-google-auth-library@^1.3.1, google-auth-library@^1.6.0, google-auth-library@^1.6.1:
+google-auth-library@^1.3.1, google-auth-library@^1.6.1:
   version "1.6.1"
   resolved "https://registry.yarnpkg.com/google-auth-library/-/google-auth-library-1.6.1.tgz#9c73d831ad720c0c3048ab89d0ffdec714d07dd2"
   dependencies:
@@ -12578,12 +12557,6 @@ split-array-stream@^1.0.0:
     async "^2.4.0"
     is-stream-ended "^0.1.0"
 
-split-array-stream@^2.0.0:
-  version "2.0.0"
-  resolved "https://registry.yarnpkg.com/split-array-stream/-/split-array-stream-2.0.0.tgz#85a4f8bfe14421d7bca7f33a6d176d0c076a53b1"
-  dependencies:
-    is-stream-ended "^0.1.4"
-
 split-string@^3.0.1, split-string@^3.0.2:
   version "3.1.0"
   resolved "https://registry.yarnpkg.com/split-string/-/split-string-3.1.0.tgz#7cb09dda3a86585705c64b39a6466038682e8fe2"
@@ -12693,7 +12666,7 @@ stream-each@^1.1.0:
     end-of-stream "^1.1.0"
     stream-shift "^1.0.0"
 
-stream-events@^1.0.1, stream-events@^1.0.3, stream-events@^1.0.4:
+stream-events@^1.0.1, stream-events@^1.0.3:
   version "1.0.4"
   resolved "https://registry.yarnpkg.com/stream-events/-/stream-events-1.0.4.tgz#73bfd4007b8f677b46ec699f14e9e2304c2f0a9e"
   dependencies:
