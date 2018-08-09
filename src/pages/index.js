@@ -10,23 +10,48 @@ const HeaderImage = styled(Img)`
   margin-bottom: 1rem;
 `;
 
-const Home = ({ data }) =>
-  (
-    <Layout>
-      <Helmet title={`${data.site.siteMetadata.title} | ${data.site.siteMetadata.subtitle}`} />
-      <HeaderImage
-        title="Image from https://www.pexels.com"
-        alt="Macbook with code on the screen"
-        fluid={data.headerImage.fluid}
-      />
-      <div>
-        <p>Hey, I’m Jason.</p>
-        <p>I live in Austin, Texas, and I work at <a href="http://wpengine.com/">WP Engine</a>.</p>
-        <p>Recently I spend most of my days playing with <a href="http://wordpress.org/">WordPress</a>,&nbsp;<a href="http://nodejs.org/">Node.js</a>, and <a href="https://reactjs.org">React</a>.</p>
-      </div>
-      <LastGitHubProject username="octalmage" />
-    </Layout>
-  );
+const Home = ({ data }) => (
+  <Layout>
+    <Helmet title={`${data.site.siteMetadata.title} | ${data.site.siteMetadata.subtitle}`} />
+    <HeaderImage
+      title="Image from https://www.pexels.com"
+      alt="Macbook with code on the screen"
+      fluid={data.headerImage.fluid}
+    />
+    <div>
+      <p>
+        Hey, I’m Jason.
+      </p>
+      <p>
+        I live in Austin, Texas, and I work at
+        {' '}
+        <a href="http://wpengine.com/">
+        WP Engine
+        </a>
+        .
+      </p>
+      <p>
+        Recently I spend most of my days playing with
+        {' '}
+        <a href="http://wordpress.org/">
+          WordPress,
+        </a>
+        {' '}
+        <a href="http://nodejs.org/">
+          Node.js,
+        </a>
+        {' '}
+          and
+        {' '}
+        <a href="https://reactjs.org">
+          React
+        </a>
+        .
+      </p>
+    </div>
+    <LastGitHubProject username="octalmage" />
+  </Layout>
+);
 
 export default Home;
 

@@ -1,9 +1,12 @@
 import React from 'react';
 import { Link, graphql } from 'gatsby';
 import styled from 'styled-components';
-import ClockIcon from 'react-icons/lib/fa/clock-o';
-import TagIcon from 'react-icons/lib/fa/tag';
-import OpenIcon from 'react-icons/lib/fa/folder-open';
+import {
+  FaClock as ClockIcon,
+  FaTag as TagIcon,
+  FaFolderOpen as OpenIcon,
+} from 'react-icons/fa';
+import { IconContext } from 'react-icons';
 import { rhythm } from '../utils/typography';
 
 const TaxSpan = styled.span`
@@ -13,41 +16,43 @@ const TaxSpan = styled.span`
 `;
 
 export default ({ node, className = '' }) => (
-  <div style={{ marginTop: rhythm(-1 / 2) }} className={className}>
-    <TaxSpan>
-      <ClockIcon size={14} style={{ position: 'relative', bottom: 1 }} />
-      {' '}
-      {node.date}
-    </TaxSpan>
-    {node.categories &&
-      node.categories.map(category => (
-        <TaxSpan key={category.name}>
-          {' '}
-          <OpenIcon size={14} style={{ position: 'relative', bottom: 1 }} />
-          {' '}
-          <Link
-            to={`/category/${category.name.toLowerCase()}`}
-            href={`/category/${category.name.toLowerCase()}`}
-          >
-            {category.name}
-          </Link>
-        </TaxSpan>
-      ))}
-    {node.tags &&
-      node.tags.map(tag => (
-        <TaxSpan key={tag.name}>
-          {'  '}
-          <TagIcon size={14} style={{ position: 'relative', bottom: 1 }} />
-          {' '}
-          <Link
-            to={`/tag/${tag.name.toLowerCase()}`}
-            href={`/tag/${tag.name.toLowerCase()}`}
-          >
-            {tag.name}
-          </Link>
-        </TaxSpan>
-      ))}
-  </div>
+  <IconContext.Provider value={{ style: { verticalAlign: 'middle' } }}>
+    <div style={{ marginTop: rhythm(-1 / 2) }} className={className}>
+      <TaxSpan>
+        <ClockIcon size={14} style={{ position: 'relative', bottom: 1 }} />
+        {' '}
+        {node.date}
+      </TaxSpan>
+      {node.categories
+        && node.categories.map(category => (
+          <TaxSpan key={category.name}>
+            {' '}
+            <OpenIcon size={14} style={{ position: 'relative', bottom: 1 }} />
+            {' '}
+            <Link
+              to={`/category/${category.name.toLowerCase()}`}
+              href={`/category/${category.name.toLowerCase()}`}
+            >
+              {category.name}
+            </Link>
+          </TaxSpan>
+        ))}
+      {node.tags
+        && node.tags.map(tag => (
+          <TaxSpan key={tag.name}>
+            {'  '}
+            <TagIcon size={14} style={{ position: 'relative', bottom: 1 }} />
+            {' '}
+            <Link
+              to={`/tag/${tag.name.toLowerCase()}`}
+              href={`/tag/${tag.name.toLowerCase()}`}
+            >
+              {tag.name}
+            </Link>
+          </TaxSpan>
+        ))}
+    </div>
+  </IconContext.Provider>
 );
 
 export const query = graphql`

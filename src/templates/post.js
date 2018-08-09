@@ -40,11 +40,11 @@ const PostTemplate = ({ data }) => {
       <Helmet
         title={`${htmlDecode(post.title)} | ${data.site.siteMetadata.title}`}
         meta={[
-            {
-              name: 'description',
-              content: post.excerpt.replace(/<(?:.|\n)*?>/gm, ''),
-            },
-          ]}
+          {
+            name: 'description',
+            content: post.excerpt.replace(/<(?:.|\n)*?>/gm, ''),
+          },
+        ]}
       />
       <h1 dangerouslySetInnerHTML={{ __html: post.title }} />
       <PostIcons node={post} style={{ marginBottom: rhythm(1 / 2) }} />
