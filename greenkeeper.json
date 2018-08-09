@@ -6,7 +6,8 @@
         "package.json"
       ],
       "ignore": [
-        "react-social-icons"
+        "react-social-icons",
+        "styled-components"
       ]
     }
   }
