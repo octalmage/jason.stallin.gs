@@ -11,15 +11,16 @@ const ProjectTemplate = ({ data }) => {
       <Helmet
         title={`${currentPage.title} | ${data.site.siteMetadata.title}`}
         meta={[
-            {
-              name: 'description',
-              content: currentPage.excerpt.replace(/<(?:.|\n)*?>/gm, ''),
-            },
-          ]}
+          {
+            name: 'description',
+            content: currentPage.excerpt.replace(/<(?:.|\n)*?>/gm, ''),
+          },
+        ]}
       />
       <h1 dangerouslySetInnerHTML={{ __html: currentPage.title }} />
       <BlogContent content={currentPage.content} />
-      { currentPage.learn_more_link &&
+      { currentPage.learn_more_link
+        && (
         <h3>
           <a
             href={currentPage.learn_more_link}
@@ -29,7 +30,7 @@ const ProjectTemplate = ({ data }) => {
               Learn More
           </a>
         </h3>
-        }
+        )}
     </Layout>
   );
 };

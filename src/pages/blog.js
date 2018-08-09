@@ -6,22 +6,25 @@ import PostIcons from '../components/PostIcons';
 import Layout from '../components/Layout';
 import { rhythm } from '../utils/typography';
 
-const Posts = ({ data }) =>
-  (
-    <Layout>
-      <Helmet title={`Blog | ${data.site.siteMetadata.title}`} />
-      <h1>Blog</h1>
-      {data.allWordpressPost.edges.map(({ node }) => (
-        <div style={{ marginBottom: rhythm(2) }} key={node.slug}>
-          <Link to={`/${node.slug}/`} href={`/${node.slug}/`}>
-            <h2><span dangerouslySetInnerHTML={{ __html: node.title }} /></h2>
-          </Link>
-          <div dangerouslySetInnerHTML={{ __html: node.excerpt }} />
-          <PostIcons node={node} />
-        </div>
+const Posts = ({ data }) => (
+  <Layout>
+    <Helmet title={`Blog | ${data.site.siteMetadata.title}`} />
+    <h1>
+      Blog
+    </h1>
+    {data.allWordpressPost.edges.map(({ node }) => (
+      <div style={{ marginBottom: rhythm(2) }} key={node.slug}>
+        <Link to={`/${node.slug}/`} href={`/${node.slug}/`}>
+          <h2>
+            <span dangerouslySetInnerHTML={{ __html: node.title }} />
+          </h2>
+        </Link>
+        <div dangerouslySetInnerHTML={{ __html: node.excerpt }} />
+        <PostIcons node={node} />
+      </div>
     ))}
-    </Layout>
-  );
+  </Layout>
+);
 
 Posts.propTypes = {
   data: PropTypes.shape({

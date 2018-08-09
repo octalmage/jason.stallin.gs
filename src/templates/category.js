@@ -6,24 +6,33 @@ import PostIcons from '../components/PostIcons';
 import { rhythm } from '../utils/typography';
 import Layout from '../components/Layout';
 
+const getPostsForCategory = (name, accessor) => ({ node }) => node[accessor]
+  && node[accessor].map(n => n.name).includes(name);
+
 const CategoryTemplate = ({ data, pageContext }) => {
   const { name, type, accessor } = pageContext;
-  const categoryPosts = data.allWordpressPost.edges.filter(({ node }) =>
-    node[accessor] && node[accessor].map(n => n.name).includes(name));
+  const categoryPosts = data.allWordpressPost.edges.filter(getPostsForCategory(name, accessor));
 
   return (
     <Layout>
       <Helmet title={`${type}: ${name} | ${data.site.siteMetadata.title}`} />
-      <h1>{type}: {name}</h1>
+      <h1>
+        {type}
+        :
+        {' '}
+        {name}
+      </h1>
       {categoryPosts.map(({ node }) => (
         <div style={{ marginBottom: rhythm(2) }} key={node.slug}>
           <Link to={`/${node.slug}/`} href={`/${node.slug}/`}>
-            <h2><span dangerouslySetInnerHTML={{ __html: node.title }} /></h2>
+            <h2>
+              <span dangerouslySetInnerHTML={{ __html: node.title }} />
+            </h2>
           </Link>
           <div dangerouslySetInnerHTML={{ __html: node.excerpt }} />
           <PostIcons node={node} />
         </div>
-    ))}
+      ))}
     </Layout>
   );
 };

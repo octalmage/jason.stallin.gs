@@ -83,10 +83,16 @@ class Contact extends React.Component {
         <Layout>
           <Helmet title={`Contact | ${data.site.siteMetadata.title}`} />
           <NotificationSystem ref={(e) => { this.notifications = e; }} />
-          <h1>Contact</h1>
+          <h1>
+            Contact
+          </h1>
           <p>
-            The best way to get in touch is via email:{' '}
-            <Mailto email="jason@stallin.gs">jason@stallin.gs</Mailto>{' '}
+            The best way to get in touch is via email:
+            {' '}
+            <Mailto email="jason@stallin.gs">
+              jason@stallin.gs
+            </Mailto>
+            {' '}
             or by filling out the form below.
           </p>
           <TextField

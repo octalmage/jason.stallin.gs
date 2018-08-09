@@ -13,14 +13,14 @@ const HTML = ({
   headComponents.sort((x, y) => {
     if (x.key === 'TypographyStyle') {
       return -1;
-    } else if (y.key === 'TypographyStyle') {
+    } if (y.key === 'TypographyStyle') {
       return 1;
     }
 
     return 0;
   });
   return (
-    <html {...htmlAttributes}> {/* eslint-disable-line jsx-a11y/html-has-lang */}
+    <html lang="en" {...htmlAttributes}>
       <head>
         <meta charSet="utf-8" />
         <meta httpEquiv="x-ua-compatible" content="ie=edge" />

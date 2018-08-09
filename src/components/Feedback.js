@@ -29,13 +29,17 @@ const Twitter = styled(FaTwitter).attrs({
 const Feedback = ({ url, username }) => (
   <BlogFeedback>
     <Header>
-      Have feedback on this post? Let{' '}
+      Have feedback on this post? Let
+      {' '}
       <a
         href={`https://twitter.com/intent/tweet?text=@${username}%20&amp;related=github&amp;url=${url}`}
         target="blank"
       >
-          @{username}
-      </a> know on Twitter.
+        @
+        {username}
+      </a>
+      {' '}
+      know on Twitter.
       <Twitter />
     </Header>
   </BlogFeedback>

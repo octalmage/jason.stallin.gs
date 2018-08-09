@@ -46,7 +46,18 @@ const LastfmDiv = styled.div.attrs({
 const Footer = ({ type, color }) => (
   <StyledFooter className={`FooterType-${type}`}>
     <StyledSocialIcons urls={urls} color={color} />
-    Powered by <a href="https://www.gatsbyjs.org/" target="_blank" rel="noopener noreferrer">Gatsby</a> and <a href="https://wordpress.org/" target="_blank" rel="noopener noreferrer">WordPress</a>.
+    Powered by
+    {' '}
+    <a href="https://www.gatsbyjs.org/" target="_blank" rel="noopener noreferrer">
+      Gatsby
+    </a>
+    {' '}
+    and
+    {' '}
+    <a href="https://wordpress.org/" target="_blank" rel="noopener noreferrer">
+      WordPress
+    </a>
+    .
   </StyledFooter>
 );
 
@@ -67,11 +78,11 @@ const DefaultLayout = ({ children }) => (
       <div>
         <Helmet
           meta={[
-              {
-                name: 'description',
-                content: data.site.siteMetadata.description,
-              },
-            ]}
+            {
+              name: 'description',
+              content: data.site.siteMetadata.description,
+            },
+          ]}
         >
           <html lang="en" />
         </Helmet>
@@ -83,7 +94,9 @@ const DefaultLayout = ({ children }) => (
                   to="/"
                   href="/"
                 >
-                  <h1>{data.site.siteMetadata.title}</h1>
+                  <h1>
+                    {data.site.siteMetadata.title}
+                  </h1>
                 </Link>
                 <p className="lead">
                   {data.site.siteMetadata.subtitle}
@@ -101,7 +114,7 @@ const DefaultLayout = ({ children }) => (
                       {link.title}
                     </Link>
                   </li>
-                  ))}
+                ))}
               </ul>
               <hr />
               <Footer type="sidebar" color="white" />

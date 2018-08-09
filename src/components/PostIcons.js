@@ -21,8 +21,8 @@ export default ({ node, className = '' }) => (
       {' '}
       {node.date}
     </TaxSpan>
-    {node.categories &&
-      node.categories.map(category => (
+    {node.categories
+      && node.categories.map(category => (
         <TaxSpan key={category.name}>
           {' '}
           <OpenIcon size={14} style={{ position: 'relative', bottom: 1 }} />
@@ -35,8 +35,8 @@ export default ({ node, className = '' }) => (
           </Link>
         </TaxSpan>
       ))}
-    {node.tags &&
-      node.tags.map(tag => (
+    {node.tags
+      && node.tags.map(tag => (
         <TaxSpan key={tag.name}>
           {'  '}
           <TagIcon size={14} style={{ position: 'relative', bottom: 1 }} />
