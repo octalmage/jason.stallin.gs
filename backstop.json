@@ -1,0 +1,51 @@
+{
+  "id": "backstop_default",
+  "viewports": [
+    {
+      "label": "phone",
+      "width": 320,
+      "height": 480
+    },
+    {
+      "label": "tablet",
+      "width": 1024,
+      "height": 768
+    }
+  ],
+  "scenarios": [
+    {
+      "label": "Homepage",
+      "url": "http://127.0.0.1:9000",
+      "delay": 500,
+      "misMatchThreshold" : 0.3
+    },
+    {
+      "label": "RobotJS",
+      "url": "http://127.0.0.1:9000/projects/robotjs/",
+      "delay": 500,
+      "misMatchThreshold" : 0.3
+    },
+    {
+      "label": "Blog Post",
+      "url": "http://127.0.0.1:9000/javascript-error-reporting-for-wordpress/",
+      "delay": 500,
+      "misMatchThreshold" : 0.3
+    }
+  ],
+  "paths": {
+    "bitmaps_reference": "backstop_data/bitmaps_reference",
+    "bitmaps_test": "backstop_data/bitmaps_test",
+    "engine_scripts": "backstop_data/engine_scripts",
+    "html_report": "backstop_data/html_report",
+    "ci_report": "backstop_data/ci_report"
+  },
+  "report": ["browser"],
+  "engine": "puppeteer",
+  "engineOptions": {
+    "args": ["--no-sandbox"]
+  },
+  "asyncCaptureLimit": 5,
+  "asyncCompareLimit": 50,
+  "debug": false,
+  "debugWindow": false
+}
