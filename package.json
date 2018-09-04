@@ -63,7 +63,7 @@
     "deploy": "firebase deploy --only hosting",
     "deploy-functions": "firebase deploy --only functions",
     "acceptance": "testcafe -e chrome tests/acceptance/**/*.js --app \"http-server -p 8000 ./public -s\"",
-    "visual": "backstop test",
+    "visual": "backstop test --docker",
     "unit": "jest"
   },
   "devDependencies": {

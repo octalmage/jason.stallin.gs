@@ -9,6 +9,11 @@ addons:
     - google-chrome
     packages:
     - google-chrome-stable fluxbox
+  artifacts:
+    paths:
+    - $(find backstop_data -type f| tr "\n" ":")
+services:
+- docker
 cache:
   yarn: true
   directories:

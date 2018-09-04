@@ -15,19 +15,19 @@
   "scenarios": [
     {
       "label": "Homepage",
-      "url": "http://127.0.0.1:9000",
+      "url": "http://host.docker.internal:9000",
       "delay": 500,
       "misMatchThreshold" : 0.3
     },
     {
       "label": "RobotJS",
-      "url": "http://127.0.0.1:9000/projects/robotjs/",
+      "url": "http://host.docker.internal:9000/projects/robotjs/",
       "delay": 500,
       "misMatchThreshold" : 0.3
     },
     {
       "label": "Blog Post",
-      "url": "http://127.0.0.1:9000/javascript-error-reporting-for-wordpress/",
+      "url": "http://host.docker.internal:9000/wp-travis-a-new-plugin-for-headless-wordpress/",
       "delay": 500,
       "misMatchThreshold" : 0.3
     }
