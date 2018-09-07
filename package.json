@@ -55,7 +55,7 @@
   "scripts": {
     "dev": "gatsby develop",
     "lint": "eslint --ext .js,.jsx --ignore-path .gitignore .",
-    "test": "yarn run lint && npm-run-all -p start visual -r && yarn run acceptance",
+    "test": "yarn run lint && yarn run acceptance",
     "develop": "gatsby develop",
     "build": "gatsby build",
     "start": "gatsby serve",
@@ -63,7 +63,8 @@
     "deploy": "firebase deploy --only hosting",
     "deploy-functions": "firebase deploy --only functions",
     "acceptance": "testcafe -e chrome tests/acceptance/**/*.js --app \"http-server -p 8000 ./public -s\"",
-    "visual": "backstop test --docker",
+    "backstop": "backstop test --docker",
+    "visual": "npm-run-all -p start visual -r",
     "unit": "jest"
   },
   "devDependencies": {
