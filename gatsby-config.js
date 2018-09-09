@@ -1,3 +1,5 @@
+const firebaseConfig = require('./firebase');
+
 module.exports = {
   siteMetadata: {
     title: 'Jason Stallings',
@@ -92,6 +94,13 @@ module.exports = {
     },
     'gatsby-plugin-sitemap',
     'gatsby-plugin-react-helmet',
+    {
+      resolve: 'gatsby-plugin-firebase-hosting',
+      options: {
+        enabled: process.env.CI === 'true',
+        firebaseConfig,
+      },
+    },
     'gatsby-plugin-offline',
   ],
 };

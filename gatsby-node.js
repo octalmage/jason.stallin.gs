@@ -10,7 +10,7 @@ const slash = require('slash');
 // Will create pages for Wordpress pages (route : /{slug})
 // Will create pages for Wordpress posts (route : /post/{slug})
 exports.createPages = ({ graphql, actions }) => {
-  const { createPage } = actions;
+  const { createPage, createRedirect } = actions;
   return new Promise((resolve, reject) => {
     // ==== PROJECTS (CUSTOM POST TYPE) ====
     graphql(`
@@ -100,6 +100,13 @@ exports.createPages = ({ graphql, actions }) => {
               context: {
                 id: edge.node.id,
               },
+            });
+
+            // Create redirect from amp page.
+            createRedirect({
+              fromPath: `/${edge.node.slug}/amp`,
+              toPath: `/${edge.node.slug}/`,
+              isPermanent: true,
             });
 
             // Create category listings.

@@ -1510,6 +1510,10 @@ array-map@~0.0.0:
   version "0.0.0"
   resolved "https://registry.yarnpkg.com/array-map/-/array-map-0.0.0.tgz#88a2bab73d1cf7bcd5c1b118a003f66f665fa662"
 
+array-merge-by-key@^1.0.1:
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/array-merge-by-key/-/array-merge-by-key-1.0.1.tgz#f5478881dcd0d25a48b598227cb49e709d81224e"
+
 array-reduce@~0.0.0:
   version "0.0.0"
   resolved "https://registry.yarnpkg.com/array-reduce/-/array-reduce-0.0.0.tgz#173899d3ffd1c7d9383e4479525dbe278cab5f2b"
