@@ -59,11 +59,10 @@ module.exports = {
     },
     'gatsby-plugin-sitemap',
     'gatsby-plugin-react-helmet',
-    'gatsby-plugin-firebase-hosting',
     {
       resolve: 'gatsby-plugin-firebase-hosting',
       options: {
-        enabled: process.env.CI === true,
+        enabled: process.env.CI === 'true',
         firebaseConfig,
       },
     },

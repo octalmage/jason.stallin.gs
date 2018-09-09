@@ -3,20 +3,19 @@ const mergeByKey = require('array-merge-by-key');
 
 const { DEFAULT_FIREBASE_JSON } = require('./constants');
 
-exports.onPostBuild = async ({ store, pathPrefix, reporter }, userPluginOptions) => {
-  console.log(store);
-  console.log('options', userPluginOptions);
+exports.onPostBuild = async ({ store, reporter }, userPluginOptions) => {
   if (typeof userPluginOptions.enabled !== 'undefined' && userPluginOptions.enabled !== true) {
     return Promise.resolve();
   }
 
-  // const state = store.getState();
+  const { redirects } = store.getState();
+
   return new Promise((resolve) => {
     if (typeof userPluginOptions.firebaseConfig === 'undefined') {
-      reporter.info('firebase.json not found, using default settings.');
+      reporter.info('Firebase config not found, using default settings.');
       return resolve(DEFAULT_FIREBASE_JSON);
     }
-    reporter.info('firebase.json found, merging default settings.');
+    reporter.info('Firebase config found, merging default settings.');
     const newHosting = Object.assign({}, DEFAULT_FIREBASE_JSON.hosting);
     const currentFirebase = userPluginOptions.firebaseConfig;
     const { hosting: currentHosting } = currentFirebase;
@@ -28,7 +27,35 @@ exports.onPostBuild = async ({ store, pathPrefix, reporter }, userPluginOptions)
     });
     return resolve(Object.assign(currentFirebase, { hosting: newHosting }));
   })
-  .then((config) => {
-    console.log(config.hosting);
-  })
+    .then((config) => {
+      const firebaseRedirects = redirects.map((redirect) => {
+        const {
+          fromPath,
+          isPermanent,
+          redirectInBrowser,
+          toPath,
+        } = redirect;
+
+        if (redirectInBrowser) return null;
+
+        return {
+          source: fromPath,
+          destination: toPath,
+          type: isPermanent ? 301 : 302,
+        };
+      }).filter(r => r); // Remove empty items.
+      const currentRedirects = typeof config.hosting.redirects === 'undefined' ? [] : config.hosting.redirects.slice(0);
+      const newRedirects = currentRedirects.concat(firebaseRedirects);
+
+      return Object.assign({}, config, {
+        hosting: Object.assign({}, config.hosting, { redirects: newRedirects }),
+      });
+    })
+    .then(config => new Promise((resolve, reject) => {
+      fs.writeFile('firebase.json', JSON.stringify(config, null, 2), 'utf8', (err) => {
+        if (err) reject(err);
+        reporter.info('Wrote firebase.json.');
+        resolve();
+      });
+    }));
 };
