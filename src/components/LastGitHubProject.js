@@ -16,7 +16,8 @@ export default class LastGitHubProject extends React.Component {
   }
 
   componentWillMount() {
-    fetch(`/api/cacheLatestGithubProject?username=${this.props.username}`)
+    const { username } = this.props;
+    fetch(`/api/cacheLatestGithubProject?username=${username}`)
       .then((response) => {
         if (!response.ok) {
           throw Error(response.statusText);
@@ -51,14 +52,16 @@ export default class LastGitHubProject extends React.Component {
     `;
     return (
       <StyledSpan visible={recentProject.name !== ''}>
-        Currently I&apos;m working on{' '}
+        Currently I&apos;m working on
+        {' '}
         <a
           target="_blank"
           rel="noopener noreferrer"
           href={recentProject.url}
         >
           {recentProject.name}
-        </a>.
+        </a>
+        .
       </StyledSpan>
     );
   }

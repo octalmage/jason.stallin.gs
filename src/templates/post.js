@@ -8,6 +8,7 @@ import PostIcons from '../components/PostIcons';
 import BlogContent from '../components/BlogContent';
 import Feedback from '../components/Feedback';
 import { rhythm } from '../utils/typography';
+import htmlDecode from '../utils/htmlDecode';
 import Layout from '../components/Layout';
 
 injectGlobal`
@@ -37,13 +38,13 @@ const PostTemplate = ({ data }) => {
   return (
     <Layout>
       <Helmet
-        title={`${post.title} | ${data.site.siteMetadata.title}`}
+        title={`${htmlDecode(post.title)} | ${data.site.siteMetadata.title}`}
         meta={[
-            {
-              name: 'description',
-              content: post.excerpt.replace(/<(?:.|\n)*?>/gm, ''),
-            },
-          ]}
+          {
+            name: 'description',
+            content: post.excerpt.replace(/<(?:.|\n)*?>/gm, ''),
+          },
+        ]}
       />
       <h1 dangerouslySetInnerHTML={{ __html: post.title }} />
       <PostIcons node={post} style={{ marginBottom: rhythm(1 / 2) }} />

@@ -1,8 +1,10 @@
 import React from 'react';
 import GitHubWidget from 'react-github-widget';
 import SyntaxHighlighter from 'react-syntax-highlighter';
-import { monokai } from 'react-syntax-highlighter/dist/styles';
+import { monokai } from 'react-syntax-highlighter/styles/hljs';
 import HtmlToReact from 'html-to-react';
+
+let cachedRepo;
 
 const HtmlToReactParser = HtmlToReact.Parser;
 const isValidNode = () => true;
@@ -32,7 +34,7 @@ const processingInstructions = [
     // Replace <div class="github-widget"> with GitHubWidget.
     shouldProcessNode: node => node.attribs && node.attribs.class === 'github-widget',
     processNode: (node, children, index) => (
-      <GitHubWidget key={index} repository={node.attribs['data-repo']} />
+      <GitHubWidget key={index} repository={node.attribs['data-repo']} data={cachedRepo} />
     ),
   },
   {
@@ -42,7 +44,18 @@ const processingInstructions = [
 const htmlToReactParser = new HtmlToReactParser();
 
 
-const BlogContent = ({ content }) => {
+const BlogContent = ({ content, repo }) => {
+  if (repo) {
+    cachedRepo = {
+      description: repo.description,
+      pushed_at: repo.pushedAt,
+      homepage: repo.homepageUrl,
+      forks: repo.forkCount,
+      watchers: repo.stargazers.totalCount,
+      default_branch: repo.defaultBranchRef.name,
+    };
+  }
+
   const newContent = htmlToReactParser.parseWithInstructions(
     content,
     isValidNode,

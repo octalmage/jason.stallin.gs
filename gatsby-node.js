@@ -40,6 +40,7 @@ exports.createPages = ({ graphql, actions }) => {
             component: slash(projectTemplate),
             context: {
               id: edge.node.id,
+              name: `/${edge.node.slug}/i`,
             },
           });
         });

@@ -29,6 +29,41 @@ module.exports = {
         ],
       },
     },
+    {
+      resolve: 'gatsby-source-github',
+      options: {
+        headers: {
+          Authorization: `Bearer ${process.env.GITHUB_TOKEN}`,
+        },
+        queries: [`
+          {
+            viewer {
+              repositories(first: 100, orderBy: {field: STARGAZERS, direction: DESC}) {
+                edges {
+                  node {
+                    id
+                    name
+                    description
+                    stargazers {
+                      totalCount
+                    }
+                    watchers {
+                      totalCount
+                    }
+                    forkCount
+                    homepageUrl
+                    pushedAt
+                    defaultBranchRef {
+                      name
+                    }
+                  }
+                }
+              }
+            }
+          }
+        `],
+      },
+    },
     'gatsby-transformer-sharp',
     {
       resolve: 'gatsby-source-filesystem',

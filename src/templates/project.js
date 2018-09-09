@@ -6,20 +6,22 @@ import Layout from '../components/Layout';
 
 const ProjectTemplate = ({ data }) => {
   const currentPage = data.wordpressWpProjects;
+  const repo = data.githubRepositories;
   return (
     <Layout>
       <Helmet
         title={`${currentPage.title} | ${data.site.siteMetadata.title}`}
         meta={[
-            {
-              name: 'description',
-              content: currentPage.excerpt.replace(/<(?:.|\n)*?>/gm, ''),
-            },
-          ]}
+          {
+            name: 'description',
+            content: currentPage.excerpt.replace(/<(?:.|\n)*?>/gm, ''),
+          },
+        ]}
       />
       <h1 dangerouslySetInnerHTML={{ __html: currentPage.title }} />
-      <BlogContent content={currentPage.content} />
-      { currentPage.learn_more_link &&
+      <BlogContent content={currentPage.content} repo={repo} />
+      { currentPage.learn_more_link
+        && (
         <h3>
           <a
             href={currentPage.learn_more_link}
@@ -29,7 +31,7 @@ const ProjectTemplate = ({ data }) => {
               Learn More
           </a>
         </h3>
-        }
+        )}
     </Layout>
   );
 };
@@ -37,7 +39,7 @@ const ProjectTemplate = ({ data }) => {
 export default ProjectTemplate;
 
 export const pageQuery = graphql`
-  query currentProjectQuery($id: String!) {
+  query currentProjectQuery($id: String!, $name: String!) {
     wordpressWpProjects(id: { eq: $id }) {
       title
       content
@@ -50,6 +52,23 @@ export const pageQuery = graphql`
       siteMetadata {
         title
       }
+    }
+    githubRepositories(name:{ regex: $name }) {
+      id
+      name
+      description
+      stargazers {
+        totalCount
+      }
+      watchers {
+        totalCount
+      }
+      homepageUrl
+      pushedAt
+      defaultBranchRef {
+        name
+      }
+      forkCount
     }
   }
 `;
