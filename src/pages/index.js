@@ -25,7 +25,7 @@ const Home = ({ data }) => (
       <p>
         I live in Austin, Texas, and I work at
         {' '}
-        <a href="http://wpengine.com/">
+        <a href="http://wpengine.com/" target="_blank" rel="noopener noreferrer">
         WP Engine
         </a>
         .
@@ -33,17 +33,17 @@ const Home = ({ data }) => (
       <p>
         Recently I spend most of my days playing with
         {' '}
-        <a href="http://wordpress.org/">
+        <a href="http://wordpress.org/" target="_blank" rel="noopener noreferrer">
           WordPress,
         </a>
         {' '}
-        <a href="http://nodejs.org/">
+        <a href="http://nodejs.org/" target="_blank" rel="noopener noreferrer">
           Node.js,
         </a>
         {' '}
           and
         {' '}
-        <a href="https://reactjs.org">
+        <a href="https://reactjs.org" target="_blank" rel="noopener noreferrer">
           React
         </a>
         .
