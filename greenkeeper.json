@@ -7,7 +7,8 @@
       ],
       "ignore": [
         "react-social-icons",
-        "styled-components"
+        "styled-components",
+        "whatwg-fetch"
       ]
     }
   }

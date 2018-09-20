@@ -42,7 +42,7 @@
     "react-syntax-highlighter": "^8.0.1",
     "react-typography": "^0.16.13",
     "recursive-readdir": "^2.2.1",
-    "styled-components": "^2.3.3",
+    "styled-components": "~2.3.3",
     "typeface-roboto": "0.0.54",
     "typography": "^0.16.17",
     "typography-theme-github": "^0.15.10",
