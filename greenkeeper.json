@@ -5,9 +5,10 @@
         "functions/package.json",
         "package.json"
       ],
-      "ignore": [	
-        "react-social-icons",	
-        "styled-components"	
+      "ignore": [
+        "react-social-icons",
+        "styled-components",
+        "whatwg-fetch"
       ]
     }
   }
