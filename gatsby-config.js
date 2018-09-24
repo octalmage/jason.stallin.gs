@@ -101,6 +101,18 @@ module.exports = {
         firebaseConfig,
       },
     },
+    {
+      resolve: 'gatsby-plugin-manifest',
+      options: {
+        name: 'Jason Stallings',
+        short_name: 'Jason',
+        start_url: '/',
+        background_color: '#f7f0eb',
+        theme_color: '#000000',
+        display: 'minimal-ui',
+        icon: 'src/assets/icon.png',
+      },
+    },
     'gatsby-plugin-offline',
   ],
 };
