@@ -2473,9 +2473,9 @@ backo2@1.0.2:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/backo2/-/backo2-1.0.2.tgz#31ab1ac8b129363463e35b3ebb69f4dfcfba7947"
 
-backstopjs@^3.5.8:
-  version "3.5.10"
-  resolved "https://registry.yarnpkg.com/backstopjs/-/backstopjs-3.5.10.tgz#091808f5fa745f890c6ac709641065ce1b1d9f4b"
+backstopjs@^3.5.16:
+  version "3.5.16"
+  resolved "https://registry.yarnpkg.com/backstopjs/-/backstopjs-3.5.16.tgz#c8be2b39003107b0eb8531c69edeef5b1b130509"
   dependencies:
     casperjs "^1.1.0-beta5"
     chalk "^1.1.3"
