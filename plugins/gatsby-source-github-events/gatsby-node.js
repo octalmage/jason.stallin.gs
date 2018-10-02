@@ -16,6 +16,12 @@ exports.sourceNodes = async (
         Authorization: `Basic ${base64data}`,
       }),
     });
+
+    if (!response.ok) {
+      const err = await response.json();
+      throw Error(`${response.status} ${response.statusText}\n${err.message}`);
+    }
+
     data = await response.json();
   } catch (err) {
     // catches errors both in fetch and response.json
