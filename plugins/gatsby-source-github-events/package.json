@@ -1,0 +1,18 @@
+{
+  "name": "gatsby-source-github-events",
+  "description": "A Gatsby plugin which generates a firebase.json file for Firebase Hosting",
+  "version": "2.0.0-beta.5",
+  "keywords": [
+    "gatsby",
+    "gatsby-plugin",
+    "firebase"
+  ],
+  "license": "MIT",
+  "main": "index.js",
+  "peerDependencies": {
+    "gatsby": ">2.0.0"
+  },
+  "dependencies": {
+    "node-fetch": "^2.2.0"
+  }
+}

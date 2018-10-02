@@ -3,7 +3,6 @@ import Helmet from 'react-helmet';
 import Img from 'gatsby-image';
 import styled from 'styled-components';
 import { graphql } from 'gatsby';
-import LastGitHubProject from '../components/LastGitHubProject';
 import Layout from '../components/Layout';
 
 const HeaderImage = styled(Img)`
@@ -48,8 +47,19 @@ const Home = ({ data }) => (
         </a>
         .
       </p>
+      <p>
+        Currently I&apos;m working on
+        {' '}
+        <a
+          target="_blank"
+          rel="noopener noreferrer"
+          href={data.lastPush.edges[0].node.repo.url.replace('api.', '').replace('/repos', '')}
+        >
+          {data.lastPush.edges[0].node.repo.name.split('/')[1]}
+        </a>
+        .
+      </p>
     </div>
-    <LastGitHubProject username="octalmage" />
   </Layout>
 );
 
@@ -66,6 +76,16 @@ export const pageQuery = graphql`
     headerImage: imageSharp(fluid: { originalName:{ regex:"/macbook/" } }) {
       fluid(maxWidth: 1240) {
         ...GatsbyImageSharpFluid
+      }
+    }
+    lastPush: allGitHubEvent(filter: { type: { eq:"PushEvent" } }, limit: 1) {
+      edges {
+        node {
+          repo {
+            name
+            url
+          }
+        }
       }
     }
   }

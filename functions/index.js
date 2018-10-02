@@ -2,7 +2,6 @@
 // Google Cloud Functions doesn't support dangling commas.
 const functions = require('firebase-functions');
 const nodemailer = require('nodemailer');
-const fetch = require('node-fetch');
 const admin = require('firebase-admin');
 
 admin.initializeApp(functions.config().firebase);
@@ -43,56 +42,3 @@ exports.sendContactEmail = functions.https.onRequest((request, response) => {
 
   return response.send('Email sent!');
 });
-
-exports.cacheLatestGithubProject = functions
-  .https
-  .onRequest((request, response) => { // eslint-disable-line consistent-return
-    if (!request.query.username) {
-      return response.send('Missing username parameter.');
-    }
-
-    response.set('Cache-Control', 'public, max-age=3600, s-maxage=3600');
-    response.removeHeader('pragma');
-    response.removeHeader('expires');
-
-    const db = admin.database();
-    const ref = db.ref(`cacheLatestGithubProject/${request.query.username}`);
-
-    return ref.once('value').then((snapshot) => {
-      const entry = snapshot.val();
-      if (entry) {
-        response.send(entry.data);
-
-        // If entry is still valid return.
-        if ((Date.now() - entry.timestamp) <= 1000 * 60 * 60) {
-          return undefined;
-        }
-      }
-
-      console.log('Refreshing cache.');
-
-      return fetch(`https://api.github.com/users/${request.query.username}/events/public`)
-        .then((res) => {
-          if (!res.ok) {
-            throw Error(res.statusText);
-          }
-          return res;
-        })
-        .then(res => res.json()).then((res) => {
-          const data = {
-            timestamp: Date.now(),
-            data: res,
-          };
-
-          ref.set(data);
-
-          // First time!
-          if (!entry) {
-            response.send(res);
-          }
-
-          return undefined;
-        })
-        .catch(err => response.send(err));
-    });
-  });
