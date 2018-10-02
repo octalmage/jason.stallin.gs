@@ -6,8 +6,15 @@ exports.sourceNodes = async (
   { plugins, ...options },
 ) => {
   const apiUrl = `https://api.github.com/users/${options.username}/events/public`;
-  const response = await fetch(apiUrl);
-  const data = await response.json();
+  let data;
+  try {
+    const response = await fetch(apiUrl);
+    data = await response.json();
+  } catch (err) {
+    // catches errors both in fetch and response.json
+    console.log(err);
+    return;
+  }
   data.forEach((event) => {
     createNode({
       ...event,
