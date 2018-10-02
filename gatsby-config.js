@@ -113,6 +113,12 @@ module.exports = {
         icon: 'src/assets/icon.png',
       },
     },
+    {
+      resolve: 'gatsby-source-github-events',
+      options: {
+        username: 'octalmage',
+      },
+    },
     'gatsby-plugin-offline',
   ],
 };
