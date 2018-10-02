@@ -2,9 +2,10 @@ const fetch = require('node-fetch');
 const crypto = require('crypto');
 
 exports.sourceNodes = async (
-  { actions: { createNode }, createNodeId },
+  { actions: { createNode }, createNodeId, reporter },
   { plugins, ...options },
 ) => {
+  reporter.info('Fetching data from the GitHub events API');
   const apiUrl = `https://api.github.com/users/${options.username}/events/public`;
   let data;
   try {
@@ -12,7 +13,11 @@ exports.sourceNodes = async (
     data = await response.json();
   } catch (err) {
     // catches errors both in fetch and response.json
-    console.log(err);
+    reporter.error('Error fetching data from GitHub events API', err);
+    return;
+  }
+  if (data.legnth < 0) {
+    reporter.error('No events returned from GitHub');
     return;
   }
   data.forEach((event) => {
@@ -31,4 +36,5 @@ exports.sourceNodes = async (
       },
     });
   });
+  reporter.success('Data fetched from GitHub events API');
 };

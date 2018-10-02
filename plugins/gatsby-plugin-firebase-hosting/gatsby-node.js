@@ -54,7 +54,7 @@ exports.onPostBuild = async ({ store, reporter }, userPluginOptions) => {
     .then(config => new Promise((resolve, reject) => {
       fs.writeFile('firebase.json', JSON.stringify(config, null, 2), 'utf8', (err) => {
         if (err) reject(err);
-        reporter.info('Wrote firebase.json.');
+        reporter.success('Wrote firebase.json.');
         resolve();
       });
     }));
