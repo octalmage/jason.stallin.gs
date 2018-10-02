@@ -9,7 +9,13 @@ exports.sourceNodes = async (
   const apiUrl = `https://api.github.com/users/${options.username}/events/public`;
   let data;
   try {
-    const response = await fetch(apiUrl);
+    const buff = Buffer.from(`${options.username}:${options.token}`);
+    const base64data = buff.toString('base64');
+    const response = await fetch(apiUrl, {
+      headers: new Headers({
+        Authorization: `Basic ${base64data}`,
+      }),
+    });
     data = await response.json();
   } catch (err) {
     // catches errors both in fetch and response.json
@@ -20,6 +26,7 @@ exports.sourceNodes = async (
     reporter.error('No events returned from GitHub');
     return;
   }
+
   data.forEach((event) => {
     createNode({
       ...event,
