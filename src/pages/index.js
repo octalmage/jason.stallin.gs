@@ -75,7 +75,7 @@ export const pageQuery = graphql`
     }
     headerImage: imageSharp(fluid: { originalName:{ regex:"/macbook/" } }) {
       fluid(maxWidth: 1240) {
-        ...GatsbyImageSharpFluid
+        ...GatsbyImageSharpFluid_withWebp
       }
     }
     lastPush: allGitHubEvent(filter: { type: { eq:"PushEvent" } }, limit: 1) {
