@@ -6040,9 +6040,9 @@ gatsby-plugin-manifest@^2.0.3:
     bluebird "^3.5.0"
     sharp "^0.20.2"
 
-gatsby-plugin-offline@^2.0.0-beta.9:
-  version "2.0.5"
-  resolved "https://registry.yarnpkg.com/gatsby-plugin-offline/-/gatsby-plugin-offline-2.0.5.tgz#11cd7941116ea3f7d3127a4343ce880ca1d10497"
+gatsby-plugin-offline@^2.0.7:
+  version "2.0.7"
+  resolved "https://registry.yarnpkg.com/gatsby-plugin-offline/-/gatsby-plugin-offline-2.0.7.tgz#41825f5b5ba0f9b75054056fb33e3acd8da5017d"
   dependencies:
     "@babel/runtime" "^7.0.0"
     cheerio "^1.0.0-rc.2"
