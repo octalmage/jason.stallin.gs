@@ -6120,9 +6120,26 @@ gatsby-react-router-scroll@^2.0.0:
     scroll-behavior "^0.9.9"
     warning "^3.0.0"
 
-gatsby-source-filesystem@^2.0.1-beta.5, gatsby-source-filesystem@^2.0.1-rc.1:
+gatsby-source-filesystem@^2.0.1-beta.5:
   version "2.0.1-rc.1"
   resolved "https://registry.yarnpkg.com/gatsby-source-filesystem/-/gatsby-source-filesystem-2.0.1-rc.1.tgz#a64d54ee319c5bad35d3a01901cbe5099f86f00c"
+  dependencies:
+    "@babel/runtime" "^7.0.0"
+    better-queue "^3.8.7"
+    bluebird "^3.5.0"
+    chokidar "^1.7.0"
+    fs-extra "^5.0.0"
+    got "^7.1.0"
+    md5-file "^3.1.1"
+    mime "^2.2.0"
+    pretty-bytes "^4.0.2"
+    slash "^1.0.0"
+    valid-url "^1.0.9"
+    xstate "^3.1.0"
+
+gatsby-source-filesystem@^2.0.5:
+  version "2.0.5"
+  resolved "https://registry.yarnpkg.com/gatsby-source-filesystem/-/gatsby-source-filesystem-2.0.5.tgz#dddeab249313eba7dc93533f0f81d9fe160a726a"
   dependencies:
     "@babel/runtime" "^7.0.0"
     better-queue "^3.8.7"
@@ -6145,9 +6162,9 @@ gatsby-source-github@^0.0.2:
     lodash "~4.17.5"
     yup "~0.24.1"
 
-gatsby-source-wordpress@^3.0.0-beta.7:
-  version "3.0.0-rc.1"
-  resolved "https://registry.yarnpkg.com/gatsby-source-wordpress/-/gatsby-source-wordpress-3.0.0-rc.1.tgz#4b054c4b5b3bbf9c9faf2d823e493637c68a0d1d"
+gatsby-source-wordpress@^3.0.7:
+  version "3.0.7"
+  resolved "https://registry.yarnpkg.com/gatsby-source-wordpress/-/gatsby-source-wordpress-3.0.7.tgz#940de7d38ffacb9ebdf0440926a1edd8d1c6462e"
   dependencies:
     "@babel/runtime" "^7.0.0"
     axios "^0.18.0"
@@ -6155,9 +6172,9 @@ gatsby-source-wordpress@^3.0.0-beta.7:
     bluebird "^3.5.0"
     deep-map "^1.5.0"
     deep-map-keys "^1.2.0"
-    gatsby-source-filesystem "^2.0.1-rc.1"
+    gatsby-source-filesystem "^2.0.5"
     json-stringify-safe "^5.0.1"
-    lodash "^4.17.4"
+    lodash "^4.17.10"
     minimatch "^3.0.4"
     qs "^6.4.0"
 
