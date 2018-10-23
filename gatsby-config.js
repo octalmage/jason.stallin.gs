@@ -117,7 +117,7 @@ module.exports = {
       resolve: 'gatsby-source-github-events',
       options: {
         username: 'octalmage',
-        token: process.env.GITHUB_TOKEN,
+        token: process.env.GH_TOKEN,
       },
     },
     'gatsby-plugin-offline',
