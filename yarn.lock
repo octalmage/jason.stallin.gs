@@ -11358,9 +11358,9 @@ react-social-icons@2.7.0:
     babel-runtime "^6.11.6"
     classnames "^2.2.5"
 
-react-syntax-highlighter@^8.0.1:
-  version "8.0.1"
-  resolved "https://registry.yarnpkg.com/react-syntax-highlighter/-/react-syntax-highlighter-8.0.1.tgz#88f7833e3a2d3c718799f2e7776266486c82c566"
+react-syntax-highlighter@^9.0.1:
+  version "9.0.1"
+  resolved "https://registry.yarnpkg.com/react-syntax-highlighter/-/react-syntax-highlighter-9.0.1.tgz#cad91692e1976f68290f24762ac3451b1fec3d26"
   dependencies:
     babel-runtime "^6.18.0"
     highlight.js "~9.12.0"
