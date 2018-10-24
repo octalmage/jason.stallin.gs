@@ -12,9 +12,9 @@ exports.sourceNodes = async (
     const buff = Buffer.from(`${options.username}:${options.token}`);
     const base64data = buff.toString('base64');
     const response = await fetch(apiUrl, {
-      headers: new Headers({
+      headers: {
         Authorization: `Basic ${base64data}`,
-      }),
+      },
     });
 
     if (!response.ok) {
