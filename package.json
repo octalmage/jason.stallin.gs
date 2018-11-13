@@ -31,7 +31,7 @@
     "material-ui": "^0.20.2",
     "mkdirp": "^0.5.1",
     "nodemailer": "^4.2.0",
-    "react": "^16.6.0",
+    "react": "^16.6.3",
     "react-dom": "^16.6.0",
     "react-github-widget": "0.0.7",
     "react-helmet": "^5.2.0",
