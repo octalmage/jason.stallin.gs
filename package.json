@@ -46,7 +46,7 @@
     "styled-components": "~2.3.3",
     "typeface-roboto": "0.0.54",
     "typography": "^0.16.17",
-    "typography-theme-github": "^0.15.10",
+    "typography-theme-github": "^0.16.18",
     "whatwg-fetch": "^2.0.3",
     "window-or-global": "^1.0.1"
   },
