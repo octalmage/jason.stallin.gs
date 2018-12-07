@@ -40,7 +40,7 @@
     "react-notification-system": "^0.2.15",
     "react-protected-mailto": "^1.0.3",
     "react-social-icons": "2.7.0",
-    "react-syntax-highlighter": "^8.0.1",
+    "react-syntax-highlighter": "^9.0.0",
     "react-typography": "^0.16.13",
     "recursive-readdir": "^2.2.1",
     "styled-components": "~2.3.3",
