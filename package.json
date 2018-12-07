@@ -15,7 +15,7 @@
     "gatsby-image": "^2.0.22",
     "gatsby-plugin-google-analytics": "^2.0.8",
     "gatsby-plugin-manifest": "2.0.11",
-    "gatsby-plugin-offline": "^2.0.0-beta.9",
+    "gatsby-plugin-offline": "^2.0.19",
     "gatsby-plugin-react-helmet": "^3.0.0-beta.4",
     "gatsby-plugin-sentry": "^0.1.0",
     "gatsby-plugin-sharp": "^2.0.7",
