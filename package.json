@@ -17,7 +17,7 @@
     "gatsby-plugin-manifest": "2.0.11",
     "gatsby-plugin-offline": "^2.0.19",
     "gatsby-plugin-react-helmet": "^3.0.4",
-    "gatsby-plugin-sentry": "^0.1.0",
+    "gatsby-plugin-sentry": "^1.0.0",
     "gatsby-plugin-sharp": "^2.0.15",
     "gatsby-plugin-sitemap": "^2.0.3",
     "gatsby-plugin-styled-components": "^3.0.4",
