@@ -99,7 +99,7 @@ module.exports = {
     {
       resolve: 'gatsby-plugin-firebase-hosting',
       options: {
-        enabled: process.env.CI === 'true',
+        enabled: 'true' === process.env.CI,
         firebaseConfig,
       },
     },
