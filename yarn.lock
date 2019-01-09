@@ -9776,9 +9776,10 @@ node-version@^1.0.0:
   version "1.2.0"
   resolved "https://registry.yarnpkg.com/node-version/-/node-version-1.2.0.tgz#34fde3ffa8e1149bd323983479dda620e1b5060d"
 
-nodemailer@^4.2.0:
-  version "4.6.8"
-  resolved "https://registry.yarnpkg.com/nodemailer/-/nodemailer-4.6.8.tgz#f82fb407828bf2e76d92acc34b823d83e774f89c"
+nodemailer@^5.1.0:
+  version "5.1.0"
+  resolved "https://registry.yarnpkg.com/nodemailer/-/nodemailer-5.1.0.tgz#e1d3056222fa8b10c6cceafa10a967a13113023d"
+  integrity sha512-g72Tr4NZXK0PC5szgXZfph2tpVsF14pxF+QthwK2RdVbMU8RleioODANvpze0WvgNqB/M7kKy69PpgbuUHTAxw==
 
 nomnom@~1.6.2:
   version "1.6.2"
