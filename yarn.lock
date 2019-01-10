@@ -11442,9 +11442,10 @@ react-hot-loader@^4.5.1:
     shallowequal "^1.0.2"
     source-map "^0.7.3"
 
-react-icons@^3.0.5:
-  version "3.0.5"
-  resolved "https://registry.yarnpkg.com/react-icons/-/react-icons-3.0.5.tgz#9f22a319a48b562e052af2255a3dda8ded363d1c"
+react-icons@^3.3.0:
+  version "3.3.0"
+  resolved "https://registry.yarnpkg.com/react-icons/-/react-icons-3.3.0.tgz#09409cad23c39149e419af5c928eee6f9f456b93"
+  integrity sha512-OY8yBAyww1VEro12Zbt6dZqz77zN7LXukC4oA4i4fWjxTjCbbqsPy6BrfAh7BYPtIRaTXhpoYlhdoDaT/kxdog==
 
 react-is@^16.4.2:
   version "16.5.0"
