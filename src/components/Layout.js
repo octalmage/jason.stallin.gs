@@ -1,6 +1,6 @@
 import React from 'react';
 import Helmet from 'react-helmet';
-import { SocialIcons } from 'react-social-icons';
+import { SocialIcon } from 'react-social-icons';
 import styled from 'styled-components';
 import LastfmWidget from 'react-lastfm-widget';
 import { StaticQuery, graphql, Link } from 'gatsby';
@@ -24,7 +24,7 @@ const urls = [
   'http://www.linkedin.com/in/jasonstallings',
 ];
 
-const StyledSocialIcons = styled(SocialIcons)`
+const StyledSocialIcon = styled(SocialIcon)`
   height: 15px !important;
   width: 15px !important;
   margin-right: 5px;
@@ -45,7 +45,15 @@ const LastfmDiv = styled.div.attrs({
 
 const Footer = ({ type, color }) => (
   <StyledFooter className={`FooterType-${type}`}>
-    <StyledSocialIcons urls={urls} color={color} />
+    <div>
+      {urls.map(url => (
+        <StyledSocialIcon 
+          url={url}
+          bgColor="#ffffff"
+          key={url}
+        />
+      ))}
+    </div>
     Powered by
     {' '}
     <a href="https://www.gatsbyjs.org/" target="_blank" rel="noopener noreferrer">

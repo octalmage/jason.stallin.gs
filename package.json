@@ -39,7 +39,7 @@
     "react-lastfm-widget": "0.0.4",
     "react-notification-system": "^0.2.15",
     "react-protected-mailto": "^1.0.3",
-    "react-social-icons": "2.7.0",
+    "react-social-icons": "^4.1.0",
     "react-syntax-highlighter": "^9.0.0",
     "react-typography": "^0.16.13",
     "recursive-readdir": "^2.2.1",
