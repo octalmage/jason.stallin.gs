@@ -43,14 +43,15 @@ const LastfmDiv = styled.div.attrs({
   right: 5px;
 `;
 
-const Footer = ({ type, color }) => (
+const Footer = ({ type }) => (
   <StyledFooter className={`FooterType-${type}`}>
     <div>
       {urls.map(url => (
-        <StyledSocialIcon 
+        <StyledSocialIcon
           url={url}
           bgColor="#ffffff"
           key={url}
+          rel="noopener noreferrer"
         />
       ))}
     </div>
@@ -125,7 +126,7 @@ const DefaultLayout = ({ children }) => (
                 ))}
               </ul>
               <hr />
-              <Footer type="sidebar" color="white" />
+              <Footer type="sidebar" />
             </div>
           </div>
         </header>
