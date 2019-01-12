@@ -26,6 +26,7 @@ module.exports = {
           '**/yoast/**',
           '**/akismet/**',
           '**/contact-form-7/**',
+          '**/wpcom/**',
         ],
       },
     },
