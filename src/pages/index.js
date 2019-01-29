@@ -73,7 +73,7 @@ export const pageQuery = graphql`
         subtitle
       }
     }
-    headerImage: imageSharp(fluid: { originalName:{ regex:"/macbook/" } }) {
+    headerImage: imageSharp(fluid: { originalName:{ regex:"/sanfran/" } }) {
       fluid(maxWidth: 1240) {
         ...GatsbyImageSharpFluid_withWebp
       }

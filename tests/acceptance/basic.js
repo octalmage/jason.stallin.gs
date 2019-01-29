@@ -9,6 +9,8 @@ fixture`Home Page`
 
 const blogLink = Selector('[href="/blog/"]');
 
+const githubLink = Selector('[aria-label="github"]');
+
 test('Page Loads', async (t) => {
   await t
     .expect(Selector('h1').innerText).eql('Jason Stallings');
@@ -25,4 +27,9 @@ test.page`${host}/projects/robotjs/`('Loads GitHub Widgets', async (t) => {
   await t
     .expect(Selector('.github-box-title').innerText).contains('octalmage/robotjs')
     .expect(Number.isNaN(Selector('.watchers').innerText)).notOk();
+});
+
+test('Social icons have rel="noopener noreferrer"', async (t) => {
+  await t
+    .expect(githubLink.getAttribute('rel')).eql('noopener noreferrer');
 });
