@@ -11,7 +11,7 @@
     "fetch-everywhere": "^1.0.5",
     "firebase-admin": "^6.0.0",
     "firebase-functions": "^2.0.2",
-    "gatsby": "^2.0.91",
+    "gatsby": "^2.1.1",
     "gatsby-image": "^2.0.29",
     "gatsby-plugin-google-analytics": "^2.0.13",
     "gatsby-plugin-manifest": "2.0.17",
