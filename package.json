@@ -12,7 +12,7 @@
     "firebase-admin": "^6.0.0",
     "firebase-functions": "^2.0.2",
     "gatsby": "^2.0.91",
-    "gatsby-image": "^2.0.26",
+    "gatsby-image": "^2.0.30",
     "gatsby-plugin-google-analytics": "^2.0.9",
     "gatsby-plugin-manifest": "2.0.13",
     "gatsby-plugin-offline": "^2.0.20",
