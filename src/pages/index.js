@@ -13,7 +13,7 @@ const Home = ({ data }) => (
   <Layout>
     <Helmet title={`${data.site.siteMetadata.title} | ${data.site.siteMetadata.subtitle}`} />
     <HeaderImage
-      title="Image from https://www.pexels.com"
+      title="Me on South Congress!"
       alt="Macbook with code on the screen"
       fluid={data.headerImage.fluid}
     />
@@ -73,7 +73,7 @@ export const pageQuery = graphql`
         subtitle
       }
     }
-    headerImage: imageSharp(fluid: { originalName:{ regex:"/sanfran/" } }) {
+    headerImage: imageSharp(fluid: { originalName:{ regex:"/soco/" } }) {
       fluid(maxWidth: 1240) {
         ...GatsbyImageSharpFluid_withWebp
       }
