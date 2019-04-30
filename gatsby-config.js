@@ -28,6 +28,7 @@ module.exports = {
           '**/contact-form-7/**',
           '**/wpcom/**',
           '**/themes',
+          '**/settings',
         ],
       },
     },
