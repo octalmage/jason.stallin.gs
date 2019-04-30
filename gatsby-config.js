@@ -27,6 +27,7 @@ module.exports = {
           '**/akismet/**',
           '**/contact-form-7/**',
           '**/wpcom/**',
+          '**/themes',
         ],
       },
     },
