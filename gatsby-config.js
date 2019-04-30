@@ -29,6 +29,7 @@ module.exports = {
           '**/wpcom/**',
           '**/themes',
           '**/settings',
+          '**/users/**',
         ],
       },
     },
