@@ -15,11 +15,8 @@ module.exports = {
         protocol: 'https',
         hostingWPCOM: false,
         useACF: false,
-        verbose: false,
+        verboseOutput: true,
         excludedRoutes: [
-          '/*/*/comments',
-          '/*/*/users',
-          '/*/*/media',
           '**/cpp/**',
           '**/jetpack/**',
           '**/gutenberg/**',
