@@ -43,9 +43,9 @@ const Home = ({ data }) => (
         <a href="https://reactjs.org" target="_blank" rel="noopener noreferrer">
           React,
         </a>
-         {' '}
-         and
-         {' '}
+        {' '}
+        and
+        {' '}
         <a href="https://iost.io/" target="_blank" rel="noopener noreferrer">
           the blockchain
         </a>
