@@ -40,10 +40,14 @@ const Home = ({ data }) => (
           Node.js,
         </a>
         {' '}
-          and
-        {' '}
         <a href="https://reactjs.org" target="_blank" rel="noopener noreferrer">
-          React
+          React,
+        </a>
+         {' '}
+         and
+         {' '}
+        <a href="https://iost.io/" target="_blank" rel="noopener noreferrer">
+          the blockchain
         </a>
         .
       </p>
