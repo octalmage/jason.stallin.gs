@@ -44,7 +44,7 @@
     "react-typography": "^0.16.13",
     "recursive-readdir": "^2.2.1",
     "styled-components": "~2.3.3",
-    "typeface-roboto": "0.0.54",
+    "typeface-roboto": "0.0.75",
     "typography": "^0.16.17",
     "typography-theme-github": "^0.16.18",
     "whatwg-fetch": "^2.0.3",
