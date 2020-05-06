@@ -37,7 +37,7 @@
     "react-helmet": "^5.2.0",
     "react-icons": "^3.0.5",
     "react-lastfm-widget": "0.0.4",
-    "react-notification-system": "^0.2.15",
+    "react-notification-system": "^0.4.0",
     "react-protected-mailto": "^1.0.3",
     "react-social-icons": "^4.1.0",
     "react-syntax-highlighter": "^9.0.0",
