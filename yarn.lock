@@ -1429,10 +1429,6 @@ aria-query@^3.0.0:
     ast-types-flow "0.0.7"
     commander "^2.11.0"
 
-arity-n@^1.0.4:
-  version "1.0.4"
-  resolved "https://registry.yarnpkg.com/arity-n/-/arity-n-1.0.4.tgz#d9e76b11733e08569c0847ae7b39b2860b30b745"
-
 arr-diff@^1.0.1:
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/arr-diff/-/arr-diff-1.1.0.tgz#687c32758163588fef7de7b36fabe495eb1a399a"
@@ -3235,10 +3231,6 @@ cheerio@^1.0.0-rc.2:
     lodash "^4.15.0"
     parse5 "^3.0.1"
 
-chickencurry@1.1.1:
-  version "1.1.1"
-  resolved "https://registry.yarnpkg.com/chickencurry/-/chickencurry-1.1.1.tgz#02655f2b26b3bc2ee1ae1e5316886de38eb79738"
-
 chokidar@^1.7.0:
   version "1.7.0"
   resolved "https://registry.yarnpkg.com/chokidar/-/chokidar-1.7.0.tgz#798e689778151c8076b4b360e5edd28cda2bb468"
@@ -3565,12 +3557,6 @@ component-emitter@1.2.1, component-emitter@^1.2.1:
 component-inherit@0.0.3:
   version "0.0.3"
   resolved "https://registry.yarnpkg.com/component-inherit/-/component-inherit-0.0.3.tgz#645fc4adf58b72b649d5cae65135619db26ff143"
-
-compose-function@^2.0.0:
-  version "2.0.0"
-  resolved "https://registry.yarnpkg.com/compose-function/-/compose-function-2.0.0.tgz#e642fa7e1da21529720031476776fc24691ac0b0"
-  dependencies:
-    arity-n "^1.0.4"
 
 compressible@^2.0.12, compressible@~2.0.14:
   version "2.0.14"
@@ -4574,6 +4560,14 @@ dom-serializer@0, dom-serializer@~0.1.0:
     domelementtype "~1.1.1"
     entities "~1.1.1"
 
+dom-serializer@^0.2.1:
+  version "0.2.2"
+  resolved "https://registry.yarnpkg.com/dom-serializer/-/dom-serializer-0.2.2.tgz#1afb81f533717175d478655debc5e332d9f9bb51"
+  integrity sha512-2/xPb3ORsQ42nHYiSunXkDjPLBaEj/xTwUO4B7XCZQTRk7EBtTOPaygh10YAAh2OI1Qrp6NWfpAhzswj0ydt9g==
+  dependencies:
+    domelementtype "^2.0.1"
+    entities "^2.0.0"
+
 dom-storage@2.1.0:
   version "2.1.0"
   resolved "https://registry.yarnpkg.com/dom-storage/-/dom-storage-2.1.0.tgz#00fb868bc9201357ea243c7bcfd3304c1e34ea39"
@@ -4589,6 +4583,11 @@ domain-browser@^1.1.1:
 domelementtype@1, domelementtype@^1.3.0:
   version "1.3.0"
   resolved "https://registry.yarnpkg.com/domelementtype/-/domelementtype-1.3.0.tgz#b17aed82e8ab59e52dd9c19b1756e0fc187204c2"
+
+domelementtype@^2.0.1:
+  version "2.0.1"
+  resolved "https://registry.yarnpkg.com/domelementtype/-/domelementtype-2.0.1.tgz#1f8bdfe91f5a78063274e803b4bdcedf6e94f94d"
+  integrity sha512-5HOHUDsYZWV8FGWN0Njbr/Rn7f/eWSQi1v7+HsUVwXgn8nWWlL64zKDkS0n8ZmQ3mlWOMuXOnR+7Nx/5tMO5AQ==
 
 domelementtype@~1.1.1:
   version "1.1.3"
@@ -4611,6 +4610,13 @@ domhandler@^2.3.0:
   resolved "https://registry.yarnpkg.com/domhandler/-/domhandler-2.4.2.tgz#8805097e933d65e85546f726d60f5eb88b44f803"
   dependencies:
     domelementtype "1"
+
+domhandler@^3.0, domhandler@^3.0.0:
+  version "3.0.0"
+  resolved "https://registry.yarnpkg.com/domhandler/-/domhandler-3.0.0.tgz#51cd13efca31da95bbb0c5bee3a48300e333b3e9"
+  integrity sha512-eKLdI5v9m67kbXQbJSNn1zjh0SDzvzWVWtX+qEI3eMjZw8daH9k8rlj1FZY9memPwjiskQFbe7vHVVJIAqoEhw==
+  dependencies:
+    domelementtype "^2.0.1"
 
 domready@^1.0.8:
   version "1.0.8"
@@ -4635,6 +4641,15 @@ domutils@^1.5.1:
   dependencies:
     dom-serializer "0"
     domelementtype "1"
+
+domutils@^2.0.0:
+  version "2.1.0"
+  resolved "https://registry.yarnpkg.com/domutils/-/domutils-2.1.0.tgz#7ade3201af43703fde154952e3a868eb4b635f16"
+  integrity sha512-CD9M0Dm1iaHfQ1R/TI+z3/JWp/pgub0j4jIQKH89ARR4ATAV2nbaOQS5XxU9maJP5jHaPdDDQSEHuE2UmpUTKg==
+  dependencies:
+    dom-serializer "^0.2.1"
+    domelementtype "^2.0.1"
+    domhandler "^3.0.0"
 
 dot-prop@^4.1.0, dot-prop@^4.1.1:
   version "4.2.0"
@@ -4882,6 +4897,11 @@ ent@^2.2.0:
 entities@^1.1.1, entities@~1.1.1:
   version "1.1.1"
   resolved "https://registry.yarnpkg.com/entities/-/entities-1.1.1.tgz#6e5c2d0a5621b5dadaecef80b90edfb5cd7772f0"
+
+entities@^2.0.0:
+  version "2.0.2"
+  resolved "https://registry.yarnpkg.com/entities/-/entities-2.0.2.tgz#ac74db0bba8d33808bbf36809c3a5c3683531436"
+  integrity sha512-dmD3AvJQBUjKpcNkoqr+x+IF0SdRtPz9Vk0uTy4yWqga9ibB6s4v++QFWNohjiUGoMlF552ZvNyXDxz5iW0qmw==
 
 envinfo@^5.8.1:
   version "5.10.0"
@@ -7240,17 +7260,17 @@ html-entities@^1.2.0:
   version "1.2.1"
   resolved "https://registry.yarnpkg.com/html-entities/-/html-entities-1.2.1.tgz#0df29351f0721163515dfb9e5543e5f6eed5162f"
 
-html-to-react@^1.3.1:
-  version "1.3.3"
-  resolved "https://registry.yarnpkg.com/html-to-react/-/html-to-react-1.3.3.tgz#e41666a735f9997ed2372dcd21d8b0e42b334467"
+html-to-react@^1.4.3:
+  version "1.4.3"
+  resolved "https://registry.yarnpkg.com/html-to-react/-/html-to-react-1.4.3.tgz#1430a1cb581ef29533892ec70a2fdc4554b17ffd"
+  integrity sha512-txe09A3vxW8yEZGJXJ1is5gGDfBEVACmZDSgwDyH5EsfRdOubBwBCg63ZThZP0xBn0UE4FyvMXZXmohusCxDcg==
   dependencies:
-    domhandler "^2.3.0"
-    escape-string-regexp "^1.0.5"
-    htmlparser2 "^3.8.3"
-    ramda "^0.25.0"
-    underscore.string.fp "^1.0.4"
+    domhandler "^3.0"
+    htmlparser2 "^4.1.0"
+    lodash.camelcase "^4.3.0"
+    ramda "^0.27"
 
-htmlparser2@^3.8.3, htmlparser2@^3.9.1:
+htmlparser2@^3.9.1:
   version "3.9.2"
   resolved "https://registry.yarnpkg.com/htmlparser2/-/htmlparser2-3.9.2.tgz#1bdf87acca0f3f9e53fa4fcceb0f4b4cbb00b338"
   dependencies:
@@ -7260,6 +7280,16 @@ htmlparser2@^3.8.3, htmlparser2@^3.9.1:
     entities "^1.1.1"
     inherits "^2.0.1"
     readable-stream "^2.0.2"
+
+htmlparser2@^4.1.0:
+  version "4.1.0"
+  resolved "https://registry.yarnpkg.com/htmlparser2/-/htmlparser2-4.1.0.tgz#9a4ef161f2e4625ebf7dfbe6c0a2f52d18a59e78"
+  integrity sha512-4zDq1a1zhE4gQso/c5LP1OtrhYTncXNSpvJYtWJBtXAETPlMfi3IFNjGuQbYLuVY4ZR0QMqRVvo4Pdy9KLyP8Q==
+  dependencies:
+    domelementtype "^2.0.1"
+    domhandler "^3.0.0"
+    domutils "^2.0.0"
+    entities "^2.0.0"
 
 htmlparser2@~3.3.0:
   version "3.3.0"
@@ -11492,9 +11522,10 @@ railroad-diagrams@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/railroad-diagrams/-/railroad-diagrams-1.0.0.tgz#eb7e6267548ddedfb899c1b90e57374559cddb7e"
 
-ramda@^0.25.0:
-  version "0.25.0"
-  resolved "https://registry.yarnpkg.com/ramda/-/ramda-0.25.0.tgz#8fdf68231cffa90bc2f9460390a0cb74a29b29a9"
+ramda@^0.27:
+  version "0.27.0"
+  resolved "https://registry.yarnpkg.com/ramda/-/ramda-0.27.0.tgz#915dc29865c0800bf3f69b8fd6c279898b59de43"
+  integrity sha512-pVzZdDpWwWqEVVLshWUHjNwuVP7SfcmPraYuqocJp1yo2U1R7P+5QAfDhdItkuoGqIBnBYrtPp7rEPqDn9HlZA==
 
 randexp@0.4.6:
   version "0.4.6"
@@ -12279,10 +12310,6 @@ retry-request@^4.0.0:
   resolved "https://registry.yarnpkg.com/retry-request/-/retry-request-4.0.0.tgz#5c366166279b3e10e9d7aa13274467a05cb69290"
   dependencies:
     through2 "^2.0.0"
-
-reverse-arguments@1.0.0:
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/reverse-arguments/-/reverse-arguments-1.0.0.tgz#c28095a3a921ac715d61834ddece9027992667cd"
 
 rgb-regex@^1.0.1:
   version "1.0.1"
@@ -13987,19 +14014,6 @@ unbzip2-stream@^1.0.9:
 unc-path-regex@^0.1.2:
   version "0.1.2"
   resolved "https://registry.yarnpkg.com/unc-path-regex/-/unc-path-regex-0.1.2.tgz#e73dd3d7b0d7c5ed86fbac6b0ae7d8c6a69d50fa"
-
-underscore.string.fp@^1.0.4:
-  version "1.0.4"
-  resolved "https://registry.yarnpkg.com/underscore.string.fp/-/underscore.string.fp-1.0.4.tgz#054b3f1843bcae561286c87de5e8879b4fc98364"
-  dependencies:
-    chickencurry "1.1.1"
-    compose-function "^2.0.0"
-    reverse-arguments "1.0.0"
-    underscore.string "3.0.3"
-
-underscore.string@3.0.3:
-  version "3.0.3"
-  resolved "https://registry.yarnpkg.com/underscore.string/-/underscore.string-3.0.3.tgz#4617b8c1a250cf6e5064fbbb363d0fa96cf14552"
 
 underscore@^1.7.0:
   version "1.9.1"
