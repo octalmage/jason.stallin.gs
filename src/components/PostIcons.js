@@ -17,7 +17,7 @@ const TaxSpan = styled.span`
 
 export default ({ node, className = '' }) => (
   <IconContext.Provider value={{ style: { verticalAlign: 'middle' } }}>
-    <div style={{ marginTop: rhythm(-1 / 2) }} className={className}>
+    <div style={{ marginTop: rhythm(-1 / 2), marginBottom: rhythm(1 / 2) }} className={className}>
       <TaxSpan>
         <ClockIcon size={14} style={{ position: 'relative', bottom: 1 }} />
         {' '}
