@@ -18,19 +18,24 @@ const ProjectTemplate = ({ data }) => {
           },
         ]}
       />
-      <h1 dangerouslySetInnerHTML={{ __html: currentPage.title }} />
+      <h1>
+        <span dangerouslySetInnerHTML={{ __html: currentPage.title }} />
+        {currentPage.tags && (
+          <span style={{ fontSize: '.5em' }}> (defunct)</span>
+        )}
+      </h1>
       <BlogContent content={currentPage.content} repo={repo} />
-      { currentPage.learn_more_link
+      {currentPage.learn_more_link
         && (
-        <h3>
-          <a
-            href={currentPage.learn_more_link}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
+          <h3>
+            <a
+              href={currentPage.learn_more_link}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               Learn More
-          </a>
-        </h3>
+            </a>
+          </h3>
         )}
     </Layout>
   );
@@ -42,6 +47,9 @@ export const pageQuery = graphql`
   query currentProjectQuery($id: String!, $name: String!) {
     wordpressWpProjects(id: { eq: $id }) {
       title
+      tags {
+        name
+      }
       content
       excerpt
       date(formatString: "MMMM DD, YYYY")
