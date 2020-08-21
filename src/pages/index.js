@@ -46,7 +46,7 @@ const Home = ({ data }) => (
         {' '}
         and
         {' '}
-        <a href="https://iost.io/" target="_blank" rel="noopener noreferrer">
+        <a href="https://wax.io/" target="_blank" rel="noopener noreferrer">
           the blockchain
         </a>
         .
