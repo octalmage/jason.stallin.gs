@@ -24,8 +24,8 @@ before_script:
 - fluxbox >/dev/null 2>&1 &
 - yarn run predeploy
 - greenkeeper-lockfile-update
-before_deploy:
-- "( cd functions ; yarn install )"
+# before_deploy:
+# - "( cd functions ; yarn install )"
 after_script: greenkeeper-lockfile-upload
 deploy:
   provider: firebase
