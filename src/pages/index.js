@@ -24,16 +24,16 @@ const Home = ({ data }) => (
       <p>
         I live in Austin, Texas, and I work at
         {' '}
-        <a href="http://wpengine.com/" target="_blank" rel="noopener noreferrer">
-        WP Engine
+        <a href="https://www.terra.money" target="_blank" rel="noopener noreferrer">
+        Terraform Labs
         </a>
         .
       </p>
       <p>
         Recently I spend most of my days playing with
         {' '}
-        <a href="http://wordpress.org/" target="_blank" rel="noopener noreferrer">
-          WordPress,
+        <a href="https://cosmwasm.com/" target="_blank" rel="noopener noreferrer">
+          CosmWasm,
         </a>
         {' '}
         <a href="http://nodejs.org/" target="_blank" rel="noopener noreferrer">
@@ -46,8 +46,8 @@ const Home = ({ data }) => (
         {' '}
         and
         {' '}
-        <a href="https://wax.io/" target="_blank" rel="noopener noreferrer">
-          the blockchain
+        <a href="https://cosmos.network/starport/" target="_blank" rel="noopener noreferrer">
+          other blockchain technology.
         </a>
         .
       </p>
