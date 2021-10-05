@@ -27,6 +27,7 @@ before_script:
 # - "( cd functions ; yarn install )"
 deploy:
   provider: firebase
+  skip_cleanup: true
 env:
   global:
     secure: m/vxtj1BZH1rxsVq6uJmFMsU3ImWsejpgwT2BVJTYZhZC5/WdlSH53qqTT9+UbOEtXhQQ4cVLOHTOW8v8uKhc4A36u+iqTmDhJ+dBdx6Clx+N2BsVL8ZD5Wgq1PmKXdF2skHgII47q2GQX88MT7cKPPTMd6YyEsEDG8qU/vZeLmfDKC38MAGpDVSi87x5Xa3T1+5wtHsuvfTbuoPWqpye1Vkl46UJvxponB0s9mwUQueUDKUUWb/iyvdNBLLAm8WpH9V4KuvxMyl4J7CRUEmxiT0yPGfGiR+yiJDco0N45LUl7jTCiZSyMokZepB3iGxkJ44nTMG3xtRp/HSwjJbDujNIUU/1u4hOYjhoLJQrM7/nPdIuwe/HCDnCPHjZYojiCwVke/0nZPW/OpCtR0TF2lTqa//2EP+ZnFyfULWjwkRYS6qpUWnDEL020cpHLICxJ/5ZO4SrG18C1Hh4VHpBZJ6BK4ikoG6jUMKmfBK08UlxIfviKG1zNzx7HW/UJsZmIJR06M0z8i3mR+60J7zCtlmuOu5fdhYXNnKEqPvh2WAu8Bf6q4c2L7GtO91/KvfA1nTTfiy5lGzjM0VDj1bYPm8Vh5v4GE7LAZ3CXGK/cXczsiYoXMpY20h1Rbx5LtN6YE0uUbUJQg+5uqwIo5e7bZrk0+m8IoCxSOxZrZntJY=
