@@ -47,7 +47,7 @@ const Home = ({ data }) => (
         and
         {' '}
         <a href="https://cosmos.network/starport/" target="_blank" rel="noopener noreferrer">
-          other blockchain technology.
+          other blockchain technology
         </a>
         .
       </p>
