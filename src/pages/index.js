@@ -22,10 +22,10 @@ const Home = ({ data }) => (
         Hey, I’m Jason.
       </p>
       <p>
-        I live in Austin, Texas, and I work at
+        I live in Houston, Texas, and I work on the
         {' '}
         <a href="https://www.terra.money" target="_blank" rel="noopener noreferrer">
-        Terraform Labs
+        Terra blockchain
         </a>
         .
       </p>
