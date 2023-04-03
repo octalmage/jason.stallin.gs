@@ -11,7 +11,7 @@ module.exports = {
     {
       resolve: 'gatsby-source-wordpress',
       options: {
-        baseUrl: 'json.wpengine.com',
+        baseUrl: 'wp.octalmage.com',
         protocol: 'https',
         hostingWPCOM: false,
         useACF: false,
