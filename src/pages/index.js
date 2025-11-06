@@ -22,10 +22,10 @@ const Home = ({ data }) => (
         Hey, I’m Jason.
       </p>
       <p>
-        I live in Houston, Texas, and I work on the
+        I live in Houston, Texas, and I work at
         {' '}
-        <a href="https://www.terra.money" target="_blank" rel="noopener noreferrer">
-        Terra blockchain
+        <a href="https://o8.is" target="_blank" rel="noopener noreferrer">
+        o8
         </a>
         .
       </p>
@@ -46,7 +46,7 @@ const Home = ({ data }) => (
         {' '}
         and
         {' '}
-        <a href="https://cosmos.network/starport/" target="_blank" rel="noopener noreferrer">
+        <a href="https://cosmos.network/" target="_blank" rel="noopener noreferrer">
           other blockchain technology
         </a>
         .
