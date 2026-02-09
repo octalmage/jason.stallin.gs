@@ -23,14 +23,14 @@ const Home = ({ data }) => {
         </HeaderImageWrapper>
       )}
       <div>
-        <p>Hey, I\u2019m Jason.</p>
+        <p>Hey, I&apos;m Jason.</p>
         <p>
           I live in Houston, Texas, and I work at{' '}
           <a href="https://o8.is" target="_blank" rel="noopener noreferrer">o8</a>.
         </p>
         <p>
           Recently I spend most of my days playing with{' '}
-          <a href="https://cosmwasm.com/" target="_blank" rel="noopener noreferrer">CosmWasm,</a>{' '}
+          <a href="https://www.ethswarm.org" target="_blank" rel="noopener noreferrer">decentralized technology,</a>{' '}
           <a href="http://nodejs.org/" target="_blank" rel="noopener noreferrer">Node.js,</a>{' '}
           <a href="https://reactjs.org" target="_blank" rel="noopener noreferrer">React,</a>{' '}
           and{' '}
