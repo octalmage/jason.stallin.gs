@@ -1,6 +1,5 @@
-/* eslint-disable no-unused-expressions */
 import React from 'react';
-import { injectGlobal } from 'styled-components';
+import { createGlobalStyle } from 'styled-components';
 import Helmet from 'react-helmet';
 import root from 'window-or-global';
 import { graphql } from 'gatsby';
@@ -11,38 +10,39 @@ import { rhythm } from '../utils/typography';
 import htmlDecode from '../utils/htmlDecode';
 import Layout from '../components/Layout';
 
-injectGlobal`
-.wp-block-image {
-  width: 800;
-  line-height: 0;
-}
-
-.wp-block-image img {
-  margin: 0;
-}
-.wp-block-image figcaption {
-  color: #8f98a1;
-  text-align: center;
-  font-size: 13px;
-  margin: 1em;
-}
-.aligncenter {
-  clear: both;
-  display: block;
-  margin: 0 auto;
-}
+const GlobalStyle = createGlobalStyle`
+  .wp-block-image {
+    width: 800;
+    line-height: 0;
+  }
+  .wp-block-image img {
+    margin: 0;
+  }
+  .wp-block-image figcaption {
+    color: #8f98a1;
+    text-align: center;
+    font-size: 13px;
+    margin: 1em;
+  }
+  .aligncenter {
+    clear: both;
+    display: block;
+    margin: 0 auto;
+  }
 `;
 
 const PostTemplate = ({ data }) => {
-  const post = data.wordpressPost;
+  const post = data.wpPost;
+  if (!post) return null;
   return (
     <Layout>
+      <GlobalStyle />
       <Helmet
         title={`${htmlDecode(post.title)} | ${data.site.siteMetadata.title}`}
         meta={[
           {
             name: 'description',
-            content: post.excerpt.replace(/<(?:.|\n)*?>/gm, ''),
+            content: post.excerpt ? post.excerpt.replace(/<(?:.|\n)*?>/gm, '') : '',
           },
         ]}
       />
@@ -58,11 +58,21 @@ export default PostTemplate;
 
 export const pageQuery = graphql`
   query currentPostQuery($id: String!) {
-    wordpressPost(id: { eq: $id }) {
+    wpPost(id: { eq: $id }) {
       title
       content
       excerpt
-      ...PostIcons
+      date
+      tags {
+        nodes {
+          name
+        }
+      }
+      categories {
+        nodes {
+          name
+        }
+      }
     }
     site {
       siteMetadata {

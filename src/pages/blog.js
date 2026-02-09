@@ -1,5 +1,5 @@
-import React from 'react'; // eslint-disable-line import/no-extraneous-dependencies
-import PropTypes from 'prop-types'; // eslint-disable-line import/no-extraneous-dependencies
+import React from 'react';
+import PropTypes from 'prop-types';
 import { Link, graphql } from 'gatsby';
 import Helmet from 'react-helmet';
 import PostIcons from '../components/PostIcons';
@@ -9,12 +9,10 @@ import { rhythm } from '../utils/typography';
 const Posts = ({ data }) => (
   <Layout>
     <Helmet title={`Blog | ${data.site.siteMetadata.title}`} />
-    <h1>
-      Blog
-    </h1>
-    {data.allWordpressPost.edges.map(({ node }) => (
+    <h1>Blog</h1>
+    {data.allWpPost && data.allWpPost.edges.map(({ node }) => (
       <div style={{ marginBottom: rhythm(2) }} key={node.slug}>
-        <Link to={`/${node.slug}/`} href={`/${node.slug}/`}>
+        <Link to={`/${node.slug}/`}>
           <h2>
             <span dangerouslySetInnerHTML={{ __html: node.title }} />
           </h2>
@@ -28,13 +26,12 @@ const Posts = ({ data }) => (
 
 Posts.propTypes = {
   data: PropTypes.shape({
-    allWordpressPost: PropTypes.object,
+    allWpPost: PropTypes.object,
   }).isRequired,
 };
 
 export default Posts;
 
-// Set here the ID of the home page.
 export const pageQuery = graphql`
   query blogPageQuery {
     site {
@@ -42,13 +39,23 @@ export const pageQuery = graphql`
         title
       }
     }
-    allWordpressPost(sort: {fields: [date], order: DESC}) {
+    allWpPost(sort: {fields: [date], order: DESC}) {
       edges {
         node {
           title
           excerpt
           slug
-          ...PostIcons
+          date
+          tags {
+            nodes {
+              name
+            }
+          }
+          categories {
+            nodes {
+              name
+            }
+          }
         }
       }
     }

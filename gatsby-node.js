@@ -1,145 +1,193 @@
 const _ = require('lodash');
-const Promise = require('bluebird');
 const path = require('path');
-const slash = require('slash');
+const fetch = require('node-fetch');
 
-// Implement the Gatsby API “createPages”. This is
-// called after the Gatsby bootstrap is finished so you have
-// access to any information necessary to programmatically
-// create pages.
-// Will create pages for Wordpress pages (route : /{slug})
-// Will create pages for Wordpress posts (route : /post/{slug})
-exports.createPages = ({ graphql, actions }) => {
-  const { createPage, createRedirect } = actions;
-  return new Promise((resolve, reject) => {
-    // ==== PROJECTS (CUSTOM POST TYPE) ====
-    graphql(`
-      {
-        allWordpressWpProjects {
-          edges {
-            node {
-              id
-              slug
-              status
-              date
+const WP_GRAPHQL_URL = 'https://json.wpengine.com/graphql';
+
+async function wpQuery(query) {
+  const response = await fetch(WP_GRAPHQL_URL, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ query }),
+  });
+  const json = await response.json();
+  return json.data;
+}
+
+exports.sourceNodes = async ({ actions, createNodeId, createContentDigest }) => {
+  const { createNode } = actions;
+
+  // Fetch posts
+  const postData = await wpQuery(`
+    {
+      posts(first: 100, where: { orderby: { field: DATE, order: DESC } }) {
+        nodes {
+          id
+          databaseId
+          title
+          content
+          excerpt
+          slug
+          status
+          date
+          categories {
+            nodes {
+              name
+            }
+          }
+          tags {
+            nodes {
+              name
             }
           }
         }
       }
-    `)
-      .then((result) => {
-        if (result.errors) {
-          console.log(result.errors);
-          reject(result.errors);
+    }
+  `);
+
+  if (postData && postData.posts) {
+    postData.posts.nodes.forEach((post) => {
+      createNode({
+        ...post,
+        wpId: post.id,
+        id: createNodeId(`wp-post-${post.databaseId}`),
+        parent: null,
+        children: [],
+        internal: {
+          type: 'WpPost',
+          content: JSON.stringify(post),
+          contentDigest: createContentDigest(post),
+        },
+      });
+    });
+  }
+
+  // Fetch pages
+  const pageData = await wpQuery(`
+    {
+      pages(first: 100) {
+        nodes {
+          id
+          databaseId
+          title
+          content
+          excerpt
+          slug
+          status
         }
-        // Create Page pages.
-        const projectTemplate = path.resolve('./src/templates/project.js');
-        _.each(result.data.allWordpressWpProjects.edges, (edge) => {
-          createPage({
-            path: `/projects/${edge.node.slug}`,
-            component: slash(projectTemplate),
-            context: {
-              id: edge.node.id,
-              name: `/${edge.node.slug}/i`,
-            },
-          });
-        });
-      })
-      // ==== POSTS (WORDPRESS NATIVE AND ACF) ====
-      .then(() => {
-        graphql(`
-            {
-              allWordpressPost(sort: {fields: [date], order: DESC}) {
-                edges {
-                  node {
-                    id
-                    slug
-                    status
-                    template
-                    format
-                    date
-                    categories {
-                      name
-                    }
-                    tags {
-                      name
-                    }
-                  }
-                }
+      }
+    }
+  `);
+
+  if (pageData && pageData.pages) {
+    pageData.pages.nodes.forEach((page) => {
+      createNode({
+        ...page,
+        wpId: page.id,
+        id: createNodeId(`wp-page-${page.databaseId}`),
+        parent: null,
+        children: [],
+        internal: {
+          type: 'WpPage',
+          content: JSON.stringify(page),
+          contentDigest: createContentDigest(page),
+        },
+      });
+    });
+  }
+};
+
+exports.createPages = async ({ graphql, actions }) => {
+  const { createPage, createRedirect } = actions;
+
+  // ==== POSTS ====
+  const postResult = await graphql(`
+    {
+      allWpPost(sort: {fields: [date], order: DESC}) {
+        edges {
+          node {
+            id
+            slug
+            status
+            date
+            categories {
+              nodes {
+                name
               }
             }
-          `).then((result) => {
-          if (result.errors) {
-            console.log(result.errors);
-            reject(result.errors);
+            tags {
+              nodes {
+                name
+              }
+            }
           }
-          const postTemplate = path.resolve('./src/templates/post.js');
-          // Create Page pages.
-          const categoryTemplate = path.resolve('./src/templates/category.js');
-          const categorySet = new Set();
-          const tagSet = new Set();
-          // We want to create a detailed page for each
-          // post node. We'll just use the Wordpress Slug for the slug.
-          // The Post ID is prefixed with 'POST_'
-          _.each(result.data.allWordpressPost.edges, (edge) => {
-            if (edge.node.categories) {
-              edge.node.categories.forEach((category) => {
-                categorySet.add(category);
-              });
-            }
-            if (edge.node.tags) {
-              edge.node.tags.forEach((tag) => {
-                tagSet.add(tag);
-              });
-            }
+        }
+      }
+    }
+  `);
 
-            // Create actual blog post.
-            createPage({
-              path: edge.node.slug,
-              component: slash(postTemplate),
-              context: {
-                id: edge.node.id,
-              },
-            });
+  if (postResult.errors) {
+    console.log(postResult.errors);
+    throw postResult.errors;
+  }
 
-            // Create redirect from amp page.
-            createRedirect({
-              fromPath: `/${edge.node.slug}/amp`,
-              toPath: `/${edge.node.slug}/`,
-              isPermanent: true,
-            });
+  const postTemplate = path.resolve('./src/templates/post.js');
+  const categoryTemplate = path.resolve('./src/templates/category.js');
+  const categorySet = new Set();
+  const tagSet = new Set();
 
-            // Create category listings.
-            const categoryList = Array.from(categorySet);
-            categoryList.forEach((category) => {
-              createPage({
-                path: `/category/${category.name.toLowerCase()}/`,
-                component: categoryTemplate,
-                context: {
-                  type: 'Category',
-                  name: category.name,
-                  accessor: 'categories',
-                },
-              });
-            });
-
-            // Create tag listings.
-            const tagList = Array.from(tagSet);
-            tagList.forEach((tag) => {
-              createPage({
-                path: `/tag/${tag.name.toLowerCase()}/`,
-                component: categoryTemplate,
-                context: {
-                  type: 'Tag',
-                  name: tag.name,
-                  accessor: 'tags',
-                },
-              });
-            });
-          });
-          resolve();
+  if (postResult.data.allWpPost) {
+    _.each(postResult.data.allWpPost.edges, (edge) => {
+      if (edge.node.categories && edge.node.categories.nodes) {
+        edge.node.categories.nodes.forEach((category) => {
+          categorySet.add(JSON.stringify(category));
         });
+      }
+      if (edge.node.tags && edge.node.tags.nodes) {
+        edge.node.tags.nodes.forEach((tag) => {
+          tagSet.add(JSON.stringify(tag));
+        });
+      }
+
+      createPage({
+        path: edge.node.slug,
+        component: postTemplate,
+        context: {
+          id: edge.node.id,
+        },
       });
-    // ==== END POSTS ====
+
+      createRedirect({
+        fromPath: `/${edge.node.slug}/amp`,
+        toPath: `/${edge.node.slug}/`,
+        isPermanent: true,
+      });
+    });
+  }
+
+  // Create category listings.
+  Array.from(categorySet).map(JSON.parse).forEach((category) => {
+    createPage({
+      path: `/category/${category.name.toLowerCase()}/`,
+      component: categoryTemplate,
+      context: {
+        type: 'Category',
+        name: category.name,
+        accessor: 'categories',
+      },
+    });
+  });
+
+  // Create tag listings.
+  Array.from(tagSet).map(JSON.parse).forEach((tag) => {
+    createPage({
+      path: `/tag/${tag.name.toLowerCase()}/`,
+      component: categoryTemplate,
+      context: {
+        type: 'Tag',
+        name: tag.name,
+        accessor: 'tags',
+      },
+    });
   });
 };

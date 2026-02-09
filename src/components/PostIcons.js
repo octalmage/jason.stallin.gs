@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link, graphql } from 'gatsby';
+import { Link } from 'gatsby';
 import styled from 'styled-components';
 import {
   FaClock as ClockIcon,
@@ -15,54 +15,36 @@ const TaxSpan = styled.span`
    margin-right: .5em;
 `;
 
-export default ({ node, className = '' }) => (
-  <IconContext.Provider value={{ style: { verticalAlign: 'middle' } }}>
-    <div style={{ marginTop: rhythm(-1 / 2), marginBottom: rhythm(1 / 2) }} className={className}>
-      <TaxSpan>
-        <ClockIcon size={14} style={{ position: 'relative', bottom: 1 }} />
-        {' '}
-        {node.date}
-      </TaxSpan>
-      {node.categories
-        && node.categories.map(category => (
+const PostIcons = ({ node, className = '' }) => {
+  const categories = node.categories && node.categories.nodes ? node.categories.nodes : node.categories || [];
+  const tags = node.tags && node.tags.nodes ? node.tags.nodes : node.tags || [];
+
+  return (
+    <IconContext.Provider value={{ style: { verticalAlign: 'middle' } }}>
+      <div style={{ marginTop: rhythm(-1 / 2), marginBottom: rhythm(1 / 2) }} className={className}>
+        <TaxSpan>
+          <ClockIcon size={14} style={{ position: 'relative', bottom: 1 }} />
+          {' '}{node.date}
+        </TaxSpan>
+        {categories.map(category => (
           <TaxSpan key={category.name}>
-            {' '}
-            <OpenIcon size={14} style={{ position: 'relative', bottom: 1 }} />
-            {' '}
-            <Link
-              to={`/category/${category.name.toLowerCase()}`}
-              href={`/category/${category.name.toLowerCase()}`}
-            >
+            {' '}<OpenIcon size={14} style={{ position: 'relative', bottom: 1 }} />
+            {' '}<Link to={`/category/${category.name.toLowerCase()}`}>
               {category.name}
             </Link>
           </TaxSpan>
         ))}
-      {node.tags
-        && node.tags.map(tag => (
+        {tags.map(tag => (
           <TaxSpan key={tag.name}>
-            {'  '}
-            <TagIcon size={14} style={{ position: 'relative', bottom: 1 }} />
-            {' '}
-            <Link
-              to={`/tag/${tag.name.toLowerCase()}`}
-              href={`/tag/${tag.name.toLowerCase()}`}
-            >
+            {'  '}<TagIcon size={14} style={{ position: 'relative', bottom: 1 }} />
+            {' '}<Link to={`/tag/${tag.name.toLowerCase()}`}>
               {tag.name}
             </Link>
           </TaxSpan>
         ))}
-    </div>
-  </IconContext.Provider>
-);
+      </div>
+    </IconContext.Provider>
+  );
+};
 
-export const query = graphql`
-  fragment PostIcons on wordpress__POST {
-    date(formatString: "MMMM DD, YYYY")
-    tags {
-      name
-    }
-    categories {
-      name
-    }
-  }
-`;
+export default PostIcons;

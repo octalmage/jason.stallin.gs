@@ -9,63 +9,11 @@ module.exports = {
   },
   plugins: [
     {
-      resolve: 'gatsby-source-wordpress',
+      resolve: 'gatsby-source-graphql',
       options: {
-        baseUrl: 'json.wpengine.com',
-        protocol: 'https',
-        hostingWPCOM: false,
-        useACF: false,
-        verbose: false,
-        excludedRoutes: [
-          '/*/*/comments',
-          '/*/*/users',
-          '/*/*/media',
-          '**/cpp/**',
-          '**/jetpack/**',
-          '**/gutenberg/**',
-          '**/yoast/**',
-          '**/akismet/**',
-          '**/contact-form-7/**',
-          '**/wpcom/**',
-          '**/themes',
-          '**/settings',
-          '**/users/**',
-        ],
-      },
-    },
-    {
-      resolve: 'gatsby-source-github',
-      options: {
-        headers: {
-          Authorization: `Bearer ${process.env.GITHUB_TOKEN}`,
-        },
-        queries: [`
-          {
-            viewer {
-              repositories(first: 100, orderBy: {field: STARGAZERS, direction: DESC}) {
-                edges {
-                  node {
-                    id
-                    name
-                    description
-                    stargazers {
-                      totalCount
-                    }
-                    watchers {
-                      totalCount
-                    }
-                    forkCount
-                    homepageUrl
-                    pushedAt
-                    defaultBranchRef {
-                      name
-                    }
-                  }
-                }
-              }
-            }
-          }
-        `],
+        typeName: 'WPGraphQL',
+        fieldName: 'wpgraphql',
+        url: 'https://json.wpengine.com/graphql',
       },
     },
     'gatsby-transformer-sharp',
@@ -77,25 +25,12 @@ module.exports = {
       },
     },
     'gatsby-plugin-sharp',
-    {
-      resolve: 'gatsby-plugin-typography',
-      options: {
-        pathToConfigModule: 'src/utils/typography.js',
-      },
-    },
+    'gatsby-plugin-image',
     'gatsby-plugin-styled-components',
     {
-      resolve: 'gatsby-plugin-sentry',
+      resolve: 'gatsby-plugin-google-gtag',
       options: {
-        dsn: 'https://22f4f2b0f1374a77b5a69c264a601797@sentry.io/233742',
-        environment: process.env.NODE_ENV,
-        enabled: () => process.env.NODE_ENV === 'production',
-      },
-    },
-    {
-      resolve: 'gatsby-plugin-google-analytics',
-      options: {
-        trackingId: 'UA-57460911-1',
+        trackingIds: ['UA-57460911-1'],
       },
     },
     'gatsby-plugin-sitemap',
@@ -126,6 +61,5 @@ module.exports = {
         token: process.env.GITHUB_TOKEN,
       },
     },
-    'gatsby-plugin-offline',
   ],
 };

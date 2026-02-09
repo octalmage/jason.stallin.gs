@@ -1,4 +1,3 @@
-/* eslint-disable no-unused-expressions */
 import React from 'react';
 import Helmet from 'react-helmet';
 import { Link, graphql } from 'gatsby';
@@ -6,25 +5,23 @@ import PostIcons from '../components/PostIcons';
 import { rhythm } from '../utils/typography';
 import Layout from '../components/Layout';
 
-const getPostsForCategory = (name, accessor) => ({ node }) => node[accessor]
-  && node[accessor].map(n => n.name).includes(name);
+const getPostsForCategory = (name, accessor) => ({ node }) => {
+  if (!node[accessor] || !node[accessor].nodes) return false;
+  return node[accessor].nodes.map(n => n.name).includes(name);
+};
 
 const CategoryTemplate = ({ data, pageContext }) => {
   const { name, type, accessor } = pageContext;
-  const categoryPosts = data.allWordpressPost.edges.filter(getPostsForCategory(name, accessor));
+  const allPosts = data.allWpPost ? data.allWpPost.edges : [];
+  const categoryPosts = allPosts.filter(getPostsForCategory(name, accessor));
 
   return (
     <Layout>
       <Helmet title={`${type}: ${name} | ${data.site.siteMetadata.title}`} />
-      <h1>
-        {type}
-        :
-        {' '}
-        {name}
-      </h1>
+      <h1>{type}: {name}</h1>
       {categoryPosts.map(({ node }) => (
         <div style={{ marginBottom: rhythm(2) }} key={node.slug}>
-          <Link to={`/${node.slug}/`} href={`/${node.slug}/`}>
+          <Link to={`/${node.slug}/`}>
             <h2>
               <span dangerouslySetInnerHTML={{ __html: node.title }} />
             </h2>
@@ -41,13 +38,23 @@ export default CategoryTemplate;
 
 export const pageQuery = graphql`
   query categoryPageQuery {
-    allWordpressPost(sort: {fields: [date], order: DESC}) {
+    allWpPost(sort: {fields: [date], order: DESC}) {
       edges {
         node {
           title
           excerpt
           slug
-          ...PostIcons
+          date
+          tags {
+            nodes {
+              name
+            }
+          }
+          categories {
+            nodes {
+              name
+            }
+          }
         }
       }
     }
